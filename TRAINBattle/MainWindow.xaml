@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:TRAINBattle"
         mc:Ignorable="d"
         Title="T.R.A.I.N. Battle" Height="720" Width="1280">
-    <Grid>
+    <ContentControl x:Name="ZoneJeu">
+        
+    </ContentControl>
 
-    </Grid>
 </Window>
