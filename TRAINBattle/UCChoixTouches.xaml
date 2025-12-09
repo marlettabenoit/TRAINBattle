@@ -8,7 +8,8 @@
              d:DesignHeight="720" d:DesignWidth="1080">
     <Grid>
         <Rectangle Fill="White" />
-        <Label x:Name="labAide" Content="Aide" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,32,0,0" VerticalAlignment="Top" Width="600" Height="46" Background="#FFD8D7D7" FontSize="22"/>
+        <Button x:Name="butRetour" Content="Retour" Width="50" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label x:Name="labAide" Content="Choix Touche" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,32,0,0" VerticalAlignment="Top" Width="600" Height="46" Background="#FFD8D7D7" FontSize="22"/>
 
         <Button x:Name="butFleche" Content="&lt;" HorizontalAlignment="Left" Margin="118,145,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="64" Width="64" FontSize="32" Background="#FFD8D7D7"/>
         <Label Content="Inutile" HorizontalAlignment="Left" Margin="200,150,0,0" VerticalAlignment="Top" Height="54" Width="102" FontSize="32"/>

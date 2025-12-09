@@ -8,6 +8,8 @@
              d:DesignHeight="720" d:DesignWidth="1080">
     <Grid>
         <Rectangle Fill="White" />
+        <Button x:Name="butRetour" Content="Retour" Width="50" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        
         <Label x:Name="labAide" Content="Aide" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,32,0,0" VerticalAlignment="Top" Width="600" Height="46" Background="#FFD8D7D7" FontSize="22"/>
 
         <Slider x:Name="sliderSond" HorizontalAlignment="Left" Margin="38,175,0,0" VerticalAlignment="Top" Width="345"/>
