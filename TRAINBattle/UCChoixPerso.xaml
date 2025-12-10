@@ -10,10 +10,10 @@
         <Rectangle Fill="White" />
         <Button x:Name="butRetour" Content="Retour" Width="50" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
-        <Image Height="100" Width="100" Margin="0,200,375,0" VerticalAlignment="Top" HorizontalAlignment="Center"/>
-        <Image Height="100" Width="100" Margin="0,200,125,0" VerticalAlignment="Top" HorizontalAlignment="Center"/>
-        <Image Height="100" Width="100" Margin="125,200,0,0" VerticalAlignment="Top" HorizontalAlignment="Center"/>
-        <Image Height="100" Width="100" Margin="375,200,0,0" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+        <Image Source="/img/train1/profil.png" Height="100" Width="100" Margin="0,200,375,0" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+        <Image Source="/img/train2/profil.png" Height="100" Width="100" Margin="0,200,125,0" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+        <Image Source="/img/train3/profil.png" Height="100" Width="100" Margin="125,200,0,0" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+        <Image Source="/img/train4/profil.png" Height="100" Width="100" Margin="375,200,0,0" VerticalAlignment="Top" HorizontalAlignment="Center"/>
 
         <Grid Width="380" Height="250" VerticalAlignment="Bottom">
             <Rectangle>
@@ -37,7 +37,7 @@
                     </LinearGradientBrush>
                 </Rectangle.Fill>
             </Rectangle>
-            <Image Width="200" Height="200" Margin="0,0,0,50"/>
+            <Image Source="/img/train1/profil.png" Width="200" Height="200" Margin="0,0,0,50"/>
             <Label Content="Nom Perso" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,200,0,0" FontSize="24"/>
             <Label Content="Player 1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,275,0,0" FontSize="18"/>
         </Grid>
@@ -51,7 +51,7 @@
                     </LinearGradientBrush>
                 </Rectangle.Fill>
             </Rectangle>
-            <Image Width="200" Height="200" Margin="0,0,0,50"/>
+            <Image Source="/img/train1/profil.png" Width="200" Height="200" Margin="0,0,0,50"/>
             <Label Content="Nom Perso" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,200,0,0" FontSize="24"/>
             <Label Content="Player 2" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,275,0,0" FontSize="18"/>
         </Grid>

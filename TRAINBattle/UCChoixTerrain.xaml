@@ -10,12 +10,28 @@
         <Rectangle Fill="White" />
         <Button x:Name="butRetour" Content="Retour" Width="50" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
-        <Button x:Name="butTerrain1" Width="300" Height="200" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,450,350" />
-        <Button x:Name="butTerrain2" Width="300" Height="200" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="450,0,0,350" />
-        <Button x:Name="butTerrain3" Width="300" Height="200" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,350,450,0" />
-        <Button x:Name="butTerrain4" Width="300" Height="200" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="450,350,0,0" />
+        <Button x:Name="butTerrain1" Width="300" Height="200" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,450,350" >
+            <Button.Background>
+                <ImageBrush ImageSource="/terrain1.png"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="butTerrain2" Width="300" Height="200" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="450,0,0,350" >
+            <Button.Background>
+                <ImageBrush ImageSource="/terrain2.png"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="butTerrain3" Width="300" Height="200" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,350,450,0" >
+            <Button.Background>
+                <ImageBrush ImageSource="/terrain3.png"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="butTerrain4" Width="300" Height="200" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="450,350,0,0" >
+            <Button.Background>
+                <ImageBrush ImageSource="/terrain4.png"/>
+            </Button.Background>
+        </Button>
 
-<!--        <Button Content="START" FontFamily="Arial Black" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,1"/>
+        <!--        <Button Content="START" FontFamily="Arial Black" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,1"/>
         -->
 
         
