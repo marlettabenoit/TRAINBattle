@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TRAINBattle"
              mc:Ignorable="d" 
-             d:DesignHeight="720" d:DesignWidth="1080">
+             d:DesignHeight="720" d:DesignWidth="1280">
     <Grid>
         <Rectangle Fill="White" />
         <Button x:Name="butRetour" Content="Retour" Width="50" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
@@ -15,7 +15,20 @@
         <Image Height="100" Width="100" Margin="125,200,0,0" VerticalAlignment="Top" HorizontalAlignment="Center"/>
         <Image Height="100" Width="100" Margin="375,200,0,0" VerticalAlignment="Top" HorizontalAlignment="Center"/>
 
-        <Grid Width="400" Height="350" HorizontalAlignment="Left" VerticalAlignment="Bottom">
+        <Grid Width="380" Height="250" VerticalAlignment="Bottom">
+            <Rectangle>
+                <Rectangle.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="White" Offset="0.05"/>
+                        <GradientStop Color="#FF909090" Offset="1"/>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Label Content="100 s" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,100" FontSize="18"></Label>
+            <Label Content="3 Rounds" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,60" FontSize="18"></Label>
+        </Grid>
+
+        <Grid Width="450" Height="350" HorizontalAlignment="Left" VerticalAlignment="Bottom">
             <Rectangle>
                 <Rectangle.Fill>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -29,7 +42,7 @@
             <Label Content="Player 1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,275,0,0" FontSize="18"/>
         </Grid>
 
-        <Grid Width="400" Height="350" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+        <Grid Width="450" Height="350" HorizontalAlignment="Right" VerticalAlignment="Bottom">
             <Rectangle>
                 <Rectangle.Fill>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -43,18 +56,7 @@
             <Label Content="Player 2" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,275,0,0" FontSize="18"/>
         </Grid>
 
-        <Grid Width="280" Height="250" VerticalAlignment="Bottom">
-            <Rectangle>
-                <Rectangle.Fill>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="White" Offset="0.05"/>
-                        <GradientStop Color="#FF909090" Offset="1"/>
-                    </LinearGradientBrush>
-                </Rectangle.Fill>
-            </Rectangle>
-            <Label Content="100 s" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,100" FontSize="18"></Label>
-            <Label Content="3 Rounds" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,60" FontSize="18"></Label>
-        </Grid>
+
 
         <Button x:Name="butStart" Content="START" FontFamily="Arial Black" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,240"/>
 

@@ -66,6 +66,16 @@ namespace TRAINBattle
             UCChoixTerrain uc = new UCChoixTerrain();
             ZoneJeu.Content = uc;
             uc.butRetour.Click += AfficherChoixPerso;
+            uc.butTerrain1.Click += AfficherJeu;
+            uc.butTerrain2.Click += AfficherJeu;
+            uc.butTerrain3.Click += AfficherJeu;
+            uc.butTerrain4.Click += AfficherJeu;
+        }
+        private void AfficherJeu(object sender, RoutedEventArgs e)
+        {
+            UCJeux uc = new UCJeux();
+            ZoneJeu.Content = uc;
+            //uc.butRetour.Click += AfficherChoixPerso;
         }
     }
 }
