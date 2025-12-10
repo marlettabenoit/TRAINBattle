@@ -43,9 +43,19 @@ namespace TRAINBattle
             HearthBoxs = new List<System.Drawing.Rectangle>();
             HitBoxs = new List<System.Drawing.Rectangle>();
             // Charger l'image
-            string imagePathComplet = $"pack://application:,,,/img/{imagePath}.png";
+            string imagePathComplet = $"pack://application:,,,/img/{imagePath}";
             Image = new Image();
             Image.Source = new BitmapImage(new Uri(imagePathComplet));
+            // Eviter le redimentionement automatique
+            Image.Stretch = Stretch.None;
+            //Image.UseLayoutRounding = false;
+            //Image.SnapsToDevicePixels = true;
+            Image.Width = ((BitmapImage)Image.Source).PixelWidth;
+            Image.Height = ((BitmapImage)Image.Source).PixelHeight;
+#if DEBUG
+            Console.WriteLine(Image.Height);
+            Console.WriteLine(Image.Width);
+#endif
             // Autres parametres
             Duree = duree;
             Puissance = puissance;
@@ -133,6 +143,7 @@ namespace TRAINBattle
             foreach (var r in list)
             {
                 int newX = imageWidth - (r.X + r.Width);
+                //int newX = imageWidth - r.Width - r.X - imageWidth;
                 flipped.Add(new System.Drawing.Rectangle(newX, r.Y, r.Width, r.Height));
             }
 
@@ -140,7 +151,7 @@ namespace TRAINBattle
         }
         public void Flip()
         {
-            this.Flip(256);
+            this.Flip((int)Image.Source.Width);
         }
 
     }

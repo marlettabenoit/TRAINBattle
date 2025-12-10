@@ -23,6 +23,11 @@ namespace TRAINBattle
         public UCJeux()
         {
             InitializeComponent();
+            Frame f1 = new Frame("train1/profil.png",2);
+            f1.HearthBoxs.Add(new System.Drawing.Rectangle(0, 0, 200, 100));
+            f1.HearthBoxs.Add(new System.Drawing.Rectangle(0, 100, 50, 50));
+            //f1.Flip();
+            f1.Display(canvasJeux, 0, 520);
         }
     }
 }
