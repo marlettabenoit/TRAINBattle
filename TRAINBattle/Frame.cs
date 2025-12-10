@@ -47,7 +47,7 @@ namespace TRAINBattle
             Image = new Image();
             Image.Source = new BitmapImage(new Uri(imagePathComplet));
             // Eviter le redimentionement automatique
-            Image.Stretch = Stretch.None;
+            //Image.Stretch = Stretch.None;
             //Image.UseLayoutRounding = false;
             //Image.SnapsToDevicePixels = true;
             Image.Width = ((BitmapImage)Image.Source).PixelWidth;
@@ -81,10 +81,14 @@ namespace TRAINBattle
                 canvas.Children.Add(Image);
 
             // Récupérer la hauteur réelle de l'image
-            double imgHeight = Image.Source.Height;
-            double imgWidth = Image.Source.Width;
+            double imgHeight = ((BitmapImage)Image.Source).PixelWidth;
+            double imgWidth = ((BitmapImage)Image.Source).PixelWidth;
 
             double topImage = posY - imgHeight;
+#if DEBUG
+            Console.WriteLine(posY);
+            Console.WriteLine(imgWidth);
+#endif
 
             Canvas.SetLeft(Image, posX);
             Canvas.SetTop(Image, topImage);
@@ -151,7 +155,7 @@ namespace TRAINBattle
         }
         public void Flip()
         {
-            this.Flip((int)Image.Source.Width);
+            this.Flip(((BitmapImage)Image.Source).PixelWidth);
         }
 
     }
