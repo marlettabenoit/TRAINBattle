@@ -53,6 +53,9 @@ namespace TRAINBattle
             if (CurrentFrame == Frames[IndexFrameActuel].Duree)
             {
                 IndexFrameActuel++;
+#if DEBUG
+                Console.WriteLine("next frame");
+#endif
                 CurrentFrame = 0;
                 if (IndexFrameActuel >= Frames.Count)
                 {
