@@ -20,6 +20,7 @@ namespace TRAINBattle
 
         // Index de la frame actuel
         public int IndexFrameActuel { get; set; } = 0;
+
         public bool IsPlaying { get; set; }
 
         public Animation(string name)
