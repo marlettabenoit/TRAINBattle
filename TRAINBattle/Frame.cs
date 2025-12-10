@@ -9,7 +9,7 @@ using System.Windows.Media.Imaging;
 
 namespace TRAINBattle
 {
-    class Frame
+    public class Frame
     {
         public List<System.Drawing.Rectangle> HearthBoxs { get; set; }
         public List<System.Drawing.Rectangle> HitBoxs { get; set; }
@@ -137,6 +137,10 @@ namespace TRAINBattle
             }
 
             return flipped;
+        }
+        public void Flip()
+        {
+            this.Flip(256);
         }
 
     }
