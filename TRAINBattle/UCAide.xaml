@@ -5,13 +5,13 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TRAINBattle"
              mc:Ignorable="d" 
-             d:DesignHeight="720" d:DesignWidth="1080">
+             d:DesignHeight="720" d:DesignWidth="1280">
     <Grid>
         <Rectangle Fill="White" />
         <Button x:Name="butRetour" Content="Retour" Width="50" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        
-        <Label x:Name="labAide" Content="Aide" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,32,0,0" VerticalAlignment="Top" Width="600" Height="46" Background="#FFD8D7D7" FontSize="22"/>
-        
+
+        <Label x:Name="labAide" Content="Choix Touche" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,32,0,0" VerticalAlignment="Top" Width="600" Height="46" Background="#FFD8D7D7" FontSize="22"/>
+
         <Label x:Name="labFleche" Content="&lt;" HorizontalAlignment="Left" Margin="118,145,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="64" Width="64" FontSize="32" Background="#FFD8D7D7"/>
         <Label Content="Inutile" HorizontalAlignment="Left" Margin="200,150,0,0" VerticalAlignment="Top" Height="54" Width="102" FontSize="32"/>
 
@@ -30,25 +30,25 @@
         <Label x:Name="labB" Content="B" HorizontalAlignment="Left" Margin="118,645,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="64" Width="64" FontSize="32" Background="#FFD8D7D7"/>
         <Label Content="Inutile" HorizontalAlignment="Left" Margin="200,650,0,0" VerticalAlignment="Top" Height="54" Width="102" FontSize="32"/>
 
-        <Label x:Name="labVirgule" Content="," HorizontalAlignment="Left" Margin="718,145,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="64" Width="64" FontSize="32" Background="#FFD8D7D7"/>
-        <Label Content="Att Cont" HorizontalAlignment="Left" Margin="800,150,0,0" VerticalAlignment="Top" Height="54" Width="130" FontSize="32"/>
+        <Label x:Name="labVirgule" Content="," HorizontalAlignment="Right" Margin="918,145,118,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="64" Width="64" FontSize="32" Background="#FFD8D7D7"/>
+        <Label Content="Att Cont" HorizontalAlignment="Right" Margin="0,150,200,0" VerticalAlignment="Top" Height="54" Width="130" FontSize="32"/>
 
-        <Label x:Name="labPointVirgule" Content=";" HorizontalAlignment="Left" Margin="718,245,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="64" Width="64" FontSize="32" Background="#FFD8D7D7"/>
-        <Label Content="Att Dist" HorizontalAlignment="Left" Margin="800,250,0,0" VerticalAlignment="Top" Height="54" Width="102" FontSize="32"/>
+        <Label x:Name="labPointVirgule" Content=";" HorizontalAlignment="Right" Margin="918,245,118,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="64" Width="64" FontSize="32" Background="#FFD8D7D7"/>
+        <Label Content="Att Dist" HorizontalAlignment="Right" Margin="0,250,200,0" VerticalAlignment="Top" Height="54" Width="130" FontSize="32"/>
 
-        <Label x:Name="labN" Content="N" HorizontalAlignment="Left" Margin="718,345,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="64" Width="64" FontSize="32" Background="#FFD8D7D7"/>
-        <Label Content="Inutile" HorizontalAlignment="Left" Margin="800,350,0,0" VerticalAlignment="Top" Height="54" Width="102" FontSize="32"/>
+        <Label x:Name="labN" Content="N" HorizontalAlignment="Right" Margin="918,345,118,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="64" Width="64" FontSize="32" Background="#FFD8D7D7"/>
+        <Label Content="Inutile" HorizontalAlignment="Right" Margin="0,350,200,0" VerticalAlignment="Top" Height="54" Width="102" FontSize="32"/>
 
-        <Label x:Name="labDeuxPoints" Content=":" HorizontalAlignment="Left" Margin="718,445,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="64" Width="64" FontSize="32" Background="#FFD8D7D7"/>
-        <Label Content="Bouclier" HorizontalAlignment="Left" Margin="800,450,0,0" VerticalAlignment="Top" Height="54" Width="130" FontSize="32"/>
+        <Label x:Name="labDeuxPoints" Content=":" HorizontalAlignment="Right" Margin="918,445,118,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="64" Width="64" FontSize="32" Background="#FFD8D7D7"/>
+        <Label Content="Bouclier" HorizontalAlignment="Right" Margin="0,450,200,0" VerticalAlignment="Top" Height="54" Width="130" FontSize="32"/>
 
-        <Label x:Name="labPointExclamation" Content="!" HorizontalAlignment="Left" Margin="718,545,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="64" Width="64" FontSize="32" Background="#FFD8D7D7"/>
-        <Label Content="Grab" HorizontalAlignment="Left" Margin="800,550,0,0" VerticalAlignment="Top" Height="54" Width="102" FontSize="32"/>
+        <Label x:Name="labPointExclamation" Content="!" HorizontalAlignment="Right" Margin="0,545,118,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="64" Width="64" FontSize="32" Background="#FFD8D7D7"/>
+        <Label Content="Grab" HorizontalAlignment="Right" Margin="0,550,200,0" VerticalAlignment="Top" Height="54" Width="102" FontSize="32"/>
 
-        <Label x:Name="labMaj" Content="Maj" HorizontalAlignment="Left" Margin="718,645,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="64" Width="64" FontSize="32" Background="#FFD8D7D7"/>
-        <Label Content="Inutile" HorizontalAlignment="Left" Margin="800,650,0,0" VerticalAlignment="Top" Height="54" Width="102" FontSize="32"/>
-        
-        
+        <Label x:Name="labMaj" Content="Maj" HorizontalAlignment="Right" Margin="918,645,118,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="64" Width="64" FontSize="32" Background="#FFD8D7D7"/>
+        <Label Content="Inutile" HorizontalAlignment="Right" Margin="0,650,200,0" VerticalAlignment="Top" Height="54" Width="102" FontSize="32"/>
+
+
 
     </Grid>
 </UserControl>
