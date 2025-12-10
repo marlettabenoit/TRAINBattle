@@ -16,6 +16,8 @@ namespace TRAINBattle
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static double VolumeSon { get; set; }
+        public static double VolumeMusique { get; set; }
         public MainWindow()
         {
             InitializeComponent();
@@ -24,9 +26,7 @@ namespace TRAINBattle
 
         private void AfficheDemarage(object sender, RoutedEventArgs e)
         {
-            // crée et charge l'écran de démarrage
             UCDemarage uc = new UCDemarage();
-            // associe l'écran au conteneur
             ZoneJeu.Content = uc;
             uc.butParametres.Click += AfficherParametres;
             uc.butAide.Click += AfficherAide;
@@ -63,9 +63,9 @@ namespace TRAINBattle
         }
         private void AfficherChoixTerrain(object sender, RoutedEventArgs e)
         {
-            UCChoixTouches uc = new UCChoixTouches();
+            UCChoixTerrain uc = new UCChoixTerrain();
             ZoneJeu.Content = uc;
-            uc.butRetour.Click += AfficherParametres;
+            uc.butRetour.Click += AfficherChoixPerso;
         }
     }
 }

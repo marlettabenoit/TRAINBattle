@@ -18,11 +18,25 @@ namespace TRAINBattle
     /// <summary>
     /// Logique d'interaction pour UCParametres.xaml
     /// </summary>
+    
     public partial class UCParametres : UserControl
     {
         public UCParametres()
         {
             InitializeComponent();
+            
+        }
+
+        private void butReset_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow.VolumeMusique = 50;
+            MainWindow.VolumeSon = 50;
+        }
+
+        private void butSauvegarde_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow.VolumeMusique = sliderMusique.Value;
+            MainWindow.VolumeSon = sliderMusique.Value;
         }
     }
 }
