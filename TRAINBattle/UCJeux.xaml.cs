@@ -241,6 +241,7 @@ namespace TRAINBattle
             //    p1.Flip();
             //    Console.WriteLine("WHAAAAAAAAAAAA");
             //}
+
         }
 
         private void UCJeux_KeyUp(object sender, KeyEventArgs e)
