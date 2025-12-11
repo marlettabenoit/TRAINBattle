@@ -15,6 +15,7 @@ namespace TRAINBattle
         public List<System.Drawing.Rectangle> HitBoxs { get; set; }
         public Image Image { get; set; }
         public bool IsFlipped { get; private set; } = false;
+        public int DeplacementX {  get; set; } = 0;
 
 
         // Champ puissance avec encapsulation
@@ -39,7 +40,7 @@ namespace TRAINBattle
         }
 
         // constructeur
-        public Frame(string imagePath, int duree, int puissance)
+        public Frame(string imagePath, int duree, int puissance, int deplacementX)
         {
             // initialisation des listes
             HearthBoxs = new List<System.Drawing.Rectangle>();
@@ -61,9 +62,10 @@ namespace TRAINBattle
             // Autres parametres
             Duree = duree;
             Puissance = puissance;
+            DeplacementX = deplacementX;
         }
         public Frame(string imagePath, int duree)
-            : this(imagePath, duree, 0)
+            : this(imagePath, duree, 0, 0)
         {
         }
 
@@ -135,6 +137,7 @@ namespace TRAINBattle
         public void Flip(int imageWidth)
         {
             IsFlipped = !IsFlipped;
+            DeplacementX=-DeplacementX;
             // Retourner visuellement l'image (miroir horizontal)
             if (IsFlipped)
                 Image.LayoutTransform = new ScaleTransform(-1, 1);

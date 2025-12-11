@@ -61,6 +61,7 @@ namespace TRAINBattle
                 {
                         IsPlaying = false;
                 }
+
             }
             return IsPlaying;
 

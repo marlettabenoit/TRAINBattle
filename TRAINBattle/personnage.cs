@@ -56,7 +56,7 @@ namespace TRAINBattle
         public void Update()
         {
             if (AnimationCourante is null) return;
-            
+            X += AnimationCourante.GetCurrentFrame().DeplacementX;
             AnimationCourante.Update();
             if (AnimationCourante.IsPlaying == false) AnimationCourante.Reset();
         }

@@ -30,10 +30,10 @@ namespace TRAINBattle
             InitializeComponent();
             InitializeTimer();
             //Tests de la fonction frame
-            Frame f1 = new Frame("train1/deplacement0.png", 2);
+            Frame f1 = new Frame("train1/deplacement0.png", 2, 0, 2);
             //f1.HearthBoxs.Add(new System.Drawing.Rectangle(0, 0, 200, 100));
             //f1.HearthBoxs.Add(new System.Drawing.Rectangle(0, 100, 50, 50));
-            Frame f2 = new Frame("train1/deplacement1.png", 2);
+            Frame f2 = new Frame("train1/deplacement1.png", 2, 0, 2);
             //f2.HearthBoxs.Add(new System.Drawing.Rectangle(0, 0, 200, 100));
             //f2.HearthBoxs.Add(new System.Drawing.Rectangle(0, 100, 70, 70));
             //f2.Flip();
