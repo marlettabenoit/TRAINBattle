@@ -14,6 +14,9 @@
     <None Remove="img\terrain\terrain2.png" />
     <None Remove="img\terrain\terrain3.png" />
     <None Remove="img\terrain\terrain4.png" />
+    <None Remove="img\train1\base.png" />
+    <None Remove="img\train1\deplacement0.png" />
+    <None Remove="img\train1\deplacement1.png" />
     <None Remove="img\train1\profil.png" />
     <None Remove="img\train2\profil.png" />
     <None Remove="img\train3\profil.png" />
@@ -30,6 +33,9 @@
     <Resource Include="img\terrain\terrain2.png" />
     <Resource Include="img\terrain\terrain3.png" />
     <Resource Include="img\terrain\terrain4.png" />
+    <Resource Include="img\train1\base.png" />
+    <Resource Include="img\train1\deplacement0.png" />
+    <Resource Include="img\train1\deplacement1.png" />
     <Resource Include="img\train1\profil.png" />
     <Resource Include="img\train2\profil.png" />
     <Resource Include="img\train3\profil.png" />
