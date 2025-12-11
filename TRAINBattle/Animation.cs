@@ -22,6 +22,7 @@ namespace TRAINBattle
         public int IndexFrameActuel { get; set; } = 0;
 
         public bool IsPlaying { get; set; }
+        public bool IsFlip {  get; set; } = false;
 
         public Animation(string name)
         {
@@ -53,9 +54,6 @@ namespace TRAINBattle
             if (CurrentFrame == Frames[IndexFrameActuel].Duree)
             {
                 IndexFrameActuel++;
-#if DEBUG
-                Console.WriteLine("next frame");
-#endif
                 CurrentFrame = 0;
                 if (IndexFrameActuel >= Frames.Count)
                 {
@@ -79,6 +77,7 @@ namespace TRAINBattle
         // Permet de retourner TOUTE l'animation d’un coup
         public void Flip()
         {
+            IsFlip = !IsFlip;
             foreach (var f in Frames)
                 f.Flip();
         }

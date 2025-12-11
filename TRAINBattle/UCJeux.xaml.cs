@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,31 +22,44 @@ namespace TRAINBattle
     /// </summary>
     public partial class UCJeux : UserControl
     {
-        private static DispatcherTimer minuterie;
+        //private static DispatcherTimer minuterie;
+        Stopwatch stopwatch = new Stopwatch();
+        long lastTick = 0;
         private static Personnage p1;
         private static List<Projectils> projectils;
         
         public UCJeux()
         {
             InitializeComponent();
-            InitializeTimer();
+            CompositionTarget.Rendering += Jeu;
+            stopwatch.Start();
+            //InitializeTimer();
             //Tests de la fonction frame
-            Frame f1 = new Frame("train1/deplacement0.png", 2, 0, 2);
+            Frame f1 = new Frame("train1/deplacement0.png", 2, 0, 10);
             //f1.HearthBoxs.Add(new System.Drawing.Rectangle(0, 0, 200, 100));
             //f1.HearthBoxs.Add(new System.Drawing.Rectangle(0, 100, 50, 50));
-            Frame f2 = new Frame("train1/deplacement1.png", 2, 0, 2);
+            Frame f2 = new Frame("train1/deplacement1.png", 2, 0, 10);
             //f2.HearthBoxs.Add(new System.Drawing.Rectangle(0, 0, 200, 100));
             //f2.HearthBoxs.Add(new System.Drawing.Rectangle(0, 100, 70, 70));
             //f2.Flip();
             //f1.Display(canvasJeux, 0, 520);
             //Test de la fonction animation
-            Animation a1 = new Animation("test");
+            Animation a1 = new Animation("marche");
             a1.AddFrame(f1);
             a1.AddFrame(f2);
-            a1.Reset();
+            //a1.Reset();
+
+            Frame f3 = new Frame("train1/deplacement0.png", 2, 0, 0);
+            Frame f4 = new Frame("train1/deplacement1.png", 2, 0, 0);
+            Animation a2 = new Animation("attente");
+            a2.AddFrame(f3);
+            a2.AddFrame(f4);
+            //a1.Reset();
+
             p1 = new Personnage(0, 0);
             p1.AddAnimation("marche", a1);
-            p1.SetAnimation("marche");
+            p1.AddAnimation("attente", a2);
+            p1.SetAnimation("attente");
 
             projectils = new List<Projectils>();
 
@@ -56,24 +70,34 @@ namespace TRAINBattle
 
             this.Loaded += UCJeux_Loaded;
             this.KeyDown += UCJeux_KeyDown;
+            this.KeyUp += UCJeux_KeyUp;
             this.Focusable = true;
 
         }
 
-        private void InitializeTimer()
-        {
-            minuterie = new DispatcherTimer();
-            // configure l'intervalle du Timer
-            minuterie.Interval = TimeSpan.FromMilliseconds(33); // 30 fps
-            //minuterie.Interval = TimeSpan.FromMilliseconds(100); // 30 fps
-            // associe l’appel de la méthode Jeu à la fin de la minuterie
-            minuterie.Tick += Jeu;
-            // lancement du timer
-            minuterie.Start();
-        }
+        //private void InitializeTimer()
+        //{
+        //    minuterie = new DispatcherTimer();
+        //    // configure l'intervalle du Timer
+        //    minuterie.Interval = TimeSpan.FromMilliseconds(33); // 30 fps
+        //    // associe l’appel de la méthode Jeu à la fin de la minuterie
+        //    minuterie.Tick += Jeu;
+        //    // lancement du timer
+        //    minuterie.Start();
+        //}
 
         private void Jeu(object? sender, EventArgs e)
         {
+            long now = stopwatch.ElapsedMilliseconds;
+            long delta = now - lastTick;
+
+            // Si pas assez de temps écoulé → ignorer cette frame
+            if (delta < 1000.0 / 30.0)
+                return;
+
+            lastTick = now;
+            //double dt = delta / 1000.0; // en secondes
+
             // remet le focus sur le jeu
             this.Focus();
             Keyboard.Focus(this);
@@ -88,13 +112,33 @@ namespace TRAINBattle
             //}
             //System.Threading.Thread.Sleep(200);
             p1.Display(canvasJeux, 520);
-            p1.Update();
+            if (!p1.Update())
+                p1.SetAnimation("attente");
 
             foreach (var projectil in projectils) {
                 if (projectil.Update())
                 projectil.Affiche(canvasJeux, 200);
-                
+            // faudrai les suprimer à l'avenir    
             }
+
+            //for (int i = 0; i < 2; i++)
+            //{
+            //}
+
+            if (MainWindow.TouchesActives[0, 2])
+            {
+                if (p1.OrientationDroite)
+                    p1.Flip();
+                
+                p1.SetAnimation("marche");
+            }
+            if (MainWindow.TouchesActives[0, 4])
+            {
+                if (!p1.OrientationDroite)
+                    p1.Flip();
+                p1.SetAnimation("marche");
+            }
+
 
         }
 
@@ -107,12 +151,36 @@ namespace TRAINBattle
 
         private void UCJeux_KeyDown(object sender, KeyEventArgs e)
         {
-            Console.WriteLine("WHOOOOOOOOOOO");
+            for (int i = 0; i < MainWindow.Touches.GetLength(0); i++)
+            { 
+                for (int j = 0; j < MainWindow.Touches.GetLength(1); j++)
+                {
+                    if (MainWindow.Touches[i, j] == e.Key) {
+                        MainWindow.TouchesActives[i, j] = true;
+                    }
+                }
+            }
+            
+            //Console.WriteLine("WHOOOOOOOOOOO");
 
-            if (e.Key == Key.Space)
+            //if (e.Key == Key.Space)
+            //{
+            //    p1.Flip();
+            //    Console.WriteLine("WHAAAAAAAAAAAA");
+            //}
+        }
+
+        private void UCJeux_KeyUp(object sender, KeyEventArgs e)
+        {
+            for (int i = 0; i < MainWindow.Touches.GetLength(0); i++)
             {
-                p1.Flip();
-                Console.WriteLine("WHAAAAAAAAAAAA");
+                for (int j = 0; j < MainWindow.Touches.GetLength(1); j++)
+                {
+                    if (MainWindow.Touches[i, j] == e.Key)
+                    {
+                        MainWindow.TouchesActives[i, j] = false;
+                    }
+                }
             }
         }
 

@@ -37,8 +37,12 @@ namespace TRAINBattle
         {
             if (Animations.ContainsKey(nom))
             {
-                AnimationCourante = Animations[nom];
-                AnimationCourante.Reset();
+                if (!(Animations[nom] == AnimationCourante) || !AnimationCourante.IsPlaying)
+                {
+
+                    AnimationCourante = Animations[nom];
+                    AnimationCourante.Reset();
+                }
             }
         }
 
@@ -53,12 +57,13 @@ namespace TRAINBattle
         }
 
         // Mise à jour (pour faire avancer l'animation)
-        public void Update()
+        // renvoi false si animation fini
+        public bool Update()
         {
-            if (AnimationCourante is null) return;
+            if (AnimationCourante is null) return false;
             X += AnimationCourante.GetCurrentFrame().DeplacementX;
             AnimationCourante.Update();
-            if (AnimationCourante.IsPlaying == false) AnimationCourante.Reset();
+            return AnimationCourante.IsPlaying;
         }
 
         // Tourner le personnage (droite ↔ gauche)

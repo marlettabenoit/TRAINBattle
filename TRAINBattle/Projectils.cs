@@ -55,8 +55,6 @@ namespace TRAINBattle
         public bool Update()
         {
             // Déplacement
-            Console.WriteLine(DirX * Speed * 0.033);
-            Console.WriteLine(DirX);
             X += (int)( DirX * Speed * 0.033 );
             if (EnCloche) {
                 Y += (int)(DirY * Speed * 0.033);

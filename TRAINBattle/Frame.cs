@@ -55,10 +55,6 @@ namespace TRAINBattle
             //Image.SnapsToDevicePixels = true;
             Image.Width = ((BitmapImage)Image.Source).PixelWidth;
             Image.Height = ((BitmapImage)Image.Source).PixelHeight;
-#if DEBUG
-            Console.WriteLine(Image.Height);
-            Console.WriteLine(Image.Width);
-#endif
             // Autres parametres
             Duree = duree;
             Puissance = puissance;
@@ -89,10 +85,6 @@ namespace TRAINBattle
             double imgWidth = ((BitmapImage)Image.Source).PixelWidth;
 
             double topImage = posY - imgHeight;
-#if DEBUG
-            Console.WriteLine(posY);
-            Console.WriteLine(imgWidth);
-#endif
 
             Canvas.SetLeft(Image, posX);
             Canvas.SetTop(Image, topImage);
