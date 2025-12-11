@@ -43,7 +43,7 @@ namespace TRAINBattle
 
             Image = new Image();
             // !!! Changer ligne du dessous
-            //Image.Source = new BitmapImage(new Uri())
+            // Image.Source = new BitmapImage(new Uri())
         }
 
 
@@ -62,20 +62,11 @@ namespace TRAINBattle
             IsActive = false;
         }
 
-       // public void Affiche(Canvas canvas)
-        //{
-            
-          //  Image = new Image()
-            //{
-              //  Source = bitmap,
-               // Width = bitmap.PixelWidth,
-              //  Height = bitmap.PixelHeight
-           // };
-
-          //  canvas.Children.Add(_sprite);
-            // Mise à jour de la position dans le Canvas
-          //  Canvas.SetLeft(sprite, X);
-          //  Canvas.SetTop(sprite, Y);
-      //  }
+        public void Affiche(Canvas canvas)
+        {
+            canvas.Children.Add(Image);
+            Canvas.SetLeft(Image, X);
+            Canvas.SetTop(Image, Y);
+        }
     } 
 }
