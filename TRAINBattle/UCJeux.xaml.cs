@@ -23,6 +23,7 @@ namespace TRAINBattle
     {
         private static DispatcherTimer minuterie;
         private static Personnage p1;
+        private static List<Projectils> projectils;
         
         public UCJeux()
         {
@@ -46,6 +47,13 @@ namespace TRAINBattle
             p1.AddAnimation("marche", a1);
             p1.SetAnimation("marche");
 
+            projectils = new List<Projectils>();
+
+            Projectils pr1 = new Projectils("train1/profil.png", 200, 50, 1, 0.1, 1000, 12, true);
+            projectils.Add(pr1);
+            //Projectils pr2 = new Projectils("train1/profil.png", 200, 0, 1, 0, 1000, 12, false);
+            //projectils.Add(pr2);
+
             this.Loaded += UCJeux_Loaded;
             this.KeyDown += UCJeux_KeyDown;
             this.Focusable = true;
@@ -57,6 +65,7 @@ namespace TRAINBattle
             minuterie = new DispatcherTimer();
             // configure l'intervalle du Timer
             minuterie.Interval = TimeSpan.FromMilliseconds(33); // 30 fps
+            //minuterie.Interval = TimeSpan.FromMilliseconds(100); // 30 fps
             // associe l’appel de la méthode Jeu à la fin de la minuterie
             minuterie.Tick += Jeu;
             // lancement du timer
@@ -80,6 +89,12 @@ namespace TRAINBattle
             //System.Threading.Thread.Sleep(200);
             p1.Display(canvasJeux, 520);
             p1.Update();
+
+            foreach (var projectil in projectils) {
+                if (projectil.Update())
+                projectil.Affiche(canvasJeux, 200);
+                
+            }
 
         }
 

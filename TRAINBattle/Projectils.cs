@@ -9,64 +9,71 @@ using System.Windows.Media.Imaging;
 
 namespace TRAINBattle
 {
-    class Projectils
+    public class Projectils
     {
         // Position actuelle du projectile
-        public float X { get; set; }
-        public float Y { get; set; }
+        public int X { get; set; }
+        public int Y { get; set; }
 
-        // Direction de déplacement (normalisée)
-        public float DirX { get; set; }
+        // Direction de déplacement
+        public double DirX { get; set; }
+        public double DirY { get; set; }
 
         // Vitesse en unités par seconde
-        public float Speed { get; set; }
+        public double Speed { get; set; }
 
         // Dégâts infligés lors d’un impact
         public int Damage { get; set; }
 
-        // Indique si le projectile est encore actif
-        public bool IsActive { get; set; } = true;
-
         public Image Image { get; set; }
-      
-        public void Projectile(float x, float y, float dirX, float speed, int damage)
+
+        public bool EnCloche { get; set; }
+
+        public Projectils(string imagePath, int x, int y, double dirX, double dirY, double speed, int damage, bool enCloche)
         {
             X = x;
             Y = y;
 
-            // Optionnel : normaliser la direction
-            float magnitude = (float)Math.Sqrt(dirX * dirX);
-            DirX = dirX / magnitude;
+            DirX =  dirX;
+            DirY = dirY;
 
             Speed = speed;
             Damage = damage;
 
+            EnCloche = enCloche;
+
+            string imagePathComplet = $"pack://application:,,,/img/{imagePath}";
             Image = new Image();
-            // !!! Changer ligne du dessous
-            // Image.Source = new BitmapImage(new Uri())
+            Image.Source = new BitmapImage(new Uri(imagePathComplet));
+            Image.Width = ((BitmapImage)Image.Source).PixelWidth;
+            Image.Height = ((BitmapImage)Image.Source).PixelHeight;
+
         }
 
 
-        // Mise à jour par frame (deltaTime = temps écoulé)
-        public void Update(float deltaTime)
+        // 
+        public bool Update()
         {
-            if (!IsActive) return;
-
             // Déplacement
-            X += DirX * Speed * deltaTime;
+            Console.WriteLine(DirX * Speed * 0.033);
+            Console.WriteLine(DirX);
+            X += (int)( DirX * Speed * 0.033 );
+            if (EnCloche) {
+                Y += (int)(DirY * Speed * 0.033);
+                DirY -= 0.02;
+            }
+            // gestion sortie écran
+            if (Y < 0) return false;
+            if (X < 0) return false ;
+            if (X + ((BitmapImage)Image.Source).PixelWidth > 1280) return false;
+            return true;
         }
 
-        // Quand le projectile touche quelque chose
-        public void Hit()
-        {
-            IsActive = false;
-        }
-
-        public void Affiche(Canvas canvas)
+        public void Affiche(Canvas canvas, int niveauSol)
         {
             canvas.Children.Add(Image);
             Canvas.SetLeft(Image, X);
-            Canvas.SetTop(Image, Y);
+            Canvas.SetBottom(Image, niveauSol+Y);
         }
     } 
 }
