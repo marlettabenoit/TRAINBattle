@@ -14,6 +14,8 @@ namespace TRAINBattle
         public List<System.Drawing.Rectangle> HearthBoxs { get; set; }
         public List<System.Drawing.Rectangle> HitBoxs { get; set; }
         public Image Image { get; set; }
+        public bool IsFlipped { get; private set; } = false;
+
 
         // Champ puissance avec encapsulation
         private int puissance;
@@ -132,8 +134,12 @@ namespace TRAINBattle
 
         public void Flip(int imageWidth)
         {
+            IsFlipped = !IsFlipped;
             // Retourner visuellement l'image (miroir horizontal)
-            Image.LayoutTransform = new ScaleTransform(-1, 1);
+            if (IsFlipped)
+                Image.LayoutTransform = new ScaleTransform(-1, 1);
+            else
+                Image.LayoutTransform = new ScaleTransform(1, 1);
 
             // Inversion des rectangles
             HitBoxs = FlipRectList(HitBoxs, imageWidth);
