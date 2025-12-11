@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace TRAINBattle
 {
@@ -20,9 +21,13 @@ namespace TRAINBattle
     /// </summary>
     public partial class UCJeux : UserControl
     {
+        private static DispatcherTimer minuterie;
+        private static Animation a1;
+        
         public UCJeux()
         {
             InitializeComponent();
+            InitializeTimer();
             ////Tests de la fonction frame
             //Frame f1 = new Frame("train1/profil.png", 2);
             //f1.HearthBoxs.Add(new System.Drawing.Rectangle(0, 0, 200, 100));
@@ -33,25 +38,34 @@ namespace TRAINBattle
             //f2.Flip();
             ////f1.Display(canvasJeux, 0, 520);
             ////Test de la fonction animation
-            //Animation a1 = new Animation("test");
+            //a1 = new Animation("test");
             //a1.AddFrame(f1);
             //a1.AddFrame(f2);
+            //a1.Reset();
+        }
+
+        private void InitializeTimer()
+        {
+            minuterie = new DispatcherTimer();
+            // configure l'intervalle du Timer
+            minuterie.Interval = TimeSpan.FromMilliseconds(33); // 30 fps
+            // associe l’appel de la méthode Jeu à la fin de la minuterie
+            minuterie.Tick += Jeu;
+            // lancement du timer
+            minuterie.Start();
+        }
+
+        private void Jeu(object? sender, EventArgs e)
+        {
+            //canvasJeux.Children.Clear();
             //a1.GetCurrentFrame().Display(canvasJeux, 0, 520);
             //a1.Update();
             //Console.WriteLine($"{a1.CurrentFrame} {a1.IndexFrameActuel}");
-            //System.Threading.Thread.Sleep(200);
-            //a1.GetCurrentFrame().Display(canvasJeux, 0, 520);
-            //a1.Update();
-            //Console.WriteLine($"{a1.CurrentFrame} {a1.IndexFrameActuel}");
-            //System.Threading.Thread.Sleep(200);
-            //a1.GetCurrentFrame().Display(canvasJeux, 0, 520);
-            //a1.Update();
-            //Console.WriteLine($"{a1.CurrentFrame} {a1.IndexFrameActuel}");
-            //System.Threading.Thread.Sleep(200);
-            //a1.GetCurrentFrame().Display(canvasJeux, 0, 520);
-            ////a1.Update();
-            ////Console.WriteLine($"{a1.CurrentFrame} {a1.IndexFrameActuel}");
-            //System.Threading.Thread.Sleep(200);
+            //if (a1.IsPlaying == false)
+            //{
+            //    a1.Reset();
+            //}
+            ////System.Threading.Thread.Sleep(200);
 
         }
     }

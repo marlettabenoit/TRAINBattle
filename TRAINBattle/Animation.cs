@@ -66,7 +66,7 @@ namespace TRAINBattle
 
         }
 
-        public void Play() => IsPlaying = true;
+        //public void Play() => IsPlaying = true;
 
         public void Reset()
         {
