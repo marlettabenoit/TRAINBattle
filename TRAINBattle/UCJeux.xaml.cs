@@ -65,7 +65,11 @@ namespace TRAINBattle
 
         private void Jeu(object? sender, EventArgs e)
         {
+            // remet le focus sur le jeu
+            this.Focus();
+            Keyboard.Focus(this);
             canvasJeux.Children.Clear();
+
             //a1.GetCurrentFrame().Display(canvasJeux, 0, 520);
             //a1.Update();
             //Console.WriteLine($"{a1.CurrentFrame} {a1.IndexFrameActuel}");
