@@ -66,7 +66,7 @@ namespace TRAINBattle
 
         }
 
-        public void Play() => IsPlaying = true;
+        //public void Play() => IsPlaying = true;
 
         public void Reset()
         {
@@ -76,7 +76,7 @@ namespace TRAINBattle
         }
 
         // Permet de retourner TOUTE l'animation d’un coup
-        public void FlipAllFrames()
+        public void Flip()
         {
             foreach (var f in Frames)
                 f.Flip();
