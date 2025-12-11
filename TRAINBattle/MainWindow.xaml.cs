@@ -18,6 +18,8 @@ namespace TRAINBattle
     {
         public static double VolumeSon { get; set; }
         public static double VolumeMusique { get; set; }
+        public static MediaPlayer MusicPlayer = new MediaPlayer();
+
 
         public static Key[,] Touches { get; set; } = new Key[2, 12];
         public static Key[,] TouchesParDefaut { get; set; } = new Key[2, 12];
@@ -28,6 +30,15 @@ namespace TRAINBattle
             InitializeComponent();
             AfficheDemarage(null, null);
             InitTouches();
+            MusicPlayer.Open(new Uri("son/musicPrincipale.mp3", UriKind.Relative));
+            MusicPlayer.MediaEnded += (s, e) =>
+            {
+                MusicPlayer.Position = TimeSpan.Zero; // reset
+                MusicPlayer.Play();                  // relance
+            };
+
+            MusicPlayer.Volume = 0.5; // optionnel
+            MusicPlayer.Play();
         }
 
         private void InitTouches()

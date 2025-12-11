@@ -27,39 +27,46 @@ namespace TRAINBattle
         long lastTick = 0;
         private static Personnage p1;
         private static List<Projectils> projectils;
+        //private bool personnagesInitialise = false;
+        private static Personnage[] personnages;
+        private static Personnage[] players;
         
         public UCJeux()
         {
             InitializeComponent();
             CompositionTarget.Rendering += Jeu;
             stopwatch.Start();
-            //InitializeTimer();
-            //Tests de la fonction frame
-            Frame f1 = new Frame("train1/deplacement0.png", 2, 0, 10);
-            //f1.HearthBoxs.Add(new System.Drawing.Rectangle(0, 0, 200, 100));
-            //f1.HearthBoxs.Add(new System.Drawing.Rectangle(0, 100, 50, 50));
-            Frame f2 = new Frame("train1/deplacement1.png", 2, 0, 10);
-            //f2.HearthBoxs.Add(new System.Drawing.Rectangle(0, 0, 200, 100));
-            //f2.HearthBoxs.Add(new System.Drawing.Rectangle(0, 100, 70, 70));
-            //f2.Flip();
-            //f1.Display(canvasJeux, 0, 520);
-            //Test de la fonction animation
-            Animation a1 = new Animation("marche");
-            a1.AddFrame(f1);
-            a1.AddFrame(f2);
-            //a1.Reset();
+            InitialisePersonages();
+            players = new Personnage[2];
+            players[0]=personnages[0];
+            players[1]=personnages[1];
+            ////InitializeTimer();
+            ////Tests de la fonction frame
+            //Frame f1 = new Frame("train1/deplacement0.png", 2, 0, 10);
+            ////f1.HearthBoxs.Add(new System.Drawing.Rectangle(0, 0, 200, 100));
+            ////f1.HearthBoxs.Add(new System.Drawing.Rectangle(0, 100, 50, 50));
+            //Frame f2 = new Frame("train1/deplacement1.png", 2, 0, 10);
+            ////f2.HearthBoxs.Add(new System.Drawing.Rectangle(0, 0, 200, 100));
+            ////f2.HearthBoxs.Add(new System.Drawing.Rectangle(0, 100, 70, 70));
+            ////f2.Flip();
+            ////f1.Display(canvasJeux, 0, 520);
+            ////Test de la fonction animation
+            //Animation a1 = new Animation("marche");
+            //a1.AddFrame(f1);
+            //a1.AddFrame(f2);
+            ////a1.Reset();
 
-            Frame f3 = new Frame("train1/deplacement0.png", 2, 0, 0);
-            Frame f4 = new Frame("train1/deplacement1.png", 2, 0, 0);
-            Animation a2 = new Animation("attente");
-            a2.AddFrame(f3);
-            a2.AddFrame(f4);
-            //a1.Reset();
+            //Frame f3 = new Frame("train1/deplacement0.png", 2, 0, 0);
+            //Frame f4 = new Frame("train1/deplacement1.png", 2, 0, 0);
+            //Animation a2 = new Animation("attente");
+            //a2.AddFrame(f3);
+            //a2.AddFrame(f4);
+            ////a1.Reset();
 
-            p1 = new Personnage(0, 0);
-            p1.AddAnimation("marche", a1);
-            p1.AddAnimation("attente", a2);
-            p1.SetAnimation("attente");
+            //p1 = new Personnage(0, 0);
+            //p1.AddAnimation("marche", a1);
+            //p1.AddAnimation("attente", a2);
+            //p1.SetAnimation("attente");
 
             projectils = new List<Projectils>();
 
@@ -73,6 +80,46 @@ namespace TRAINBattle
             this.KeyUp += UCJeux_KeyUp;
             this.Focusable = true;
 
+        }
+
+        private void InitialisePersonages()
+        {
+            personnages = new Personnage[4] {
+            new Personnage(0, 0),new Personnage(0, 0),new Personnage(0, 0),new Personnage(0, 0)
+            };
+            //for (int i = 0; i < personnages.Length; i++)
+            for (int i = 0; i < 2; i++)
+            {
+                personnages[i].AddAnimation("attente", new Animation("attente"));
+                personnages[i].Animations["attente"].AddFrame(new Frame($"train{i + 1}/deplacement0.png", 2));
+                personnages[i].Animations["attente"].Frames[0].AddHearthbox(0, 0, 180, 100);
+                personnages[i].Animations["attente"].Frames[0].AddHearthbox(0, 100, 100, 50);
+                personnages[i].Animations["attente"].AddFrame(new Frame($"train{i + 1}/deplacement1.png", 2));
+                personnages[i].Animations["attente"].Frames[1].AddHearthbox(0, 0, 180, 100);
+                personnages[i].Animations["attente"].Frames[1].AddHearthbox(0, 100, 100, 50);
+                personnages[i].AddAnimation("marche", new Animation("marche"));
+                personnages[i].Animations["marche"].AddFrame(new Frame($"train{i + 1}/deplacement0.png", 2, 0, 10));
+                personnages[i].Animations["marche"].Frames[0].AddHearthbox(0, 0, 180, 100);
+                personnages[i].Animations["marche"].Frames[0].AddHearthbox(0, 100, 100, 50);
+                personnages[i].Animations["marche"].AddFrame(new Frame($"train{i + 1}/deplacement1.png", 2, 0, 10));
+                personnages[i].Animations["marche"].Frames[1].AddHearthbox(0, 0, 180, 100);
+                personnages[i].Animations["marche"].Frames[1].AddHearthbox(0, 100, 100, 50);
+                personnages[i].AddAnimation("coupleger", new Animation("marche"));
+                personnages[i].Animations["coupleger"].AddFrame(new Frame($"train{i + 1}/deplacement0.png", 5));
+                personnages[i].Animations["coupleger"].Frames[0].AddHearthbox(0, 0, 180, 100);
+                personnages[i].Animations["coupleger"].Frames[0].AddHearthbox(0, 100, 100, 50);
+                personnages[i].Animations["coupleger"].AddFrame(new Frame($"train{i + 1}/deplacement1.png", 4, 5, 0));
+                personnages[i].Animations["coupleger"].Frames[1].AddHearthbox(0, 0, 180, 100);
+                personnages[i].Animations["coupleger"].Frames[1].AddHearthbox(0, 100, 100, 50);
+                personnages[i].Animations["coupleger"].Frames[1].AddHitbox(180, 50, 20, 50);
+                //personnages[i].AddAnimation("attente", new Animation("attente"));
+                //personnages[i].Animations["attente"].AddFrame(new Frame($"train{1}/deplacement0.png", 2));
+                //personnages[i].Animations["attente"].AddFrame(new Frame($"train{1}/deplacement1.png", 2));
+                //personnages[i].AddAnimation("marche", new Animation("marche"));
+                //personnages[i].Animations["marche"].AddFrame(new Frame($"train{1}/deplacement0.png", 2, 0, 10));
+                //personnages[i].Animations["marche"].AddFrame(new Frame($"train{1}/deplacement1.png", 2, 0, 10));
+                
+            }
         }
 
         //private void InitializeTimer()
@@ -111,34 +158,60 @@ namespace TRAINBattle
             //    a1.Reset();
             //}
             //System.Threading.Thread.Sleep(200);
-            p1.Display(canvasJeux, 520);
-            if (!p1.Update())
-                p1.SetAnimation("attente");
+            for (int i = 0; i < 2; i++)
+            {
+                players[i].Display(canvasJeux, 520);
+                if (!players[i].Update())
+                    players[i].SetAnimation("attente");
 
-            foreach (var projectil in projectils) {
+                //for (int i = 0; i < 2; i++)
+                //{
+                //}
+
+                if (MainWindow.TouchesActives[i, 2])
+                {
+                    if (players[i].OrientationDroite)
+                        players[i].Flip();
+
+                    players[i].SetAnimation("marche");
+                }
+                if (MainWindow.TouchesActives[i, 4])
+                {
+                    if (!players[i].OrientationDroite)
+                        players[i].Flip();
+                    players[i].SetAnimation("marche");
+                }
+                if (MainWindow.TouchesActives[i, 7])
+                {
+                    players[i].SetAnimation("coupleger");
+                }
+
+                bool stop = false;
+                foreach (var hitbox in players[i].GetHitboxs())
+                {
+                    foreach (var hearthbox in players[(i+1)%2].GetHearthboxs())
+                    {
+                        if (hitbox.IntersectsWith(hearthbox))
+                        {
+                            Console.WriteLine("Hit");
+                            players[(i + 1) % 2].InfligeDegat(players[i].AnimationCourante.GetCurrentFrame().Puissance);
+                            stop = true; break;
+                        }
+                        if (stop) break;
+                    }
+                }
+
+                players[i].DrawHealthBar(canvasJeux, 300 + i * 480, 50);
+                //players[i].InfligeDegat(1);
+
+            }
+
+            foreach (var projectil in projectils)
+            {
                 if (projectil.Update())
-                projectil.Affiche(canvasJeux, 200);
-            // faudrai les suprimer à l'avenir    
+                    projectil.Affiche(canvasJeux, 200);
+                // faudrai les suprimer à l'avenir    
             }
-
-            //for (int i = 0; i < 2; i++)
-            //{
-            //}
-
-            if (MainWindow.TouchesActives[0, 2])
-            {
-                if (p1.OrientationDroite)
-                    p1.Flip();
-                
-                p1.SetAnimation("marche");
-            }
-            if (MainWindow.TouchesActives[0, 4])
-            {
-                if (!p1.OrientationDroite)
-                    p1.Flip();
-                p1.SetAnimation("marche");
-            }
-
 
         }
 

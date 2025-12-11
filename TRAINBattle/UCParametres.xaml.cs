@@ -36,7 +36,13 @@ namespace TRAINBattle
         private void butSauvegarde_Click(object sender, RoutedEventArgs e)
         {
             MainWindow.VolumeMusique = sliderMusique.Value;
-            MainWindow.VolumeSon = sliderMusique.Value;
+            MainWindow.VolumeSon = sliderSond.Value;
+            Console.WriteLine(MainWindow.VolumeMusique);
+            Console.WriteLine(sliderMusique.Value);
+
+            //MainWindow.MusicPlayer.Stop();
+            MainWindow.MusicPlayer.Volume = MainWindow.VolumeMusique / 100.0;
+            //MainWindow.MusicPlayer.Play();
         }
     }
 }

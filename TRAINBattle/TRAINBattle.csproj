@@ -18,13 +18,23 @@
     <None Remove="img\train1\deplacement0.png" />
     <None Remove="img\train1\deplacement1.png" />
     <None Remove="img\train1\profil.png" />
+    <None Remove="img\train2\base.png" />
+    <None Remove="img\train2\deplacement0.png" />
+    <None Remove="img\train2\deplacement1.png" />
     <None Remove="img\train2\profil.png" />
     <None Remove="img\train3\profil.png" />
     <None Remove="img\train4\profil.png" />
+    <None Remove="son\musicPrincipale.mp3" />
     <None Remove="terrain1.png" />
     <None Remove="terrain2.png" />
     <None Remove="terrain3.png" />
     <None Remove="terrain4.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="son\musicPrincipale.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
@@ -37,6 +47,9 @@
     <Resource Include="img\train1\deplacement0.png" />
     <Resource Include="img\train1\deplacement1.png" />
     <Resource Include="img\train1\profil.png" />
+    <Resource Include="img\train2\base.png" />
+    <Resource Include="img\train2\deplacement0.png" />
+    <Resource Include="img\train2\deplacement1.png" />
     <Resource Include="img\train2\profil.png" />
     <Resource Include="img\train3\profil.png" />
     <Resource Include="img\train4\profil.png" />
