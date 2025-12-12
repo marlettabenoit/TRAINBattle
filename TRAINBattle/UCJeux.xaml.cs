@@ -247,10 +247,6 @@ namespace TRAINBattle
                     vienDeFinir = true;
                 }
 
-                //for (int i = 0; i < 2; i++)
-                //{
-                //}
-
                 if (MainWindow.TouchesActives[i, 1])
                 {
                     if (vienDeFinir)
