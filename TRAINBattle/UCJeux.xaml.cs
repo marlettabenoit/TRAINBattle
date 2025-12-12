@@ -186,7 +186,12 @@ namespace TRAINBattle
                     players[i].SetAnimation("coupleger");
                 }
 
-                bool stop = false;
+                if (MainWindow.TouchesActives[i, 3])
+                {
+                    players[i].Jump();
+                }
+
+                    bool stop = false;
                 foreach (var hitbox in players[i].GetHitboxs())
                 {
                     foreach (var hearthbox in players[(i+1)%2].GetHearthboxs())
