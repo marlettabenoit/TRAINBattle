@@ -6,11 +6,24 @@
              xmlns:local="clr-namespace:TRAINBattle"
              mc:Ignorable="d" 
              d:DesignHeight="720" d:DesignWidth="1280">
-    <Grid x:Name="gridButons">
+    <Grid>
         <Rectangle Fill="White" />
         <Button x:Name="butRetour" Content="Retour" Width="50" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Label x:Name="labAide" Content="Choix Touche" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,32,0,0" VerticalAlignment="Top" Width="600" Height="46" Background="#FFD8D7D7" FontSize="22"/>
 
+        <Grid x:Name="gridParent" Margin="100,200,100,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel x:Name="stackGauche" Grid.Column="0" Orientation="Vertical"/>
+            <StackPanel x:Name="stackDroite" Grid.Column="1" Orientation="Vertical"/>
+        </Grid>
+
+
+
+        <!--
         <Button x:Name="butFleche" Content="&lt;" HorizontalAlignment="Left" Margin="118,145,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="64" Width="64" FontSize="32" Background="#FFD8D7D7"/>
         <Label Content="Inutile" HorizontalAlignment="Left" Margin="200,150,0,0" VerticalAlignment="Top" Height="54" Width="102" FontSize="32"/>
 
@@ -46,7 +59,7 @@
 
         <Button x:Name="butMaj" Content="Maj" HorizontalAlignment="Right" Margin="918,645,118,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="64" Width="64" FontSize="32" Background="#FFD8D7D7"/>
         <Label Content="Inutile" HorizontalAlignment="Right" Margin="0,650,200,0" VerticalAlignment="Top" Height="54" Width="102" FontSize="32"/>
-
+-->
 
 
     </Grid>

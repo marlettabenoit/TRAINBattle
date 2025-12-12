@@ -24,7 +24,19 @@ namespace TRAINBattle
         public UCParametres()
         {
             InitializeComponent();
-            
+
+            butPlayer1.Click += ClickButPlayer;
+            butPlayer2.Click += ClickButPlayer;
+
+        }
+
+        private void ClickButPlayer(object sender, RoutedEventArgs e)
+        {
+            Button btn = (Button)sender;
+            if (btn.Content.ToString().Contains("1"))
+                MainWindow.PlayerTouchesModifie = 0;
+            if (btn.Content.ToString().Contains("2"))
+                MainWindow.PlayerTouchesModifie = 1;
         }
 
         private void butReset_Click(object sender, RoutedEventArgs e)

@@ -19,7 +19,7 @@ namespace TRAINBattle
         public static double VolumeSon { get; set; }
         public static double VolumeMusique { get; set; }
         public static MediaPlayer MusicPlayer = new MediaPlayer();
-
+        public static int PlayerTouchesModifie = 0; // Contien le numero du joueur dont on modifie les touches
 
         public static Key[,] Touches { get; set; } = new Key[2, 12];
         public static Key[,] TouchesParDefaut { get; set; } = new Key[2, 12];
@@ -94,6 +94,7 @@ namespace TRAINBattle
             uc.butPlayer1.Click += AfficherChoixTouches;
             uc.butPlayer2.Click += AfficherChoixTouches;
         }
+        
         private void AfficherAide(object sender, RoutedEventArgs e)
         {
             UCAide uc = new UCAide();
