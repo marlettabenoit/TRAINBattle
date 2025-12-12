@@ -36,7 +36,6 @@ namespace TRAINBattle
                 MusicPlayer.Position = TimeSpan.Zero; // reset
                 MusicPlayer.Play();                  // relance
             };
-
             MusicPlayer.Volume = 0.5; // optionnel
             MusicPlayer.Play();
         }
