@@ -23,6 +23,22 @@ namespace TRAINBattle
         public UCChoixTouches()
         {
             InitializeComponent();
+
+            foreach (var item in gridButons.Children)
+            {
+                if (item is Button) {
+                    Button btn = (Button)item;
+                    if (btn != butRetour)
+                    btn.Click += ClickButton;
+                }
+            }
+        }
+
+        private void ClickButton(object sender, RoutedEventArgs e)
+        {
+            ChangementTouche changementToucheWindow = new ChangementTouche();
+            bool? reponse = changementToucheWindow.ShowDialog();
+
         }
     }
 }

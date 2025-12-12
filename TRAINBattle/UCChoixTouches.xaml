@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:TRAINBattle"
              mc:Ignorable="d" 
              d:DesignHeight="720" d:DesignWidth="1280">
-    <Grid>
+    <Grid x:Name="gridButons">
         <Rectangle Fill="White" />
         <Button x:Name="butRetour" Content="Retour" Width="50" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Label x:Name="labAide" Content="Choix Touche" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,32,0,0" VerticalAlignment="Top" Width="600" Height="46" Background="#FFD8D7D7" FontSize="22"/>

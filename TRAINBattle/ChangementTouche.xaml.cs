@@ -25,8 +25,14 @@ namespace TRAINBattle
             for (int i = 0; i < MainWindow.Touches.GetLength(1); i++) {
                 Button button = new Button();
                 button.Content = MainWindow.Touches[0,i].ToString();
+                button.Click += AppuiSurTouche;
                 stackTouches.Children.Add(button);
             }
+        }
+
+        private void AppuiSurTouche(object sender, RoutedEventArgs e)
+        {
+            this.DialogResult = true;
         }
     }
 }
