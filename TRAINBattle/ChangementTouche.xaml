@@ -1,0 +1,17 @@
+﻿<Window x:Class="TRAINBattle.ChangementTouche"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TRAINBattle"
+        mc:Ignorable="d"
+        Title="ChangementTouche" Height="720" Width="400">
+
+    <Grid>
+        <Label Content="Nouvelle touche" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0" FontSize="24"></Label>
+    <StackPanel x:Name="stackTouches" Margin="20,100,20,20">
+                
+    </StackPanel>
+    </Grid>
+
+</Window>
