@@ -19,12 +19,15 @@ namespace TRAINBattle
         public Dictionary<string, Animation> Animations { get; private set; }
         public Animation AnimationCourante { get; private set; }
         public int Vie {  get; set; }
+        public double AccelerationY { get; set; }
 
+        public bool AuSol { get; set; } = true;
         // Constructeur
         public Personnage(int x, int y)
         {
             X = x;
             Y = y;
+            AccelerationY = 0; 
             Animations = new Dictionary<string, Animation>();
             Vie = 100;
         }
@@ -100,7 +103,42 @@ namespace TRAINBattle
                 X = Math.Min(Math.Max(0, X), 1280 - ((BitmapImage)AnimationCourante.GetCurrentFrame().Image.Source).PixelWidth);
             }
 
+            //for (int i = 0; i < 2; i++)
+            //{
+            //    if (MainWindow.TouchesActives[i, 3])
+            //    {
+
+            //    }
+
+            //}
+
+            Console.WriteLine($"y{Y}accy{AccelerationY}");
+            Y += (int)AccelerationY;
+            if (!AuSol)
+            {
+                AccelerationY -= 2;
+                if (Y <= 0)
+                {
+                    AuSol = true;
+                    Y=0;
+                    AccelerationY=0;
+                }
+            }
+            else
+            {
+            }
+
             return AnimationCourante.IsPlaying;
+        }
+
+        public void Jump()
+        {
+            if ( AuSol)
+            {
+                AccelerationY = 25;
+                AuSol = false;
+
+            }
         }
 
         // Tourner le personnage (droite ↔ gauche)
