@@ -20,7 +20,7 @@ namespace TRAINBattle
         public Animation AnimationCourante { get; private set; }
         public int Vie {  get; set; }
         public double AccelerationY { get; set; }
-
+        public int StoneTime { get; set; } = 0;
         public bool AuSol { get; set; } = true;
         // Constructeur
         public Personnage(int x, int y)
@@ -32,9 +32,12 @@ namespace TRAINBattle
             Vie = 100;
         }
 
-        public void InfligeDegat(int n)
+        public void InfligeDegat(int n, int stun)
         {
+            //Console.WriteLine(stun);
             Vie -= n;
+            StoneTime = stun;
+            SetAnimation("attente");
         }
 
         public System.Drawing.Rectangle[] GetHitboxs()
@@ -95,6 +98,8 @@ namespace TRAINBattle
         // renvoi false si animation fini
         public bool Update()
         {
+            if (StoneTime > 0) { StoneTime --; return true; }
+
             if (AnimationCourante is null) return false;
             X += AnimationCourante.GetCurrentFrame().DeplacementX;
             AnimationCourante.Update();

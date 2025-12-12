@@ -31,6 +31,11 @@ namespace TRAINBattle
             IsPlaying = false;
         }
 
+        public int TimeFrameRestant() // renvoi le temps restant de la frame
+        {
+            return GetCurrentFrame().Duree - CurrentFrame;
+        }
+
         // Ajouter un frame
         public void AddFrame(Frame f)
         {

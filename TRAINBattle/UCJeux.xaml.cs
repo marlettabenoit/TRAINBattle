@@ -116,7 +116,7 @@ namespace TRAINBattle
                 personnages[i].Animations["coupleger"].AddFrame(new Frame($"train{i + 1}/poing1.png", 2));
                 personnages[i].Animations["coupleger"].Frames[1].AddHearthbox(0, 0, 180, 100);
                 personnages[i].Animations["coupleger"].Frames[1].AddHearthbox(0, 100, 100, 50);
-                personnages[i].Animations["coupleger"].AddFrame(new Frame($"train{i + 1}/poing2.png", 1, 5, 0));
+                personnages[i].Animations["coupleger"].AddFrame(new Frame($"train{i + 1}/poing2.png", 1, 3, 0));
                 personnages[i].Animations["coupleger"].Frames[2].AddHearthbox(0, 0, 180, 100);
                 personnages[i].Animations["coupleger"].Frames[2].AddHearthbox(0, 100, 100, 50);
                 personnages[i].Animations["coupleger"].Frames[2].AddHitbox(204, 68, 28, 32);
@@ -166,7 +166,7 @@ namespace TRAINBattle
                 personnages[i].Animations["saisie"].Frames[5].AddHearthbox(0, 0, 180, 100);
                 personnages[i].Animations["saisie"].Frames[5].AddHearthbox(0, 100, 100, 50);
                 personnages[i].Animations["saisie"].Frames[5].Type = "grab";
-                personnages[i].Animations["saisie"].AddFrame(new Frame($"train{i + 1}/grab6.png", 2));
+                personnages[i].Animations["saisie"].AddFrame(new Frame($"train{i + 1}/grab6.png", 2, 10, 0));
                 personnages[i].Animations["saisie"].Frames[6].AddHearthbox(0, 0, 180, 100);
                 personnages[i].Animations["saisie"].Frames[6].AddHearthbox(0, 100, 100, 50);
                 personnages[i].Animations["saisie"].Frames[6].AddHitbox(225, 39, 24, 36);
@@ -308,11 +308,14 @@ namespace TRAINBattle
                 {
                     foreach (var hitbox in players[i].GetHitboxs())
                     {
+                        //Console.WriteLine(players[(i + 1) % 2].StoneTime);
+                        if (players[(i + 1) % 2].StoneTime > 0) break;
                         foreach (var hearthbox in players[(i + 1) % 2].GetHearthboxs())
                         {
                             if (hitbox.IntersectsWith(hearthbox))
                             {
-                                players[(i + 1) % 2].InfligeDegat(players[i].AnimationCourante.GetCurrentFrame().Puissance);
+
+                                players[(i + 1) % 2].InfligeDegat(players[i].AnimationCourante.GetCurrentFrame().Puissance, players[i].AnimationCourante.TimeFrameRestant());
                                 if (players[i].AnimationCourante.GetCurrentFrame().Type == "grab")
                                 {
                                     players[(i + 1) % 2].Flip();
