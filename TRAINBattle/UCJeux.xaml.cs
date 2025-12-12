@@ -171,6 +171,25 @@ namespace TRAINBattle
                 personnages[i].Animations["saisie"].Frames[6].AddHearthbox(0, 100, 100, 50);
                 personnages[i].Animations["saisie"].Frames[6].AddHitbox(225, 39, 24, 36);
                 personnages[i].Animations["saisie"].Frames[6].Type = "grab";
+                // dash 10-0-0 => 10
+                personnages[i].AddAnimation("dash", new Animation("dash"));
+                personnages[i].Animations["dash"].AddFrame(new Frame($"train{i + 1}/dash0.png", 1, 0, 2));
+                personnages[i].Animations["dash"].Frames[0].AddHearthbox(0, 0, 180, 100);
+                personnages[i].Animations["dash"].Frames[0].AddHearthbox(0, 100, 100, 50);
+                personnages[i].Animations["dash"].AddFrame(new Frame($"train{i + 1}/dash1.png", 1, 0, 5));
+                personnages[i].Animations["dash"].Frames[1].AddHearthbox(0, 0, 180, 100);
+                personnages[i].Animations["dash"].Frames[1].AddHearthbox(0, 100, 100, 50);
+                personnages[i].Animations["dash"].AddFrame(new Frame($"train{i + 1}/dash2.png", 1, 0, 8));
+                personnages[i].Animations["dash"].Frames[2].AddHearthbox(0, 0, 180, 100);
+                personnages[i].Animations["dash"].Frames[2].AddHearthbox(0, 100, 100, 50);
+                personnages[i].Animations["dash"].AddFrame(new Frame($"train{i + 1}/dash3.png", 2, 5, 15));
+                personnages[i].Animations["dash"].Frames[3].AddHearthbox(0, 0, 180, 100);
+                personnages[i].Animations["dash"].Frames[3].AddHearthbox(0, 100, 100, 50);
+                personnages[i].Animations["dash"].Frames[3].Type = "protect";
+                personnages[i].Animations["dash"].AddFrame(new Frame($"train{i + 1}/dash4.png", 3, 8, 25));
+                personnages[i].Animations["dash"].Frames[4].AddHearthbox(0, 0, 180, 100);
+                personnages[i].Animations["dash"].Frames[4].AddHearthbox(0, 100, 100, 50);
+                personnages[i].Animations["dash"].Frames[4].Type = "protect";
 
 
                 //personnages[i].AddAnimation("attente", new Animation("attente"));
@@ -232,6 +251,14 @@ namespace TRAINBattle
                 //{
                 //}
 
+                if (MainWindow.TouchesActives[i, 1])
+                {
+                    if (vienDeFinir)
+                    {
+                        players[i].SetAnimation("dash");
+                        vienDeFinir = false;
+                    }
+                }
                 if (MainWindow.TouchesActives[i, 2])
                 {
                     if (vienDeFinir) {
