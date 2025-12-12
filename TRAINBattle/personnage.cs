@@ -112,7 +112,7 @@ namespace TRAINBattle
 
             //}
 
-            Console.WriteLine($"y{Y}accy{AccelerationY}");
+            //Console.WriteLine($"y{Y}accy{AccelerationY}");
             Y += (int)AccelerationY;
             if (!AuSol)
             {

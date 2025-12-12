@@ -16,7 +16,7 @@ namespace TRAINBattle
         public Image Image { get; set; }
         public bool IsFlipped { get; private set; } = false;
         public int DeplacementX {  get; set; } = 0;
-
+        public string Type { get; set; } = "base";
 
         // Champ puissance avec encapsulation
         private int puissance;

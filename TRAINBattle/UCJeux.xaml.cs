@@ -40,6 +40,8 @@ namespace TRAINBattle
             players = new Personnage[2];
             players[0]=personnages[0];
             players[1]=personnages[1];
+            players[0].SetAnimation("attente");
+            players[1].SetAnimation("attente");
             ////InitializeTimer();
             ////Tests de la fonction frame
             //Frame f1 = new Frame("train1/deplacement0.png", 2, 0, 10);
@@ -105,20 +107,46 @@ namespace TRAINBattle
                 personnages[i].Animations["marche"].Frames[1].AddHearthbox(0, 0, 180, 100);
                 personnages[i].Animations["marche"].Frames[1].AddHearthbox(0, 100, 100, 50);
                 personnages[i].AddAnimation("coupleger", new Animation("marche"));
-                personnages[i].Animations["coupleger"].AddFrame(new Frame($"train{i + 1}/deplacement0.png", 5));
+                personnages[i].Animations["coupleger"].AddFrame(new Frame($"train{i + 1}/poing0.png", 3));
                 personnages[i].Animations["coupleger"].Frames[0].AddHearthbox(0, 0, 180, 100);
                 personnages[i].Animations["coupleger"].Frames[0].AddHearthbox(0, 100, 100, 50);
-                personnages[i].Animations["coupleger"].AddFrame(new Frame($"train{i + 1}/deplacement1.png", 4, 5, 0));
+                personnages[i].Animations["coupleger"].AddFrame(new Frame($"train{i + 1}/poing1.png", 2));
                 personnages[i].Animations["coupleger"].Frames[1].AddHearthbox(0, 0, 180, 100);
                 personnages[i].Animations["coupleger"].Frames[1].AddHearthbox(0, 100, 100, 50);
-                personnages[i].Animations["coupleger"].Frames[1].AddHitbox(180, 50, 20, 50);
+                personnages[i].Animations["coupleger"].AddFrame(new Frame($"train{i + 1}/poing2.png", 1, 5, 0));
+                personnages[i].Animations["coupleger"].Frames[2].AddHearthbox(0, 0, 180, 100);
+                personnages[i].Animations["coupleger"].Frames[2].AddHearthbox(0, 100, 100, 50);
+                personnages[i].Animations["coupleger"].Frames[2].AddHitbox(204, 68, 28, 32);
+                personnages[i].Animations["coupleger"].AddFrame(new Frame($"train{i + 1}/poing3.png", 2, 5, 0));
+                personnages[i].Animations["coupleger"].Frames[3].AddHearthbox(0, 0, 180, 100);
+                personnages[i].Animations["coupleger"].Frames[3].AddHearthbox(0, 100, 100, 50);
+                personnages[i].Animations["coupleger"].Frames[3].AddHitbox(216, 68, 28, 32);
+                personnages[i].AddAnimation("bouclier", new Animation("bouclier"));
+                personnages[i].Animations["bouclier"].AddFrame(new Frame($"train{i + 1}/bouclier0.png", 1));
+                personnages[i].Animations["bouclier"].Frames[0].AddHearthbox(0, 0, 180, 100);
+                personnages[i].Animations["bouclier"].Frames[0].AddHearthbox(0, 100, 100, 50);
+                personnages[i].Animations["bouclier"].AddFrame(new Frame($"train{i + 1}/bouclier1.png", 2));
+                personnages[i].Animations["bouclier"].Frames[1].AddHearthbox(0, 0, 180, 100);
+                personnages[i].Animations["bouclier"].Frames[1].AddHearthbox(0, 100, 100, 50);
+                personnages[i].Animations["bouclier"].AddFrame(new Frame($"train{i + 1}/bouclier2.png", 1, 5, 0));
+                personnages[i].Animations["bouclier"].Frames[2].AddHearthbox(0, 0, 180, 100);
+                personnages[i].Animations["bouclier"].Frames[2].AddHearthbox(0, 100, 100, 50);
+                personnages[i].Animations["bouclier"].AddFrame(new Frame($"train{i + 1}/bouclier3.png", 2, 5, 0));
+                personnages[i].Animations["bouclier"].Frames[3].AddHearthbox(0, 0, 180, 100);
+                personnages[i].Animations["bouclier"].Frames[3].AddHearthbox(0, 100, 100, 50);
+                personnages[i].Animations["bouclier"].Frames[3].Type = "protect";
+                personnages[i].Animations["bouclier"].AddFrame(new Frame($"train{i + 1}/bouclier4.png", 2, 5, 0));
+                personnages[i].Animations["bouclier"].Frames[4].AddHearthbox(0, 0, 180, 100);
+                personnages[i].Animations["bouclier"].Frames[4].AddHearthbox(0, 100, 100, 50);
+                personnages[i].Animations["bouclier"].Frames[4].Type = "protect";
+
                 //personnages[i].AddAnimation("attente", new Animation("attente"));
                 //personnages[i].Animations["attente"].AddFrame(new Frame($"train{1}/deplacement0.png", 2));
                 //personnages[i].Animations["attente"].AddFrame(new Frame($"train{1}/deplacement1.png", 2));
                 //personnages[i].AddAnimation("marche", new Animation("marche"));
                 //personnages[i].Animations["marche"].AddFrame(new Frame($"train{1}/deplacement0.png", 2, 0, 10));
                 //personnages[i].Animations["marche"].AddFrame(new Frame($"train{1}/deplacement1.png", 2, 0, 10));
-                
+
             }
         }
 
@@ -161,8 +189,11 @@ namespace TRAINBattle
             for (int i = 0; i < 2; i++)
             {
                 players[i].Display(canvasJeux, 520);
+                bool vienDeFinir = false;
                 if (!players[i].Update())
-                    players[i].SetAnimation("attente");
+                {
+                    vienDeFinir = true;
+                }
 
                 //for (int i = 0; i < 2; i++)
                 //{
@@ -185,27 +216,54 @@ namespace TRAINBattle
                 {
                     players[i].SetAnimation("coupleger");
                 }
+                if (MainWindow.TouchesActives[i, 9])
+                {
+                    if (vienDeFinir)
+                    {
+                        if (players[i].AnimationCourante.Name == "bouclier")
+                        {
+                            players[i].AnimationCourante.IsPlaying = true;
+                            players[i].AnimationCourante.IndexFrameActuel -= 1;
+                            Console.WriteLine("here");
+                        }
+                        else
+                        {
+                            players[i].SetAnimation("bouclier");
+                        }
+                        vienDeFinir = false;
+                    }
+                    //if (players[i].AnimationCourante.)
+                }
 
                 if (MainWindow.TouchesActives[i, 3])
                 {
                     players[i].Jump();
                 }
 
-                    bool stop = false;
-                foreach (var hitbox in players[i].GetHitboxs())
+                if (vienDeFinir)
                 {
-                    foreach (var hearthbox in players[(i+1)%2].GetHearthboxs())
-                    {
-                        if (hitbox.IntersectsWith(hearthbox))
-                        {
-                            Console.WriteLine("Hit");
-                            players[(i + 1) % 2].InfligeDegat(players[i].AnimationCourante.GetCurrentFrame().Puissance);
-                            stop = true; break;
-                        }
-                        if (stop) break;
-                    }
+                    players[i].SetAnimation("attente");
                 }
 
+                bool stop = false;
+
+                //players[(i + 1) % 2].AnimationCourante.GetCurrentFrame();
+
+                if (players[(i+1)%2].AnimationCourante.GetCurrentFrame().Type == "base" || players[(i + 1) % 2].AnimationCourante.GetCurrentFrame().Type == "grab" || players[i].AnimationCourante.GetCurrentFrame().Type == "grab")
+                {
+                    foreach (var hitbox in players[i].GetHitboxs())
+                    {
+                        foreach (var hearthbox in players[(i + 1) % 2].GetHearthboxs())
+                        {
+                            if (hitbox.IntersectsWith(hearthbox))
+                            {
+                                players[(i + 1) % 2].InfligeDegat(players[i].AnimationCourante.GetCurrentFrame().Puissance);
+                                stop = true; break;
+                            }
+                            if (stop) break;
+                        }
+                    }
+                }
                 players[i].DrawHealthBar(canvasJeux, 300 + i * 480, 50);
                 //players[i].InfligeDegat(1);
 
