@@ -50,6 +50,10 @@ namespace TRAINBattle
 
         }
 
+        public void Flip()
+        {
+            Image.LayoutTransform = new ScaleTransform(-1, 1);
+        }
 
         // 
         public bool Update()

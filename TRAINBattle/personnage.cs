@@ -111,6 +111,17 @@ namespace TRAINBattle
                     Projectils projectil = AnimationCourante.GetCurrentFrame().GetProjectil();
                     projectil.X += X;
                     projectil.Y += Y;
+                    if (OrientationDroite)
+                    {
+                        projectil.X += ((BitmapImage)AnimationCourante.GetCurrentFrame().Image.Source).PixelWidth
+                            -50; // Valeur arbitraire car les trains font rarement toute l'image
+                    }
+                    else
+                    {
+                        projectil.Flip();
+                        projectil.DirX *= -1;
+                        projectil.X += 50 - ((BitmapImage)projectil.Image.Source).PixelWidth; // meme raison
+                    }
                     ProjectilsEnJeu.Add(projectil);
 
                 }
