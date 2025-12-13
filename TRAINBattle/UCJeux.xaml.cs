@@ -30,6 +30,7 @@ namespace TRAINBattle
         private static Personnage[] personnages;
         private static Personnage[] players;
         private static List<Projectils> ProjectilsEnJeu;
+        private static Bot bot; 
         public UCJeux()
         {
             InitializeComponent();
@@ -40,8 +41,12 @@ namespace TRAINBattle
             players = new Personnage[2];
             players[0]=personnages[0];
             players[1]=personnages[1];
+            bot = new Bot(players[1], players[0]);
             players[0].Number = 0;
             players[1].Number = 1;
+            personnages[0].X=50;
+            personnages[1].X=975;
+            personnages[1].Flip();
             players[0].SetAnimation("attente");
             players[1].SetAnimation("attente");
             ////InitializeTimer();
@@ -245,6 +250,8 @@ namespace TRAINBattle
             this.Focus();
             Keyboard.Focus(this);
             canvasJeux.Children.Clear();
+
+            bot.Update();
 
             //a1.GetCurrentFrame().Display(canvasJeux, 0, 520);
             //a1.Update();
