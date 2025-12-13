@@ -26,16 +26,16 @@ namespace TRAINBattle
         Stopwatch stopwatch = new Stopwatch();
         long lastTick = 0;
         private static Personnage p1;
-        private static List<Projectils> projectils;
         //private bool personnagesInitialise = false;
         private static Personnage[] personnages;
         private static Personnage[] players;
-        
+        private static List<Projectils> ProjectilsEnJeu;
         public UCJeux()
         {
             InitializeComponent();
             CompositionTarget.Rendering += Jeu;
             stopwatch.Start();
+            ProjectilsEnJeu = new List<Projectils>();
             InitialisePersonages();
             players = new Personnage[2];
             players[0]=personnages[0];
@@ -70,12 +70,6 @@ namespace TRAINBattle
             //p1.AddAnimation("attente", a2);
             //p1.SetAnimation("attente");
 
-            projectils = new List<Projectils>();
-
-            Projectils pr1 = new Projectils("train1/profil.png", 200, 50, 1, 0.1, 1000, 12, true);
-            projectils.Add(pr1);
-            //Projectils pr2 = new Projectils("train1/profil.png", 200, 0, 1, 0, 1000, 12, false);
-            //projectils.Add(pr2);
 
             this.Loaded += UCJeux_Loaded;
             this.KeyDown += UCJeux_KeyDown;
@@ -182,14 +176,29 @@ namespace TRAINBattle
                 personnages[i].Animations["dash"].AddFrame(new Frame($"train{i + 1}/dash2.png", 1, 0, 8));
                 personnages[i].Animations["dash"].Frames[2].AddHearthbox(0, 0, 180, 100);
                 personnages[i].Animations["dash"].Frames[2].AddHearthbox(0, 100, 100, 50);
-                personnages[i].Animations["dash"].AddFrame(new Frame($"train{i + 1}/dash3.png", 2, 5, 15));
+                personnages[i].Animations["dash"].AddFrame(new Frame($"train{i + 1}/dash3.png", 2, 3, 15));
                 personnages[i].Animations["dash"].Frames[3].AddHearthbox(0, 0, 180, 100);
                 personnages[i].Animations["dash"].Frames[3].AddHearthbox(0, 100, 100, 50);
+                personnages[i].Animations["dash"].Frames[3].AddHitbox(200, 3, 52, 60);
                 personnages[i].Animations["dash"].Frames[3].Type = "protect";
-                personnages[i].Animations["dash"].AddFrame(new Frame($"train{i + 1}/dash4.png", 3, 8, 25));
+                personnages[i].Animations["dash"].AddFrame(new Frame($"train{i + 1}/dash4.png", 3, 4, 25));
                 personnages[i].Animations["dash"].Frames[4].AddHearthbox(0, 0, 180, 100);
                 personnages[i].Animations["dash"].Frames[4].AddHearthbox(0, 100, 100, 50);
+                personnages[i].Animations["dash"].Frames[4].AddHitbox(200, 3, 52, 60);
                 personnages[i].Animations["dash"].Frames[4].Type = "protect";
+                // tirleger 2-1-2 => 5
+                personnages[i].AddAnimation("tirleger", new Animation("tirleger"));
+                personnages[i].Animations["tirleger"].AddFrame(new Frame($"train{i + 1}/deplacement0.png", 2));
+                personnages[i].Animations["tirleger"].Frames[0].AddHearthbox(0, 0, 180, 100);
+                personnages[i].Animations["tirleger"].Frames[0].AddHearthbox(0, 100, 100, 50);
+                personnages[i].Animations["tirleger"].AddFrame(new Frame($"train{i + 1}/deplacement0.png", 1));
+                personnages[i].Animations["tirleger"].Frames[1].AddHearthbox(0, 0, 180, 100);
+                personnages[i].Animations["tirleger"].Frames[1].AddHearthbox(0, 100, 100, 50);
+                personnages[i].Animations["tirleger"].Frames[1].AddProjectile("train1/deplacement1.png", 0, 0, 1, 0, 300, 3, false);
+
+                personnages[i].Animations["tirleger"].AddFrame(new Frame($"train{i + 1}/deplacement0.png", 2));
+                personnages[i].Animations["tirleger"].Frames[2].AddHearthbox(0, 0, 180, 100);
+                personnages[i].Animations["tirleger"].Frames[2].AddHearthbox(0, 100, 100, 50);
 
 
                 //personnages[i].AddAnimation("attente", new Animation("attente"));
@@ -225,6 +234,9 @@ namespace TRAINBattle
             lastTick = now;
             //double dt = delta / 1000.0; // en secondes
 
+#if DEBUG
+            Console.WriteLine(delta);
+#endif
             // remet le focus sur le jeu
             this.Focus();
             Keyboard.Focus(this);
@@ -242,7 +254,7 @@ namespace TRAINBattle
             {
                 players[i].Display(canvasJeux, 520);
                 bool vienDeFinir = false;
-                if (!players[i].Update())
+                if (!players[i].Update(ProjectilsEnJeu))
                 {
                     vienDeFinir = true;
                 }
@@ -283,6 +295,14 @@ namespace TRAINBattle
                     if (vienDeFinir)
                     {
                         players[i].SetAnimation("coupleger");
+                        vienDeFinir = false;
+                    }
+                }
+                if (MainWindow.TouchesActives[i, 8])
+                {
+                    if (vienDeFinir)
+                    {
+                        players[i].SetAnimation("tirleger");
                         vienDeFinir = false;
                     }
                 }
@@ -327,7 +347,8 @@ namespace TRAINBattle
 
                 //players[(i + 1) % 2].AnimationCourante.GetCurrentFrame();
 
-                if (players[(i+1)%2].AnimationCourante.GetCurrentFrame().Type == "base" || players[(i + 1) % 2].AnimationCourante.GetCurrentFrame().Type == "grab" || players[i].AnimationCourante.GetCurrentFrame().Type == "grab")
+                //if (players[(i + 1) % 2].AnimationCourante.GetCurrentFrame().Type == "base" || players[(i + 1) % 2].AnimationCourante.GetCurrentFrame().Type == "grab" || players[i].AnimationCourante.GetCurrentFrame().Type == "grab")
+                if (players[(i+1)%2].AnimationCourante.GetCurrentFrame().Type != "protect"  || players[i].AnimationCourante.GetCurrentFrame().Type == "grab")
                 {
                     foreach (var hitbox in players[i].GetHitboxs())
                     {
@@ -354,11 +375,15 @@ namespace TRAINBattle
 
             }
 
-            foreach (var projectil in projectils)
+            foreach (var projectil in ProjectilsEnJeu.ToList()) // le tolist fait qu'on ne modif pas la liste pendent le foreach
             {
                 if (projectil.Update())
                     projectil.Affiche(canvasJeux, 200);
-                // faudrai les suprimer à l'avenir    
+                else
+                {
+
+                    ProjectilsEnJeu.Remove(projectil);
+                }
             }
 
         }

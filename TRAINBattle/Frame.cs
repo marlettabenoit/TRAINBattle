@@ -17,6 +17,7 @@ namespace TRAINBattle
         public bool IsFlipped { get; private set; } = false;
         public int DeplacementX {  get; set; } = 0;
         public string Type { get; set; } = "base";
+        public (string imagePath, int x, int y, double dirX, double dirY, double speed, int damage, bool enCloche) ProjecInfo { get; set; }
 
         // Champ puissance avec encapsulation
         private int puissance;
@@ -60,6 +61,19 @@ namespace TRAINBattle
             Puissance = puissance;
             DeplacementX = deplacementX;
         }
+
+        public void AddProjectile(string imagePath, int x, int y, double dirX, double dirY, double speed, int damage, bool enCloche)
+        {
+            ProjecInfo = (imagePath, x, y, dirX, dirY, speed, damage, enCloche);
+            Type = "tir";
+        }
+
+        // renvoi un nouveau projectil defini au préalable
+        public Projectils GetProjectil()
+        {
+            return new Projectils(ProjecInfo.imagePath, ProjecInfo.x, ProjecInfo.y, ProjecInfo.dirX, ProjecInfo.dirY, ProjecInfo.speed, ProjecInfo.damage, ProjecInfo.enCloche);
+        }
+
         public Frame(string imagePath, int duree)
             : this(imagePath, duree, 0, 0)
         {

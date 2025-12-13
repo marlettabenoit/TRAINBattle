@@ -96,7 +96,7 @@ namespace TRAINBattle
 
         // Mise à jour (pour faire avancer l'animation)
         // renvoi false si animation fini
-        public bool Update()
+        public bool Update(List<Projectils> ProjectilsEnJeu)
         {
             if (StoneTime > 0) { StoneTime --; return true; }
 
@@ -106,6 +106,14 @@ namespace TRAINBattle
             if (AnimationCourante.IsPlaying)
             {
                 X = Math.Min(Math.Max(0, X), 1280 - ((BitmapImage)AnimationCourante.GetCurrentFrame().Image.Source).PixelWidth);
+                if (AnimationCourante.GetCurrentFrame().Type == "tir")
+                {
+                    Projectils projectil = AnimationCourante.GetCurrentFrame().GetProjectil();
+                    projectil.X += X;
+                    projectil.Y += Y;
+                    ProjectilsEnJeu.Add(projectil);
+
+                }
             }
 
             //for (int i = 0; i < 2; i++)
