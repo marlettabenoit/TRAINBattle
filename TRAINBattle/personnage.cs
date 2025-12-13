@@ -22,6 +22,7 @@ namespace TRAINBattle
         public double AccelerationY { get; set; }
         public int StoneTime { get; set; } = 0;
         public bool AuSol { get; set; } = true;
+        public int Number { get; set; } = -1; // sorte d'ID
         // Constructeur
         public Personnage(int x, int y)
         {
@@ -111,6 +112,7 @@ namespace TRAINBattle
                     Projectils projectil = AnimationCourante.GetCurrentFrame().GetProjectil();
                     projectil.X += X;
                     projectil.Y += Y;
+                    projectil.OwnerNumber = Number;
                     if (OrientationDroite)
                     {
                         projectil.X += ((BitmapImage)AnimationCourante.GetCurrentFrame().Image.Source).PixelWidth

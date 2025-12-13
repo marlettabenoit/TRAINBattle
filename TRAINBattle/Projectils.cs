@@ -28,6 +28,7 @@ namespace TRAINBattle
         public Image Image { get; set; }
 
         public bool EnCloche { get; set; }
+        public int OwnerNumber { get; set; }
 
         public Projectils(string imagePath, int x, int y, double dirX, double dirY, double speed, int damage, bool enCloche)
         {
@@ -48,6 +49,16 @@ namespace TRAINBattle
             Image.Width = ((BitmapImage)Image.Source).PixelWidth;
             Image.Height = ((BitmapImage)Image.Source).PixelHeight;
 
+        }
+
+        public System.Drawing.Rectangle GetHitbox()
+        {
+            System.Drawing.Rectangle hitbox = new System.Drawing.Rectangle(
+                X,
+                Y,
+                ((BitmapImage)Image.Source).PixelWidth,
+                ((BitmapImage)Image.Source).PixelHeight);
+            return hitbox;
         }
 
         public void Flip()

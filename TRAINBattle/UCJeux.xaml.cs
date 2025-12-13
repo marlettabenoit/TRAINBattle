@@ -40,6 +40,8 @@ namespace TRAINBattle
             players = new Personnage[2];
             players[0]=personnages[0];
             players[1]=personnages[1];
+            players[0].Number = 0;
+            players[1].Number = 1;
             players[0].SetAnimation("attente");
             players[1].SetAnimation("attente");
             ////InitializeTimer();
@@ -132,11 +134,13 @@ namespace TRAINBattle
                 personnages[i].Animations["bouclier"].AddFrame(new Frame($"train{i + 1}/bouclier3.png", 1));
                 personnages[i].Animations["bouclier"].Frames[3].AddHearthbox(0, 0, 180, 100);
                 personnages[i].Animations["bouclier"].Frames[3].AddHearthbox(0, 100, 100, 50);
+                personnages[i].Animations["bouclier"].Frames[3].AddHearthbox(208, 4, 40, 152);
                 personnages[i].Animations["bouclier"].Frames[3].Type = "protect";
                 personnages[i].Animations["bouclier"].AddFrame(new Frame($"train{i + 1}/bouclier4.png", 1));
                 personnages[i].Animations["bouclier"].Frames[4].AddHearthbox(0, 0, 180, 100);
                 personnages[i].Animations["bouclier"].Frames[4].AddHearthbox(0, 100, 100, 50);
                 personnages[i].Animations["bouclier"].Frames[4].Type = "protect";
+                personnages[i].Animations["bouclier"].Frames[4].AddHearthbox(208, 4, 40, 152);
                 // saisie 6-2-0 => 8
                 personnages[i].AddAnimation("saisie", new Animation("saisie"));
                 personnages[i].Animations["saisie"].AddFrame(new Frame($"train{i + 1}/grab0.png", 1));
@@ -234,9 +238,9 @@ namespace TRAINBattle
             lastTick = now;
             //double dt = delta / 1000.0; // en secondes
 
-#if DEBUG
-            Console.WriteLine(delta);
-#endif
+//#if DEBUG
+//            Console.WriteLine(delta);
+//#endif
             // remet le focus sur le jeu
             this.Focus();
             Keyboard.Focus(this);
@@ -378,10 +382,25 @@ namespace TRAINBattle
             foreach (var projectil in ProjectilsEnJeu.ToList()) // le tolist fait qu'on ne modif pas la liste pendent le foreach
             {
                 if (projectil.Update())
+                {
+                    //Console.WriteLine(projectil.GetHitbox());
                     projectil.Affiche(canvasJeux, 200);
+                    int i = (projectil.OwnerNumber + 1) % 2;
+                    foreach (var hearthbox in players[i].GetHearthboxs())
+                    {
+                        if (projectil.GetHitbox().IntersectsWith(hearthbox))
+                        {
+                            if (players[i].StoneTime <= 0 && players[i].AnimationCourante.GetCurrentFrame().Type != "protect")
+                            {
+                                players[i].InfligeDegat(projectil.Damage, projectil.Damage);
+                            }
+                            ProjectilsEnJeu.Remove(projectil);
+                            break;
+                        }
+                    }
+                }
                 else
                 {
-
                     ProjectilsEnJeu.Remove(projectil);
                 }
             }
