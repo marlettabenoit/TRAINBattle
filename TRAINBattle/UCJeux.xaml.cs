@@ -77,7 +77,6 @@ namespace TRAINBattle
             //p1.AddAnimation("attente", a2);
             //p1.SetAnimation("attente");
 
-
             this.Loaded += UCJeux_Loaded;
             this.KeyDown += UCJeux_KeyDown;
             this.KeyUp += UCJeux_KeyUp;
