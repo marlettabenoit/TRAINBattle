@@ -157,12 +157,15 @@ namespace TRAINBattle
             { // On change de direction
                 if (bot.OrientationDroite) Press(2); // gauche
                 else Press(4); // droite
-
             }
             else if (Distance() > 500)
             {
-                if (rng.NextDouble() < 0.3)
+                if (rng.NextDouble() < 0.4)
                     Press(8); // tir léger
+                else if (rng.NextDouble() < 0.09)
+                    Press(1); // dash
+                if (rng.NextDouble() < 0.03)
+                    Press(3); // saut
             }
             else
             {
@@ -176,12 +179,16 @@ namespace TRAINBattle
         }
         private void ComportementOffense()
         {
+            if (OrienteVersJoueur() == false)
+            { // On change de direction
+                if (bot.OrientationDroite) Press(2); // gauche
+                else Press(4); // droite
+            }
             if (JoueurBloque())
             {
                 Press(10); // saisie
                 return;
             }
-
             if (rng.NextDouble() < 0.7)
                 Press(7); // coup léger
             else
@@ -189,14 +196,10 @@ namespace TRAINBattle
         }
         private void ComportementDefense()
         {
-            double choix = rng.NextDouble();
-
-            if (choix < 0.6)
+            if (rng.NextDouble() < 0.6)
                 Press(9); // bouclier
-            else if (choix < 0.8)
+            if (rng.NextDouble() < 0.3)
                 Press(3); // saut
-            else
-                Press(1); // dash arrière
         }
         private void ComportementPunish()
         {
