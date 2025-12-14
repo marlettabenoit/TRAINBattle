@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace TRAINBattle
 {
@@ -10,6 +11,7 @@ namespace TRAINBattle
     {
         private Personnage bot;
         private Personnage joueur;
+        private List<Projectils> projectils;
 
         private Random rng = new Random();
 
@@ -24,10 +26,11 @@ namespace TRAINBattle
 
         private EtatBot etatActuel = EtatBot.Neutral;
 
-        public Bot(Personnage bot, Personnage joueur)
+        public Bot(Personnage bot, Personnage joueur, List<Projectils> projectils)
         {
             this.bot = bot;
             this.joueur = joueur;
+            this.projectils = projectils;
         }
 
         public void Update()
@@ -125,13 +128,14 @@ namespace TRAINBattle
                     break;
 
                 case EtatBot.Recovery:
-                    // ne rien faire
+                    // ne rien faire, car de toute facon, on ne peux pas agir
                     break;
             }
         }
 
         private bool OrienteVersJoueur()
-        {
+        {   // pourait être plus précis, mais des observations empiriques ont montré que c'est sufisant
+
             // bot à gauche du joueur
             if (bot.X < joueur.X && !bot.OrientationDroite)
             {
@@ -151,8 +155,47 @@ namespace TRAINBattle
             else Press(2); // gauche
         }
 
+        private double DistanceProjectilDangereux()
+        {
+            double distanceMin = double.MaxValue;
+
+            foreach (Projectils p in this.projectils)
+            {
+                // ignorer les projectiles du bot
+                if (p.OwnerNumber == 1)
+                    continue;
+
+                // vérifier que le projectile va vers le bot
+                bool vaVersBot =
+                    (p.DirX > 0 && p.X < bot.X) ||
+                    (p.DirX < 0 && p.X > bot.X);
+
+                if (!vaVersBot)
+                    continue;
+
+                // vérifier la hauteur
+                if (Math.Abs(p.Y - bot.Y) > 120)
+                    continue;
+
+                // distance horizontale
+                double distance = Math.Abs(p.X - bot.X);
+
+                if (distance < distanceMin)
+                    distanceMin = distance;
+            }
+
+            return distanceMin;
+        }
+
+
         private void ComportementNeutral()
         {
+            if (DistanceProjectilDangereux()<200)
+            {
+                Press(9);
+                return;
+            }
+
             if (OrienteVersJoueur()==false)
             { // On change de direction
                 if (bot.OrientationDroite) Press(2); // gauche

@@ -41,7 +41,7 @@ namespace TRAINBattle
             players = new Personnage[2];
             players[0]=personnages[0];
             players[1]=personnages[1];
-            bot = new Bot(players[1], players[0]);
+            bot = new Bot(players[1], players[0], ProjectilsEnJeu);
             players[0].Number = 0;
             players[1].Number = 1;
             personnages[0].X=50;
