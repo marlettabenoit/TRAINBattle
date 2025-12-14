@@ -107,6 +107,7 @@ namespace TRAINBattle
             }
 
         }
+        
         private void PrendreDecision()
         {
             switch (etatActuel)
