@@ -46,6 +46,10 @@ namespace TRAINBattle
             };
         }
 
+        public bool EstMort()
+        {
+            return (Vie<=0);
+        }
         public void InfligeDegat(int n, int stun)
         {
             //Console.WriteLine(stun);

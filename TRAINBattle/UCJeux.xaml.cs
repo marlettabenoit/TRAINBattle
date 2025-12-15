@@ -30,7 +30,12 @@ namespace TRAINBattle
         private static Personnage[] personnages;
         private static Personnage[] players;
         private static List<Projectils> ProjectilsEnJeu;
-        private static Bot bot; 
+        private static Bot bot;
+
+        private bool jeuEncours = false;
+        private long gameOverStartTime = 0;
+        private const int GAME_OVER_DURATION = 3000; // 3 secondes
+
         public UCJeux()
         {
             InitializeComponent();
@@ -39,51 +44,50 @@ namespace TRAINBattle
             ProjectilsEnJeu = new List<Projectils>();
             InitialisePersonages();
             players = new Personnage[2];
-            players[0]=personnages[3];
+            players[0]=personnages[2];
             players[1]=personnages[1];
-            bot = new Bot(players[1], players[0], ProjectilsEnJeu);
             players[0].Number = 0;
             players[1].Number = 1;
-            players[0].X=50;
-            players[1].X=975;
             players[0].FlipHealthBar(1);
             players[1].FlipHealthBar(-1);
-            personnages[1].Flip();
-            players[0].SetAnimation("attente");
-            players[1].SetAnimation("attente");
-            ////InitializeTimer();
-            ////Tests de la fonction frame
-            //Frame f1 = new Frame("train1/deplacement0.png", 2, 0, 10);
-            ////f1.HearthBoxs.Add(new System.Drawing.Rectangle(0, 0, 200, 100));
-            ////f1.HearthBoxs.Add(new System.Drawing.Rectangle(0, 100, 50, 50));
-            //Frame f2 = new Frame("train1/deplacement1.png", 2, 0, 10);
-            ////f2.HearthBoxs.Add(new System.Drawing.Rectangle(0, 0, 200, 100));
-            ////f2.HearthBoxs.Add(new System.Drawing.Rectangle(0, 100, 70, 70));
-            ////f2.Flip();
-            ////f1.Display(canvasJeux, 0, 520);
-            ////Test de la fonction animation
-            //Animation a1 = new Animation("marche");
-            //a1.AddFrame(f1);
-            //a1.AddFrame(f2);
-            ////a1.Reset();
-
-            //Frame f3 = new Frame("train1/deplacement0.png", 2, 0, 0);
-            //Frame f4 = new Frame("train1/deplacement1.png", 2, 0, 0);
-            //Animation a2 = new Animation("attente");
-            //a2.AddFrame(f3);
-            //a2.AddFrame(f4);
-            ////a1.Reset();
-
-            //p1 = new Personnage(0, 0);
-            //p1.AddAnimation("marche", a1);
-            //p1.AddAnimation("attente", a2);
-            //p1.SetAnimation("attente");
+            // if solo
+            bot = new Bot(players[1], players[0], ProjectilsEnJeu);
+            ResetGame();
+            //players[0].Number = 0;
+            //players[1].Number = 1;
+            //players[0].X = 50;
+            //players[1].X = 975;
+            //players[0].FlipHealthBar(1);
+            //players[1].FlipHealthBar(-1);
+            //personnages[1].Flip();
+            //players[0].SetAnimation("attente");
+            //players[1].SetAnimation("attente");
 
             this.Loaded += UCJeux_Loaded;
             this.KeyDown += UCJeux_KeyDown;
             this.KeyUp += UCJeux_KeyUp;
             this.Focusable = true;
 
+        }
+
+        private void ResetGame()
+        {
+            players[0].X = 50;
+            players[1].X = 975;
+            players[0].Y = 0;
+            players[1].Y = 0;
+            if (!players[0].OrientationDroite)
+            {
+                players[0].Flip();
+            }
+            if (players[1].OrientationDroite)
+            {
+                players[1].Flip();
+            }
+            players[0].SetAnimation("attente");
+            players[1].SetAnimation("attente");
+            players[0].Vie = 100;
+            players[1].Vie = 100;
         }
 
         private void InitialisePersonages()
@@ -199,15 +203,15 @@ namespace TRAINBattle
                 // tirleger 3-1-7 => 11
                 personnages[i].AddAnimation("tirleger", new Animation("tirleger"));
                 personnages[i].Animations["tirleger"].AddFrame(new Frame($"train{i + 1}/deplacement0.png", 3));
-                personnages[i].Animations["tirleger"].Frames[0].AddHearthbox(0, 0, 180, 100);
-                personnages[i].Animations["tirleger"].Frames[0].AddHearthbox(0, 100, 100, 50);
+                personnages[i].Animations["dash"].Frames[4].AddHearthbox(0, 0, 180, 100);
+                personnages[i].Animations["dash"].Frames[4].AddHearthbox(0, 100, 100, 50);
                 personnages[i].Animations["tirleger"].AddFrame(new Frame($"train{i + 1}/deplacement0.png", 1));
-                personnages[i].Animations["tirleger"].Frames[1].AddHearthbox(0, 0, 180, 100);
-                personnages[i].Animations["tirleger"].Frames[1].AddHearthbox(0, 100, 100, 50);
+                personnages[i].Animations["dash"].Frames[4].AddHearthbox(0, 0, 180, 100);
+                personnages[i].Animations["dash"].Frames[4].AddHearthbox(0, 100, 100, 50);
                 personnages[i].Animations["tirleger"].Frames[1].AddProjectile("train1/tir0.png", 0, 60, 1, 0, 300, 3, false);
-                personnages[i].Animations["tirleger"].AddFrame(new Frame($"train{i + 1}/deplacement0.png", 7));
-                personnages[i].Animations["tirleger"].Frames[2].AddHearthbox(0, 0, 180, 100);
-                personnages[i].Animations["tirleger"].Frames[2].AddHearthbox(0, 100, 100, 50);
+                personnages[i].Animations["tirleger"].AddFrame(new Frame($"train{i + 1}/deplacement0.png", 9));
+                personnages[i].Animations["dash"].Frames[4].AddHearthbox(0, 0, 180, 100);
+                personnages[i].Animations["dash"].Frames[4].AddHearthbox(0, 100, 100, 50);
             }
             int j = 2;
             // attente 2-0-0 => 2
@@ -438,19 +442,36 @@ namespace TRAINBattle
             personnages[j].Animations["dash"].Frames[3].AddHearthbox(140, 4, 76, 48);
         }
 
-        //private void InitializeTimer()
-        //{
-        //    minuterie = new DispatcherTimer();
-        //    // configure l'intervalle du Timer
-        //    minuterie.Interval = TimeSpan.FromMilliseconds(33); // 30 fps
-        //    // associe l’appel de la méthode Jeu à la fin de la minuterie
-        //    minuterie.Tick += Jeu;
-        //    // lancement du timer
-        //    minuterie.Start();
-        //}
-
         private void Jeu(object? sender, EventArgs e)
         {
+            if (!jeuEncours)
+            {
+                canvasJeux.Children.Clear();
+
+                // Affichage du message
+                TextBlock txt = new TextBlock
+                {
+                    Text = players[0].EstMort() ? "JOUEUR 2 GAGNE !" : "JOUEUR 1 GAGNE !",
+                    FontSize = 48,
+                    FontWeight = FontWeights.Bold,
+                    Foreground = Brushes.White
+                };
+
+                Canvas.SetLeft(txt, 400);
+                Canvas.SetTop(txt, 250);
+                canvasJeux.Children.Add(txt);
+
+                // Après 3 secondes → reset
+                if (stopwatch.ElapsedMilliseconds - gameOverStartTime >= GAME_OVER_DURATION)
+                {
+                    jeuEncours = true;
+                    ResetGame();
+                }
+
+                return; // ⛔ on ne joue plus pendant l’écran de fin
+            }
+
+
             long now = stopwatch.ElapsedMilliseconds;
             long delta = now - lastTick;
 
@@ -461,14 +482,15 @@ namespace TRAINBattle
             lastTick = now;
             //double dt = delta / 1000.0; // en secondes
 
-//#if DEBUG
-//            Console.WriteLine(delta);
-//#endif
+#if DEBUG
+            Console.WriteLine(delta);
+#endif
             // remet le focus sur le jeu
             this.Focus();
             Keyboard.Focus(this);
             canvasJeux.Children.Clear();
 
+            // if 2 joueurs
             bot.Update();
 
             //a1.GetCurrentFrame().Display(canvasJeux, 0, 520);
@@ -628,6 +650,13 @@ namespace TRAINBattle
                 {
                     ProjectilsEnJeu.Remove(projectil);
                 }
+            }
+            Console.WriteLine(players[0].EstMort());
+            Console.WriteLine(players[1].EstMort());
+            if (players[0].EstMort() || players[1].EstMort())
+            {
+                jeuEncours = false;
+                gameOverStartTime = stopwatch.ElapsedMilliseconds;
             }
         }
 
