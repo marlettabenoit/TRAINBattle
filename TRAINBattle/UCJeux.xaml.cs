@@ -74,7 +74,6 @@ namespace TRAINBattle
             this.Focusable = true;
             blockInfo.Visibility = Visibility.Visible;
             blockInfo.Text = "3 rounds\n1 winer";
-
         }
 
         private void ResetGame()
