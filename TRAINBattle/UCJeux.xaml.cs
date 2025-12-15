@@ -44,8 +44,10 @@ namespace TRAINBattle
             bot = new Bot(players[1], players[0], ProjectilsEnJeu);
             players[0].Number = 0;
             players[1].Number = 1;
-            personnages[0].X=50;
-            personnages[1].X=975;
+            players[0].X=50;
+            players[1].X=975;
+            players[0].FlipHealthBar(1);
+            players[1].FlipHealthBar(-1);
             personnages[1].Flip();
             players[0].SetAnimation("attente");
             players[1].SetAnimation("attente");

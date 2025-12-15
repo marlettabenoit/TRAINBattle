@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
 namespace TRAINBattle
@@ -15,6 +16,7 @@ namespace TRAINBattle
         public int Y { get; set; } // hauteur par rapport au sol
 
         public bool OrientationDroite { get; private set; } = true; // true => droite
+        private Image healthBarOverlay;
 
         public Dictionary<string, Animation> Animations { get; private set; }
         public Animation AnimationCourante { get; private set; }
@@ -31,6 +33,17 @@ namespace TRAINBattle
             AccelerationY = 0; 
             Animations = new Dictionary<string, Animation>();
             Vie = 100;
+
+            healthBarOverlay = new Image
+            {
+                Source = new BitmapImage(
+                    new Uri("pack://application:,,,/img/vie/barreviemodifie.png")
+                ),
+                //Width = 100,
+                //Height = 20,
+                Stretch = Stretch.Fill,
+                IsHitTestVisible = false
+            };
         }
 
         public void InfligeDegat(int n, int stun)
@@ -93,6 +106,11 @@ namespace TRAINBattle
 
             Frame frame = AnimationCourante.GetCurrentFrame();
             frame.Display(canvas, X, solHauteur-Y);
+        }
+
+        public void FlipHealthBar(int x)
+        {
+            healthBarOverlay.LayoutTransform = new ScaleTransform(x, 1);
         }
 
         // Mise à jour (pour faire avancer l'animation)
@@ -178,11 +196,10 @@ namespace TRAINBattle
 
         public void DrawHealthBar(Canvas canvas, int x, int y)
         {
-            double width = 100;     // largeur de la barre
-            double height = 20;     // hauteur de la barre
+            double width = 100;
+            double height = 20;
             double ratio = Math.Max(0, Vie) / 100.0;
 
-            // Barre vide (rouge)
             var back = new System.Windows.Shapes.Rectangle
             {
                 Width = width,
@@ -190,7 +207,6 @@ namespace TRAINBattle
                 Fill = System.Windows.Media.Brushes.DarkRed
             };
 
-            // Barre pleine (vert)
             var front = new System.Windows.Shapes.Rectangle
             {
                 Width = width * ratio,
@@ -198,16 +214,22 @@ namespace TRAINBattle
                 Fill = System.Windows.Media.Brushes.LimeGreen
             };
 
-            // Positionnement dans le canvas
-            Canvas.SetLeft(back, x);
-            Canvas.SetTop(back, y);
-
-            Canvas.SetLeft(front, x);
-            Canvas.SetTop(front, y);
+            Canvas.SetLeft(back, x + 47);
+            Canvas.SetTop(back, y + 31);
+            Canvas.SetLeft(front, x + 47);
+            Canvas.SetTop(front, y + 31);
 
             canvas.Children.Add(back);
             canvas.Children.Add(front);
+
+            // image du personnage (déjà chargée et redimensionnée)
+            Canvas.SetLeft(healthBarOverlay, x);
+            Canvas.SetTop(healthBarOverlay, y);
+
+            if (!canvas.Children.Contains(healthBarOverlay))
+                canvas.Children.Add(healthBarOverlay);
         }
+
 
     }
 }
