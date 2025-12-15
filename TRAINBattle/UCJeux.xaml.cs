@@ -44,6 +44,7 @@ namespace TRAINBattle
             CompositionTarget.Rendering += Jeu;
             stopwatch.Start();
             ProjectilsEnJeu = new List<Projectils>();
+            ChargerTerrain();
             InitialisePersonages();
             players = new Personnage[2];
             players[0]=personnages[MainWindow.IndexPersoP1];
@@ -731,5 +732,11 @@ namespace TRAINBattle
             }
         }
 
+        private void ChargerTerrain()
+        {
+            imgBG.Source = new BitmapImage(
+                new Uri("/img/terrain/" + MainWindow.TerrainActif, UriKind.Relative)
+            );
+        }
     }
 }

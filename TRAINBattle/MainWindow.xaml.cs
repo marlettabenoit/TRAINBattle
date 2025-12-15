@@ -27,6 +27,7 @@ namespace TRAINBattle
         public static int IndexPersoP1 { get; set; } = 0;
         public static int IndexPersoP2 { get; set; } = 1;
         public static bool BotActif { get; set; } = false;
+        public static string TerrainActif { get; set; } = "terrain1.png";
 
         public MainWindow()
         {
@@ -131,10 +132,26 @@ namespace TRAINBattle
             UCChoixTerrain uc = new UCChoixTerrain();
             ZoneJeu.Content = uc;
             uc.butRetour.Click += AfficherChoixPerso;
-            uc.butTerrain1.Click += AfficherJeu;
-            uc.butTerrain2.Click += AfficherJeu;
-            uc.butTerrain3.Click += AfficherJeu;
-            uc.butTerrain4.Click += AfficherJeu;
+            uc.butTerrain1.Click += (s, e) =>
+            {
+                TerrainActif = "terrain1.png";
+                AfficherJeu(s, e);
+            };
+            uc.butTerrain2.Click += (s, e) =>
+            {
+                TerrainActif = "terrain2.png";
+                AfficherJeu(s, e);
+            };
+            uc.butTerrain3.Click += (s, e) =>
+            {
+                TerrainActif = "terrain3.png";
+                AfficherJeu(s, e);
+            };
+            uc.butTerrain4.Click += (s, e) =>
+            {
+                TerrainActif = "terrain4.png";
+                AfficherJeu(s, e);
+            };
         }
         private void AfficherJeu(object sender, RoutedEventArgs e)
         {
