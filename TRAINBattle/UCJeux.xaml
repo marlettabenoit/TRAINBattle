@@ -11,7 +11,10 @@
         <Image Source="/img/terrain/terrain1.png" />
 
         <Canvas x:Name="canvasJeux">
-            
-        </Canvas> 
+
+        </Canvas>
+
+        <TextBlock x:Name="blockInfo" Text="Info" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="64" FontFamily="Arial Black" TextAlignment="Center"/>
+
     </Grid>
 </UserControl>

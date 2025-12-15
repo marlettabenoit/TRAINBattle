@@ -100,7 +100,8 @@ namespace TRAINBattle
             ZoneJeu.Content = uc;
             uc.butRetour.Click += AfficheDemarage;
         }
-        private void AfficherChoixPerso(object sender, RoutedEventArgs e)
+        // passe public
+        public void AfficherChoixPerso(object sender, RoutedEventArgs e)
         {
             UCChoixPerso uc = new UCChoixPerso();
             ZoneJeu.Content = uc;

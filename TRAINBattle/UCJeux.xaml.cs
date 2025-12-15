@@ -35,6 +35,8 @@ namespace TRAINBattle
         private bool jeuEncours = false;
         private long gameOverStartTime = 0;
         private const int GAME_OVER_DURATION = 3000; // 3 secondes
+        private int scoreP1 = 0;
+        private int scoreP2 = 0;
 
         public UCJeux()
         {
@@ -67,6 +69,8 @@ namespace TRAINBattle
             this.KeyDown += UCJeux_KeyDown;
             this.KeyUp += UCJeux_KeyUp;
             this.Focusable = true;
+            blockInfo.Visibility = Visibility.Visible;
+            blockInfo.Text = "3 rounds\n1 winer";
 
         }
 
@@ -444,34 +448,6 @@ namespace TRAINBattle
 
         private void Jeu(object? sender, EventArgs e)
         {
-            if (!jeuEncours)
-            {
-                canvasJeux.Children.Clear();
-
-                // Affichage du message
-                TextBlock txt = new TextBlock
-                {
-                    Text = players[0].EstMort() ? "JOUEUR 2 GAGNE !" : "JOUEUR 1 GAGNE !",
-                    FontSize = 48,
-                    FontWeight = FontWeights.Bold,
-                    Foreground = Brushes.White
-                };
-
-                Canvas.SetLeft(txt, 400);
-                Canvas.SetTop(txt, 250);
-                canvasJeux.Children.Add(txt);
-
-                // Après 3 secondes → reset
-                if (stopwatch.ElapsedMilliseconds - gameOverStartTime >= GAME_OVER_DURATION)
-                {
-                    jeuEncours = true;
-                    ResetGame();
-                }
-
-                return; // ⛔ on ne joue plus pendant l’écran de fin
-            }
-
-
             long now = stopwatch.ElapsedMilliseconds;
             long delta = now - lastTick;
 
@@ -482,25 +458,34 @@ namespace TRAINBattle
             lastTick = now;
             //double dt = delta / 1000.0; // en secondes
 
-#if DEBUG
-            Console.WriteLine(delta);
-#endif
             // remet le focus sur le jeu
             this.Focus();
             Keyboard.Focus(this);
             canvasJeux.Children.Clear();
 
+            if (!jeuEncours)
+            {
+                // quand 3 secondes ecoules : on relance le jeu
+                if (stopwatch.ElapsedMilliseconds - gameOverStartTime >= GAME_OVER_DURATION)
+                {
+                    jeuEncours = true;
+                    blockInfo.Visibility = Visibility.Hidden;
+                    ResetGame();
+                    if (scoreP1>=2 || scoreP2>=2)
+                    {
+                        Cleanup();
+                        var mainWindow = Application.Current.MainWindow as MainWindow;
+                        mainWindow?.AfficherChoixPerso(this, null);
+                    }
+                }
+
+                return;
+            }
+
+
             // if 2 joueurs
             bot.Update();
 
-            //a1.GetCurrentFrame().Display(canvasJeux, 0, 520);
-            //a1.Update();
-            //Console.WriteLine($"{a1.CurrentFrame} {a1.IndexFrameActuel}");
-            //if (a1.IsPlaying == false)
-            //{
-            //    a1.Reset();
-            //}
-            //System.Threading.Thread.Sleep(200);
             for (int i = 0; i < 2; i++)
             {
                 players[i].Display(canvasJeux, 520);
@@ -651,12 +636,38 @@ namespace TRAINBattle
                     ProjectilsEnJeu.Remove(projectil);
                 }
             }
-            Console.WriteLine(players[0].EstMort());
-            Console.WriteLine(players[1].EstMort());
             if (players[0].EstMort() || players[1].EstMort())
             {
                 jeuEncours = false;
                 gameOverStartTime = stopwatch.ElapsedMilliseconds;
+                string text = "";
+                if (players[0].EstMort())
+                {
+                    text += "Player 1 KO";
+                    scoreP2++;
+                }
+                if (players[1].EstMort())
+                {
+                    text += "Player 2 KO";
+                    scoreP1++;
+                }
+                text = $"Round {scoreP1 + scoreP2}\n{scoreP1} : {scoreP2}\n" + text;
+                
+                if (scoreP1>=2 || scoreP2 >= 2)
+                {
+                    if (scoreP1 >= 2)
+                    {
+                        text = "P1 Win !!!";
+                    }
+                    else
+                    {
+                        text = "P2 Win !!!";
+                    }
+                }
+                
+                blockInfo.Text = text;
+                blockInfo.Visibility = Visibility.Visible;
+
             }
         }
 
@@ -678,15 +689,6 @@ namespace TRAINBattle
                     }
                 }
             }
-            
-            //Console.WriteLine("WHOOOOOOOOOOO");
-
-            //if (e.Key == Key.Space)
-            //{
-            //    p1.Flip();
-            //    Console.WriteLine("WHAAAAAAAAAAAA");
-            //}
-
         }
 
         private void UCJeux_KeyUp(object sender, KeyEventArgs e)
@@ -702,6 +704,20 @@ namespace TRAINBattle
                 }
             }
         }
+
+        public void Cleanup() // clean les abonements
+        {
+            CompositionTarget.Rendering -= Jeu;
+
+            this.Loaded -= UCJeux_Loaded;
+            this.KeyDown -= UCJeux_KeyDown;
+            this.KeyUp -= UCJeux_KeyUp;
+
+            stopwatch.Stop();
+
+            ProjectilsEnJeu?.Clear();
+        }
+
 
     }
 }

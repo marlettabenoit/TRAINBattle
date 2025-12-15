@@ -41,7 +41,7 @@ namespace TRAINBattle
             //    return;
 
             MetAJourEtat();
-            Console.WriteLine(etatActuel);
+            //Console.WriteLine(etatActuel);
             PrendreDecision();
         }
 
