@@ -396,10 +396,11 @@ namespace TRAINBattle
             personnages[j].Animations["saisie"].AddFrame(new Frame($"train{j + 1}/grab3.png", 1));
             personnages[j].Animations["saisie"].Frames[3].AddHearthbox(0, 0, 140, 72);
             personnages[j].Animations["saisie"].Frames[3].AddHearthbox(140, 4, 76, 48);
-            personnages[j].Animations["saisie"].AddFrame(new Frame($"train{j + 1}/grab4.png", 1));
+            personnages[j].Animations["saisie"].AddFrame(new Frame($"train{j + 1}/grab4.png", 1, 8, 0));
             personnages[j].Animations["saisie"].Frames[4].AddHearthbox(0, 0, 140, 72);
             personnages[j].Animations["saisie"].Frames[4].AddHearthbox(140, 4, 76, 48);
             personnages[j].Animations["saisie"].Frames[4].AddHitbox(216, 27, 40, 48);
+            personnages[j].Animations["saisie"].Frames[4].Type = "grab";
             // dash 10-0-0 => 10
             personnages[j].AddAnimation("dash", new Animation("dash"));
             personnages[j].Animations["dash"].AddFrame(new Frame($"train{j + 1}/dash0.png", 1, 0, 2));
