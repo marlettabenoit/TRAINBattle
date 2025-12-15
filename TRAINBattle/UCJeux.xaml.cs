@@ -52,8 +52,8 @@ namespace TRAINBattle
             players[1].Number = 1;
             players[0].FlipHealthBar(1);
             players[1].FlipHealthBar(-1);
-            // if solo
-            bot = new Bot(players[1], players[0], ProjectilsEnJeu);
+            if (MainWindow.BotActif)
+                bot = new Bot(players[1], players[0], ProjectilsEnJeu);
             ResetGame();
             //players[0].Number = 0;
             //players[1].Number = 1;
@@ -64,6 +64,8 @@ namespace TRAINBattle
             //personnages[1].Flip();
             //players[0].SetAnimation("attente");
             //players[1].SetAnimation("attente");
+
+            ResetTouchesActives();
 
             this.Loaded += UCJeux_Loaded;
             this.KeyDown += UCJeux_KeyDown;
@@ -483,8 +485,8 @@ namespace TRAINBattle
             }
 
 
-            // if 2 joueurs
-            bot.Update();
+            if (MainWindow.BotActif)
+                bot.Update();
 
             for (int i = 0; i < 2; i++)
             {
@@ -718,6 +720,16 @@ namespace TRAINBattle
             ProjectilsEnJeu?.Clear();
         }
 
+        private void ResetTouchesActives()
+        {
+            for (int i = 0; i < MainWindow.TouchesActives.GetLength(0); i++)
+            {
+                for (int j = 0; j < MainWindow.TouchesActives.GetLength(1); j++)
+                {
+                    MainWindow.TouchesActives[i, j] = false;
+                }
+            }
+        }
 
     }
 }

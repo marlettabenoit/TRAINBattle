@@ -26,6 +26,7 @@ namespace TRAINBattle
         public static bool[,] TouchesActives { get; set;} = new bool[2, 12];
         public static int IndexPersoP1 { get; set; } = 0;
         public static int IndexPersoP2 { get; set; } = 1;
+        public static bool BotActif { get; set; } = false;
 
         public MainWindow()
         {
@@ -83,8 +84,17 @@ namespace TRAINBattle
             ZoneJeu.Content = uc;
             uc.butParametres.Click += AfficherParametres;
             uc.butAide.Click += AfficherAide;
-            uc.butVersus.Click += AfficherChoixPerso;
-            uc.butSolo.Click += AfficherChoixPerso;
+            uc.butVersus.Click += (s, e) =>
+            {
+                BotActif = false;
+                AfficherChoixPerso(s, e);
+            };
+
+            uc.butSolo.Click += (s, e) =>
+            {
+                BotActif = true;
+                AfficherChoixPerso(s, e);
+            };
         }
 
         private void AfficherParametres(object sender, RoutedEventArgs e)
