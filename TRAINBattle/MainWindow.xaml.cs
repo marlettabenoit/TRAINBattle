@@ -24,6 +24,8 @@ namespace TRAINBattle
         public static Key[,] Touches { get; set; } = new Key[2, 12];
         public static Key[,] TouchesParDefaut { get; set; } = new Key[2, 12];
         public static bool[,] TouchesActives { get; set;} = new bool[2, 12];
+        public static int IndexPersoP1 { get; set; } = 0;
+        public static int IndexPersoP2 { get; set; } = 1;
 
         public MainWindow()
         {

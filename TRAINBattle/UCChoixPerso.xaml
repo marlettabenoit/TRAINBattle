@@ -10,10 +10,10 @@
         <Rectangle Fill="White" />
         <Button x:Name="butRetour" Content="Retour" Width="50" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
-        <Image Source="/img/train1/profil.png" Height="100" Width="100" Margin="0,200,375,0" VerticalAlignment="Top" HorizontalAlignment="Center"/>
-        <Image Source="/img/train2/profil.png" Height="100" Width="100" Margin="0,200,125,0" VerticalAlignment="Top" HorizontalAlignment="Center"/>
-        <Image Source="/img/train3/profil.png" Height="100" Width="100" Margin="125,200,0,0" VerticalAlignment="Top" HorizontalAlignment="Center"/>
-        <Image Source="/img/train4/profil.png" Height="100" Width="100" Margin="375,200,0,0" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+        <Image Tag="0" MouseLeftButtonDown="Perso_Click" MouseRightButtonDown="Perso_Click" Source="/img/train1/profil.png" Height="100" Width="100" Margin="0,200,375,0" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+        <Image Tag="1" MouseLeftButtonDown="Perso_Click" MouseRightButtonDown="Perso_Click" Source="/img/train2/profil.png" Height="100" Width="100" Margin="0,200,125,0" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+        <Image Tag="2" MouseLeftButtonDown="Perso_Click" MouseRightButtonDown="Perso_Click" Source="/img/train3/profil.png" Height="100" Width="100" Margin="125,200,0,0" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+        <Image Tag="3" MouseLeftButtonDown="Perso_Click" MouseRightButtonDown="Perso_Click" Source="/img/train4/profil.png" Height="100" Width="100" Margin="375,200,0,0" VerticalAlignment="Top" HorizontalAlignment="Center"/>
 
         <Grid Width="380" Height="250" VerticalAlignment="Bottom">
             <Rectangle>
@@ -37,8 +37,8 @@
                     </LinearGradientBrush>
                 </Rectangle.Fill>
             </Rectangle>
-            <Image Source="/img/train1/profil.png" Width="200" Height="200" Margin="0,0,0,50"/>
-            <Label Content="Nom Perso" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,200,0,0" FontSize="24"/>
+            <Image x:Name="imgP1" Source="/img/train1/profil.png" Width="200" Height="200" Margin="0,0,0,50"/>
+            <Label x:Name="lblNomP1" Content="George" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,200,0,0" FontSize="24"/>
             <Label Content="Player 1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,275,0,0" FontSize="18"/>
         </Grid>
 
@@ -51,8 +51,8 @@
                     </LinearGradientBrush>
                 </Rectangle.Fill>
             </Rectangle>
-            <Image Source="/img/train1/profil.png" Width="200" Height="200" Margin="0,0,0,50"/>
-            <Label Content="Nom Perso" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,200,0,0" FontSize="24"/>
+            <Image x:Name="imgP2" Source="/img/train2/profil.png" Width="200" Height="200" Margin="0,0,0,50"/>
+            <Label x:Name="lblNomP2" Content="Christof" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,200,0,0" FontSize="24"/>
             <Label Content="Player 2" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,275,0,0" FontSize="18"/>
         </Grid>
 

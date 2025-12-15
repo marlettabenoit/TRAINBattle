@@ -46,8 +46,8 @@ namespace TRAINBattle
             ProjectilsEnJeu = new List<Projectils>();
             InitialisePersonages();
             players = new Personnage[2];
-            players[0]=personnages[2];
-            players[1]=personnages[1];
+            players[0]=personnages[MainWindow.IndexPersoP1];
+            players[1]=personnages[MainWindow.IndexPersoP2];
             players[0].Number = 0;
             players[1].Number = 1;
             players[0].FlipHealthBar(1);
