@@ -77,6 +77,7 @@
     <None Remove="img\train2\poing2.png" />
     <None Remove="img\train2\poing3.png" />
     <None Remove="img\train2\profil.png" />
+    <None Remove="img\train2\tir - Copie.png" />
     <None Remove="img\train2\tir.png" />
     <None Remove="img\train3\attaqueleger0.png" />
     <None Remove="img\train3\attaqueleger1.png" />
@@ -220,6 +221,7 @@
     <Resource Include="img\train2\poing2.png" />
     <Resource Include="img\train2\poing3.png" />
     <Resource Include="img\train2\profil.png" />
+    <Resource Include="img\train2\tir - Copie.png" />
     <Resource Include="img\train2\tir.png" />
     <Resource Include="img\train3\attaqueleger0.png" />
     <Resource Include="img\train3\attaqueleger1.png" />

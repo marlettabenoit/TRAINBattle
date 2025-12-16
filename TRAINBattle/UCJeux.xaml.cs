@@ -101,143 +101,146 @@ namespace TRAINBattle
             personnages = new Personnage[4] {
             new Personnage(0, 0),new Personnage(0, 0),new Personnage(0, 0),new Personnage(0, 0)
             };
-            //for (int i = 0; i < personnages.Length; i++)
-            for (int i = 0; i < 2; i++) // car les 2 premiers perso sont juste des colors swap
-            {
-                // attente 2-0-0 => 2
-                personnages[i].AddAnimation("attente", new Animation("attente"));
-                personnages[i].Animations["attente"].AddFrame(new Frame($"train{i + 1}/deplacement0.png", 2));
-                personnages[i].Animations["attente"].Frames[0].AddHearthbox(0, 0, 180, 100);
-                personnages[i].Animations["attente"].Frames[0].AddHearthbox(0, 100, 100, 50);
-                personnages[i].Animations["attente"].AddFrame(new Frame($"train{i + 1}/deplacement1.png", 2));
-                personnages[i].Animations["attente"].Frames[1].AddHearthbox(0, 0, 180, 100);
-                personnages[i].Animations["attente"].Frames[1].AddHearthbox(0, 100, 100, 50);
-                // marche 2-0-0 => 2
-                personnages[i].AddAnimation("marche", new Animation("marche"));
-                personnages[i].Animations["marche"].AddFrame(new Frame($"train{i + 1}/deplacement0.png", 2, 0, 10));
-                personnages[i].Animations["marche"].Frames[0].AddHearthbox(0, 0, 180, 100);
-                personnages[i].Animations["marche"].Frames[0].AddHearthbox(0, 100, 100, 50);
-                personnages[i].Animations["marche"].AddFrame(new Frame($"train{i + 1}/deplacement1.png", 2, 0, 10));
-                personnages[i].Animations["marche"].Frames[1].AddHearthbox(0, 0, 180, 100);
-                personnages[i].Animations["marche"].Frames[1].AddHearthbox(0, 100, 100, 50);
-                // coup leger 5-3-0 => 8
-                personnages[i].AddAnimation("coupleger", new Animation("coupleger"));
-                personnages[i].Animations["coupleger"].AddFrame(new Frame($"train{i + 1}/poing0.png", 3));
-                personnages[i].Animations["coupleger"].Frames[0].AddHearthbox(0, 0, 180, 100);
-                personnages[i].Animations["coupleger"].Frames[0].AddHearthbox(0, 100, 100, 50);
-                personnages[i].Animations["coupleger"].AddFrame(new Frame($"train{i + 1}/poing1.png", 2));
-                personnages[i].Animations["coupleger"].Frames[1].AddHearthbox(0, 0, 180, 100);
-                personnages[i].Animations["coupleger"].Frames[1].AddHearthbox(0, 100, 100, 50);
-                personnages[i].Animations["coupleger"].AddFrame(new Frame($"train{i + 1}/poing2.png", 1, 3, 0));
-                personnages[i].Animations["coupleger"].Frames[2].AddHearthbox(0, 0, 180, 100);
-                personnages[i].Animations["coupleger"].Frames[2].AddHearthbox(0, 100, 100, 50);
-                personnages[i].Animations["coupleger"].Frames[2].AddHitbox(204, 68, 28, 32);
-                personnages[i].Animations["coupleger"].AddFrame(new Frame($"train{i + 1}/poing3.png", 2, 5, 0));
-                personnages[i].Animations["coupleger"].Frames[3].AddHearthbox(0, 0, 180, 100);
-                personnages[i].Animations["coupleger"].Frames[3].AddHearthbox(0, 100, 100, 50);
-                personnages[i].Animations["coupleger"].Frames[3].AddHitbox(216, 68, 28, 32);
-                // coup lourd 5-3-0 => 8
-                personnages[i].AddAnimation("couplourd", new Animation("couplourd"));
-                personnages[i].Animations["couplourd"].AddFrame(new Frame($"train{i + 1}/attaquelourd0.png", 3));
-                personnages[i].Animations["couplourd"].Frames[0].AddHearthbox(0, 0, 180, 100);
-                personnages[i].Animations["couplourd"].Frames[0].AddHearthbox(0, 100, 100, 50);
-                personnages[i].Animations["couplourd"].AddFrame(new Frame($"train{i + 1}/attaquelourd1.png", 2));
-                personnages[i].Animations["couplourd"].Frames[1].AddHearthbox(0, 0, 180, 100);
-                personnages[i].Animations["couplourd"].Frames[1].AddHearthbox(0, 100, 100, 50);
-                personnages[i].Animations["couplourd"].AddFrame(new Frame($"train{i + 1}/attaquelourd2.png", 2));
-                personnages[i].Animations["couplourd"].Frames[2].AddHearthbox(0, 0, 180, 100);
-                personnages[i].Animations["couplourd"].Frames[2].AddHearthbox(0, 100, 100, 50);
-                personnages[i].Animations["couplourd"].AddFrame(new Frame($"train{i + 1}/attaquelourd3.png", 2));
-                personnages[i].Animations["couplourd"].Frames[3].AddHearthbox(0, 0, 180, 100);
-                personnages[i].Animations["couplourd"].Frames[3].AddHearthbox(0, 100, 100, 50);
-                personnages[i].Animations["couplourd"].AddFrame(new Frame($"train{i + 1}/attaquelourd4.png", 2, 15, 0));
-                personnages[i].Animations["couplourd"].Frames[4].AddHearthbox(0, 0, 180, 100);
-                personnages[i].Animations["couplourd"].Frames[4].AddHearthbox(0, 100, 100, 50);
-                personnages[i].Animations["couplourd"].Frames[4].AddHitbox(220, 60, 28, 60);
-                // bouclier 3-2+-0 => 5+
-                personnages[i].AddAnimation("bouclier", new Animation("bouclier"));
-                personnages[i].Animations["bouclier"].AddFrame(new Frame($"train{i + 1}/bouclier0.png", 1));
-                personnages[i].Animations["bouclier"].Frames[0].AddHearthbox(0, 0, 180, 100);
-                personnages[i].Animations["bouclier"].Frames[0].AddHearthbox(0, 100, 100, 50);
-                personnages[i].Animations["bouclier"].AddFrame(new Frame($"train{i + 1}/bouclier1.png", 1));
-                personnages[i].Animations["bouclier"].Frames[1].AddHearthbox(0, 0, 180, 100);
-                personnages[i].Animations["bouclier"].Frames[1].AddHearthbox(0, 100, 100, 50);
-                personnages[i].Animations["bouclier"].AddFrame(new Frame($"train{i + 1}/bouclier2.png", 1));
-                personnages[i].Animations["bouclier"].Frames[2].AddHearthbox(0, 0, 180, 100);
-                personnages[i].Animations["bouclier"].Frames[2].AddHearthbox(0, 100, 100, 50);
-                personnages[i].Animations["bouclier"].AddFrame(new Frame($"train{i + 1}/bouclier3.png", 1));
-                personnages[i].Animations["bouclier"].Frames[3].AddHearthbox(0, 0, 180, 100);
-                personnages[i].Animations["bouclier"].Frames[3].AddHearthbox(0, 100, 100, 50);
-                personnages[i].Animations["bouclier"].Frames[3].AddHearthbox(208, 4, 40, 152);
-                personnages[i].Animations["bouclier"].Frames[3].Type = "protect";
-                personnages[i].Animations["bouclier"].AddFrame(new Frame($"train{i + 1}/bouclier4.png", 1));
-                personnages[i].Animations["bouclier"].Frames[4].AddHearthbox(0, 0, 180, 100);
-                personnages[i].Animations["bouclier"].Frames[4].AddHearthbox(0, 100, 100, 50);
-                personnages[i].Animations["bouclier"].Frames[4].Type = "protect";
-                personnages[i].Animations["bouclier"].Frames[4].AddHearthbox(208, 4, 40, 152);
-                // saisie 6-2-0 => 8
-                personnages[i].AddAnimation("saisie", new Animation("saisie"));
-                personnages[i].Animations["saisie"].AddFrame(new Frame($"train{i + 1}/grab0.png", 1));
-                personnages[i].Animations["saisie"].Frames[0].AddHearthbox(0, 0, 180, 100);
-                personnages[i].Animations["saisie"].Frames[0].AddHearthbox(0, 100, 100, 50);
-                personnages[i].Animations["saisie"].AddFrame(new Frame($"train{i + 1}/grab1.png", 1));
-                personnages[i].Animations["saisie"].Frames[1].AddHearthbox(0, 0, 180, 100);
-                personnages[i].Animations["saisie"].Frames[1].AddHearthbox(0, 100, 100, 50);
-                personnages[i].Animations["saisie"].AddFrame(new Frame($"train{i + 1}/grab2.png", 1));
-                personnages[i].Animations["saisie"].Frames[2].AddHearthbox(0, 0, 180, 100);
-                personnages[i].Animations["saisie"].Frames[2].AddHearthbox(0, 100, 100, 50);
-                personnages[i].Animations["saisie"].AddFrame(new Frame($"train{i + 1}/grab3.png", 1));
-                personnages[i].Animations["saisie"].Frames[3].AddHearthbox(0, 0, 180, 100);
-                personnages[i].Animations["saisie"].Frames[3].AddHearthbox(0, 100, 100, 50);
-                personnages[i].Animations["saisie"].Frames[3].Type = "grab";
-                personnages[i].Animations["saisie"].AddFrame(new Frame($"train{i + 1}/grab4.png", 1));
-                personnages[i].Animations["saisie"].Frames[4].AddHearthbox(0, 0, 180, 100);
-                personnages[i].Animations["saisie"].Frames[4].AddHearthbox(0, 100, 100, 50);
-                personnages[i].Animations["saisie"].Frames[4].Type = "grab";
-                personnages[i].Animations["saisie"].AddFrame(new Frame($"train{i + 1}/grab5.png", 1));
-                personnages[i].Animations["saisie"].Frames[5].AddHearthbox(0, 0, 180, 100);
-                personnages[i].Animations["saisie"].Frames[5].AddHearthbox(0, 100, 100, 50);
-                personnages[i].Animations["saisie"].Frames[5].Type = "grab";
-                personnages[i].Animations["saisie"].AddFrame(new Frame($"train{i + 1}/grab6.png", 2, 10, 0));
-                personnages[i].Animations["saisie"].Frames[6].AddHearthbox(0, 0, 180, 100);
-                personnages[i].Animations["saisie"].Frames[6].AddHearthbox(0, 100, 100, 50);
-                personnages[i].Animations["saisie"].Frames[6].AddHitbox(225, 39, 24, 36);
-                personnages[i].Animations["saisie"].Frames[6].Type = "grab";
-                // dash 10-0-0 => 10
-                personnages[i].AddAnimation("dash", new Animation("dash"));
-                personnages[i].Animations["dash"].AddFrame(new Frame($"train{i + 1}/dash0.png", 1, 0, 2));
-                personnages[i].Animations["dash"].Frames[0].AddHearthbox(0, 0, 180, 100);
-                personnages[i].Animations["dash"].Frames[0].AddHearthbox(0, 100, 100, 50);
-                personnages[i].Animations["dash"].AddFrame(new Frame($"train{i + 1}/dash1.png", 1, 0, 5));
-                personnages[i].Animations["dash"].Frames[1].AddHearthbox(0, 0, 180, 100);
-                personnages[i].Animations["dash"].Frames[1].AddHearthbox(0, 100, 100, 50);
-                personnages[i].Animations["dash"].AddFrame(new Frame($"train{i + 1}/dash2.png", 1, 0, 8));
-                personnages[i].Animations["dash"].Frames[2].AddHearthbox(0, 0, 180, 100);
-                personnages[i].Animations["dash"].Frames[2].AddHearthbox(0, 100, 100, 50);
-                personnages[i].Animations["dash"].AddFrame(new Frame($"train{i + 1}/dash3.png", 2, 3, 15));
-                personnages[i].Animations["dash"].Frames[3].AddHearthbox(0, 0, 180, 100);
-                personnages[i].Animations["dash"].Frames[3].AddHearthbox(0, 100, 100, 50);
-                personnages[i].Animations["dash"].Frames[3].AddHitbox(200, 3, 52, 60);
-                personnages[i].Animations["dash"].Frames[3].Type = "protect";
-                personnages[i].Animations["dash"].AddFrame(new Frame($"train{i + 1}/dash4.png", 3, 4, 25));
-                personnages[i].Animations["dash"].Frames[4].AddHearthbox(0, 0, 180, 100);
-                personnages[i].Animations["dash"].Frames[4].AddHearthbox(0, 100, 100, 50);
-                personnages[i].Animations["dash"].Frames[4].AddHitbox(200, 3, 52, 60);
-                personnages[i].Animations["dash"].Frames[4].Type = "protect";
-                // tirleger 3-1-7 => 11
-                personnages[i].AddAnimation("tirleger", new Animation("tirleger"));
-                personnages[i].Animations["tirleger"].AddFrame(new Frame($"train{i + 1}/deplacement0.png", 3));
-                personnages[i].Animations["dash"].Frames[4].AddHearthbox(0, 0, 180, 100);
-                personnages[i].Animations["dash"].Frames[4].AddHearthbox(0, 100, 100, 50);
-                personnages[i].Animations["tirleger"].AddFrame(new Frame($"train{i + 1}/deplacement0.png", 1));
-                personnages[i].Animations["dash"].Frames[4].AddHearthbox(0, 0, 180, 100);
-                personnages[i].Animations["dash"].Frames[4].AddHearthbox(0, 100, 100, 50);
-                personnages[i].Animations["tirleger"].Frames[1].AddProjectile("train1/tir.png", 0, 60, 1, 0, 300, 3, false);
-                personnages[i].Animations["tirleger"].AddFrame(new Frame($"train{i + 1}/deplacement0.png", 9));
-                personnages[i].Animations["dash"].Frames[4].AddHearthbox(0, 0, 180, 100);
-                personnages[i].Animations["dash"].Frames[4].AddHearthbox(0, 100, 100, 50);
-            }
-            int j = 2;
+            int j = 0;
+            // attente 2-0-0 => 2
+            personnages[j].AddAnimation("attente", new Animation("attente"));
+            personnages[j].Animations["attente"].AddFrame(new Frame($"train{j + 1}/deplacement0.png", 2));
+            personnages[j].Animations["attente"].AddFrame(new Frame($"train{j + 1}/deplacement1.png", 2));
+            // marche 2-0-0 => 2
+            personnages[j].AddAnimation("marche", new Animation("marche"));
+            personnages[j].Animations["marche"].AddFrame(new Frame($"train{j + 1}/deplacement0.png", 2, 0, 10));
+            personnages[j].Animations["marche"].AddFrame(new Frame($"train{j + 1}/deplacement1.png", 2, 0, 10));
+            // coup leger 5-3-0 => 8
+            personnages[j].AddAnimation("coupleger", new Animation("coupleger"));
+            personnages[j].Animations["coupleger"].AddFrame(new Frame($"train{j + 1}/poing0.png", 3));
+            personnages[j].Animations["coupleger"].AddFrame(new Frame($"train{j + 1}/poing1.png", 2));
+            personnages[j].Animations["coupleger"].AddFrame(new Frame($"train{j + 1}/poing2.png", 1, 3, 0));
+            personnages[j].Animations["coupleger"].Frames[2].AddHitbox(204, 68, 28, 32);
+            personnages[j].Animations["coupleger"].AddFrame(new Frame($"train{j + 1}/poing3.png", 2, 5, 0));
+            personnages[j].Animations["coupleger"].Frames[3].AddHitbox(216, 68, 28, 32);
+            // coup lourd 5-3-0 => 8
+            personnages[j].AddAnimation("couplourd", new Animation("couplourd"));
+            personnages[j].Animations["couplourd"].AddFrame(new Frame($"train{j + 1}/attaquelourd0.png", 3));
+            personnages[j].Animations["couplourd"].AddFrame(new Frame($"train{j + 1}/attaquelourd1.png", 2));
+            personnages[j].Animations["couplourd"].AddFrame(new Frame($"train{j + 1}/attaquelourd2.png", 2));
+            personnages[j].Animations["couplourd"].AddFrame(new Frame($"train{j + 1}/attaquelourd3.png", 2));
+            personnages[j].Animations["couplourd"].AddFrame(new Frame($"train{j + 1}/attaquelourd4.png", 2, 15, 0));
+            personnages[j].Animations["couplourd"].Frames[4].AddHitbox(220, 60, 28, 60);
+            // bouclier 3-2+-0 => 5+
+            personnages[j].AddAnimation("bouclier", new Animation("bouclier"));
+            personnages[j].Animations["bouclier"].AddFrame(new Frame($"train{j + 1}/bouclier0.png", 1));
+            personnages[j].Animations["bouclier"].AddFrame(new Frame($"train{j + 1}/bouclier1.png", 1));
+            personnages[j].Animations["bouclier"].AddFrame(new Frame($"train{j + 1}/bouclier2.png", 1));
+            personnages[j].Animations["bouclier"].AddFrame(new Frame($"train{j + 1}/bouclier3.png", 1));
+            personnages[j].Animations["bouclier"].Frames[3].AddHearthbox(208, 4, 40, 152);
+            personnages[j].Animations["bouclier"].Frames[3].Type = "protect";
+            personnages[j].Animations["bouclier"].AddFrame(new Frame($"train{j + 1}/bouclier4.png", 1));
+            personnages[j].Animations["bouclier"].Frames[4].Type = "protect";
+            personnages[j].Animations["bouclier"].Frames[4].AddHearthbox(208, 4, 40, 152);
+            // saisie 6-2-0 => 8
+            personnages[j].AddAnimation("saisie", new Animation("saisie"));
+            personnages[j].Animations["saisie"].AddFrame(new Frame($"train{j + 1}/grab0.png", 1));
+            personnages[j].Animations["saisie"].AddFrame(new Frame($"train{j + 1}/grab1.png", 1));
+            personnages[j].Animations["saisie"].AddFrame(new Frame($"train{j + 1}/grab2.png", 1));
+            personnages[j].Animations["saisie"].AddFrame(new Frame($"train{j + 1}/grab3.png", 1));
+            personnages[j].Animations["saisie"].Frames[3].Type = "grab";
+            personnages[j].Animations["saisie"].AddFrame(new Frame($"train{j + 1}/grab4.png", 1));
+            personnages[j].Animations["saisie"].Frames[4].Type = "grab";
+            personnages[j].Animations["saisie"].AddFrame(new Frame($"train{j + 1}/grab5.png", 1));
+            personnages[j].Animations["saisie"].Frames[5].Type = "grab";
+            personnages[j].Animations["saisie"].AddFrame(new Frame($"train{j + 1}/grab6.png", 2, 10, 0));
+            personnages[j].Animations["saisie"].Frames[6].AddHitbox(225, 39, 24, 36);
+            personnages[j].Animations["saisie"].Frames[6].Type = "grab";
+            // dash 10-0-0 => 10
+            personnages[j].AddAnimation("dash", new Animation("dash"));
+            personnages[j].Animations["dash"].AddFrame(new Frame($"train{j + 1}/dash0.png", 1, 0, 2));
+            personnages[j].Animations["dash"].AddFrame(new Frame($"train{j + 1}/dash1.png", 1, 0, 5));
+            personnages[j].Animations["dash"].AddFrame(new Frame($"train{j + 1}/dash2.png", 1, 0, 8));
+            personnages[j].Animations["dash"].AddFrame(new Frame($"train{j + 1}/dash3.png", 2, 3, 15));
+            personnages[j].Animations["dash"].Frames[3].AddHitbox(200, 3, 52, 60);
+            personnages[j].Animations["dash"].Frames[3].Type = "protect";
+            personnages[j].Animations["dash"].AddFrame(new Frame($"train{j + 1}/dash4.png", 3, 4, 25));
+            personnages[j].Animations["dash"].Frames[4].AddHitbox(200, 3, 52, 60);
+            personnages[j].Animations["dash"].Frames[4].Type = "protect";
+            // tirleger 3-1-7 => 11
+            personnages[j].AddAnimation("tirleger", new Animation("tirleger"));
+            personnages[j].Animations["tirleger"].AddFrame(new Frame($"train{j + 1}/deplacement0.png", 3));
+            personnages[j].Animations["tirleger"].AddFrame(new Frame($"train{j + 1}/deplacement0.png", 1));
+            personnages[j].Animations["tirleger"].Frames[1].AddProjectile("train1/tir.png", 0, 60, 1, 0, 300, 3, false);
+            personnages[j].Animations["tirleger"].AddFrame(new Frame($"train{j + 1}/deplacement0.png", 9));
+
+            personnages[j].AddHearthtboxToAllAnimation(
+                new System.Drawing.Rectangle[] { new System.Drawing.Rectangle(0, 0, 180, 100), new System.Drawing.Rectangle(0, 100, 100, 50) }
+            );
+
+
+            j = 1;
+            // attente 2-0-0 => 2
+            personnages[j].AddAnimation("attente", new Animation("attente"));
+            personnages[j].Animations["attente"].AddFrame(new Frame($"train{j + 1}/deplacement0.png", 2));
+            personnages[j].Animations["attente"].AddFrame(new Frame($"train{j + 1}/deplacement1.png", 2));
+            // marche 2-0-0 => 2
+            personnages[j].AddAnimation("marche", new Animation("marche"));
+            personnages[j].Animations["marche"].AddFrame(new Frame($"train{j + 1}/deplacement0.png", 2, 0, 10));
+            personnages[j].Animations["marche"].AddFrame(new Frame($"train{j + 1}/deplacement1.png", 2, 0, 10));
+            // coup leger 5-3-0 => 8
+            personnages[j].AddAnimation("coupleger", new Animation("coupleger"));
+            personnages[j].Animations["coupleger"].AddFrame(new Frame($"train{j + 1}/poing0.png", 3));
+            personnages[j].Animations["coupleger"].AddFrame(new Frame($"train{j + 1}/poing1.png", 2));
+            personnages[j].Animations["coupleger"].AddFrame(new Frame($"train{j + 1}/poing2.png", 1));
+            personnages[j].Animations["coupleger"].AddFrame(new Frame($"train{j + 1}/poing3.png", 2, 6, 0));
+            personnages[j].Animations["coupleger"].Frames[3].AddHitbox(176, 32, 80, 76);
+            // coup lourd 5-3-0 => 8
+            personnages[j].AddAnimation("couplourd", new Animation("couplourd"));
+            personnages[j].Animations["couplourd"].AddFrame(new Frame($"train{j + 1}/attaquelourd0.png", 3));
+            personnages[j].Animations["couplourd"].AddFrame(new Frame($"train{j + 1}/attaquelourd1.png", 2));
+            personnages[j].Animations["couplourd"].AddFrame(new Frame($"train{j + 1}/attaquelourd2.png", 2));
+            personnages[j].Animations["couplourd"].Frames[2].AddHitbox(176, 28, 56, 96);
+            personnages[j].Animations["couplourd"].AddFrame(new Frame($"train{j + 1}/attaquelourd3.png", 2));
+            personnages[j].Animations["couplourd"].Frames[3].AddHitbox(176, 20, 76, 116);
+            // bouclier 3-2+-0 => 5+
+            personnages[j].AddAnimation("bouclier", new Animation("bouclier"));
+            personnages[j].Animations["bouclier"].AddFrame(new Frame($"train{j + 1}/bouclier0.png", 1));
+            personnages[j].Animations["bouclier"].AddFrame(new Frame($"train{j + 1}/bouclier1.png", 1));
+            personnages[j].Animations["bouclier"].AddFrame(new Frame($"train{j + 1}/bouclier2.png", 1));
+            personnages[j].Animations["bouclier"].Frames[2].AddHearthbox(192, 12, 44, 112);
+            personnages[j].Animations["bouclier"].Frames[2].Type = "protect";
+            personnages[j].Animations["bouclier"].AddFrame(new Frame($"train{j + 1}/bouclier3.png", 1));
+            personnages[j].Animations["bouclier"].Frames[3].AddHearthbox(192, 12, 48, 112);
+            personnages[j].Animations["bouclier"].Frames[3].Type = "protect";
+            // saisie 6-2-0 => 8
+            personnages[j].AddAnimation("saisie", new Animation("saisie"));
+            personnages[j].Animations["saisie"].AddFrame(new Frame($"train{j + 1}/grab0.png", 1));
+            personnages[j].Animations["saisie"].AddFrame(new Frame($"train{j + 1}/grab1.png", 1));
+            personnages[j].Animations["saisie"].AddFrame(new Frame($"train{j + 1}/grab2.png", 1));
+            personnages[j].Animations["saisie"].Frames[2].AddHitbox(180, 56, 24, 24);
+            personnages[j].Animations["saisie"].Frames[2].Type = "grab";
+            personnages[j].Animations["saisie"].AddFrame(new Frame($"train{j + 1}/grab3.png", 1, 100, 0));
+            personnages[j].Animations["saisie"].Frames[3].AddHitbox(208, 40, 24, 24);
+            personnages[j].Animations["saisie"].Frames[3].Type = "grab";
+            // dash 10-0-0 => 10
+            personnages[j].AddAnimation("dash", new Animation("dash"));
+            personnages[j].Animations["dash"].AddFrame(new Frame($"train{j + 1}/dash0.png", 1, 0, 2));
+            personnages[j].Animations["dash"].AddFrame(new Frame($"train{j + 1}/dash1.png", 1, 0, 5));
+            personnages[j].Animations["dash"].AddFrame(new Frame($"train{j + 1}/dash2.png", 1, 0, 8));
+            personnages[j].Animations["dash"].AddFrame(new Frame($"train{j + 1}/dash3.png", 2, 0, 15));
+            personnages[j].Animations["dash"].Frames[3].Type = "protect";
+            personnages[j].Animations["dash"].AddFrame(new Frame($"train{j + 1}/dash4.png", 3, 4, 25));
+            personnages[j].Animations["dash"].Frames[4].AddHitbox(172, 4, 60, 44);
+            personnages[j].Animations["dash"].Frames[4].Type = "protect";
+            // tirleger 3-1-7 => 11
+            personnages[j].AddAnimation("tirleger", new Animation("tirleger"));
+            personnages[j].Animations["tirleger"].AddFrame(new Frame($"train{j + 1}/deplacement0.png", 3));
+            personnages[j].Animations["tirleger"].AddFrame(new Frame($"train{j + 1}/deplacement0.png", 1));
+            personnages[j].Animations["tirleger"].Frames[1].AddProjectile("train2/tir.png", -100, 90, 1, 0, 300, 3, false);
+            personnages[j].Animations["tirleger"].AddFrame(new Frame($"train{j + 1}/deplacement0.png", 9));
+
+            personnages[j].AddHearthtboxToAllAnimation(
+                new System.Drawing.Rectangle[] { new System.Drawing.Rectangle(0, 0, 180, 100), new System.Drawing.Rectangle(0, 100, 100, 50) }
+            );
+
+
+            j = 2;
             // attente 2-0-0 => 2
             personnages[j].AddAnimation("attente", new Animation("attente"));
             personnages[j].Animations["attente"].AddFrame(new Frame($"train{j + 1}/deplacement0.png", 2));
