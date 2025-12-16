@@ -19,11 +19,12 @@ namespace TRAINBattle
     /// </summary>
     public partial class ChangementTouche : Window
     {
-        public string ToucheSelectione { get; set; }
+        public string ToucheSelectione { get; set; } // Permetra de récuperer l'info depuis la main window
 
         public ChangementTouche()
         {
             InitializeComponent();
+            // On ajoute tout les boutons à le feunetre
             for (int i = 0; i < MainWindow.Touches.GetLength(1); i++) {
 
                 Button button = new Button();
@@ -34,6 +35,7 @@ namespace TRAINBattle
             }
         }
 
+        // Fonction passé aux boutons
         private void AppuiSurTouche(object sender, RoutedEventArgs e)
         {
             Button btn = (Button)sender;

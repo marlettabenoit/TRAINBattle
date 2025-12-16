@@ -8,8 +8,8 @@
         Title="ChangementTouche" Height="720" Width="400">
 
     <Grid>
-        <Label Content="Nouvelle touche" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0" FontSize="24"></Label>
-    <StackPanel x:Name="stackTouches" Margin="20,100,20,20">
+        <Label Content="Nouvelle touche" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0" FontSize="24"></Label>  <!-- Alors la légande est vraie !!! Les profs lisent vraiment le code source -->
+        <StackPanel x:Name="stackTouches" Margin="20,100,20,20">
                 
     </StackPanel>
     </Grid>
