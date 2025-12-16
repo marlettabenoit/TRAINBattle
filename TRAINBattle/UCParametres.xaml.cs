@@ -24,6 +24,8 @@ namespace TRAINBattle
         public UCParametres()
         {
             InitializeComponent();
+            sliderMusique.Value = MainWindow.VolumeMusique * 100;
+            sliderSond.Value = MainWindow.VolumeSon * 100;
 
             butPlayer1.Click += ClickButPlayer;
             butPlayer2.Click += ClickButPlayer;
@@ -41,8 +43,10 @@ namespace TRAINBattle
 
         private void butReset_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow.VolumeMusique = 50;
-            MainWindow.VolumeSon = 50;
+            MainWindow.VolumeMusique = 0.5;
+            MainWindow.VolumeSon = 0.5;
+            sliderMusique.Value = 50;
+            sliderSond.Value = 50;
         }
 
         private void butSauvegarde_Click(object sender, RoutedEventArgs e)

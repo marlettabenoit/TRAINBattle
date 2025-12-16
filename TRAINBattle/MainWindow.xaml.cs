@@ -16,8 +16,8 @@ namespace TRAINBattle
     /// </summary>
     public partial class MainWindow : Window
     {
-        public static double VolumeSon { get; set; }
-        public static double VolumeMusique { get; set; }
+        public static double VolumeSon { get; set; } = 0.5;
+        public static double VolumeMusique { get; set; } = 0.5;
         public static MediaPlayer MusicPlayer = new MediaPlayer();
         public static int PlayerTouchesModifie = 0; // Contien le numero du joueur dont on modifie les touches
 
