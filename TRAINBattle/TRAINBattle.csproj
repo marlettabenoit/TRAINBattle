@@ -156,10 +156,6 @@
     <None Remove="son\train4attaqueleger.wav" />
     <None Remove="son\train4dash.wav" />
     <None Remove="son\train4tir.wav" />
-    <None Remove="terrain1.png" />
-    <None Remove="terrain2.png" />
-    <None Remove="terrain3.png" />
-    <None Remove="terrain4.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -347,10 +343,6 @@
     <Resource Include="img\train4\tir.png" />
     <Resource Include="img\vie\barrevie.png" />
     <Resource Include="img\vie\barreviemodifie.png" />
-    <Resource Include="terrain1.png" />
-    <Resource Include="terrain2.png" />
-    <Resource Include="terrain3.png" />
-    <Resource Include="terrain4.png" />
   </ItemGroup>
 
 </Project>
