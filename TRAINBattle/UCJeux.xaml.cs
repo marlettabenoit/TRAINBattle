@@ -121,7 +121,7 @@ namespace TRAINBattle
                 personnages[i].Animations["marche"].Frames[1].AddHearthbox(0, 0, 180, 100);
                 personnages[i].Animations["marche"].Frames[1].AddHearthbox(0, 100, 100, 50);
                 // coup leger 5-3-0 => 8
-                personnages[i].AddAnimation("coupleger", new Animation("marche"));
+                personnages[i].AddAnimation("coupleger", new Animation("coupleger"));
                 personnages[i].Animations["coupleger"].AddFrame(new Frame($"train{i + 1}/poing0.png", 3));
                 personnages[i].Animations["coupleger"].Frames[0].AddHearthbox(0, 0, 180, 100);
                 personnages[i].Animations["coupleger"].Frames[0].AddHearthbox(0, 100, 100, 50);
@@ -136,6 +136,25 @@ namespace TRAINBattle
                 personnages[i].Animations["coupleger"].Frames[3].AddHearthbox(0, 0, 180, 100);
                 personnages[i].Animations["coupleger"].Frames[3].AddHearthbox(0, 100, 100, 50);
                 personnages[i].Animations["coupleger"].Frames[3].AddHitbox(216, 68, 28, 32);
+                // coup lourd 5-3-0 => 8
+                personnages[i].AddAnimation("couplourd", new Animation("couplourd"));
+                personnages[i].Animations["couplourd"].AddFrame(new Frame($"train{i + 1}/attaquelourd0.png", 3));
+                personnages[i].Animations["couplourd"].Frames[0].AddHearthbox(0, 0, 180, 100);
+                personnages[i].Animations["couplourd"].Frames[0].AddHearthbox(0, 100, 100, 50);
+                personnages[i].Animations["couplourd"].AddFrame(new Frame($"train{i + 1}/attaquelourd1.png", 2));
+                personnages[i].Animations["couplourd"].Frames[1].AddHearthbox(0, 0, 180, 100);
+                personnages[i].Animations["couplourd"].Frames[1].AddHearthbox(0, 100, 100, 50);
+                personnages[i].Animations["couplourd"].AddFrame(new Frame($"train{i + 1}/attaquelourd2.png", 1, 3, 0));
+                personnages[i].Animations["couplourd"].Frames[2].AddHearthbox(0, 0, 180, 100);
+                personnages[i].Animations["couplourd"].Frames[2].AddHearthbox(0, 100, 100, 50);
+                personnages[i].Animations["couplourd"].AddFrame(new Frame($"train{i + 1}/attaquelourd3.png", 2, 5, 0));
+                personnages[i].Animations["couplourd"].Frames[3].AddHearthbox(0, 0, 180, 100);
+                personnages[i].Animations["couplourd"].Frames[3].AddHearthbox(0, 100, 100, 50);
+                //personnages[i].Animations["couplourd"].Frames[3].AddHitbox(216, 68, 28, 32);
+                personnages[i].Animations["couplourd"].AddFrame(new Frame($"train{i + 1}/attaquelourd4.png", 2, 5, 0));
+                personnages[i].Animations["couplourd"].Frames[4].AddHearthbox(0, 0, 180, 100);
+                personnages[i].Animations["couplourd"].Frames[4].AddHearthbox(0, 100, 100, 50);
+                //personnages[i].Animations["couplourd"].Frames[4].AddHitbox(216, 68, 28, 32);
                 // bouclier 3-2+-0 => 5+
                 personnages[i].AddAnimation("bouclier", new Animation("bouclier"));
                 personnages[i].Animations["bouclier"].AddFrame(new Frame($"train{i + 1}/bouclier0.png", 1));
@@ -237,7 +256,7 @@ namespace TRAINBattle
             personnages[j].Animations["marche"].Frames[1].AddHearthbox(0, 0, 184, 100);
             personnages[j].Animations["marche"].Frames[1].AddHearthbox(0, 100, 56, 16);
             // coup leger 5-3-0 => 8
-            personnages[j].AddAnimation("coupleger", new Animation("marche"));
+            personnages[j].AddAnimation("coupleger", new Animation("coupleger"));
             personnages[j].Animations["coupleger"].AddFrame(new Frame($"train{j + 1}/attaqueleger0.png", 3));
             personnages[j].Animations["coupleger"].Frames[0].AddHearthbox(0, 0, 184, 100);
             personnages[j].Animations["coupleger"].Frames[0].AddHearthbox(0, 100, 56, 16);
@@ -253,6 +272,23 @@ namespace TRAINBattle
             personnages[j].Animations["coupleger"].Frames[3].AddHearthbox(0, 100, 56, 16);
             personnages[j].Animations["coupleger"].Frames[3].AddHitbox(184, 65, 48, 16);
             personnages[j].Animations["coupleger"].Frames[3].AddHitbox(228, 68, 20, 8);
+            // coup leger 5-3-0 => 8
+            personnages[j].AddAnimation("couplourd", new Animation("couplourd"));
+            personnages[j].Animations["couplourd"].AddFrame(new Frame($"train{j + 1}/attaqueleger0.png", 3));
+            personnages[j].Animations["couplourd"].Frames[0].AddHearthbox(0, 0, 184, 100);
+            personnages[j].Animations["couplourd"].Frames[0].AddHearthbox(0, 100, 56, 16);
+            personnages[j].Animations["couplourd"].AddFrame(new Frame($"train{j + 1}/attaqueleger1.png", 2));
+            personnages[j].Animations["couplourd"].Frames[1].AddHearthbox(0, 0, 184, 100);
+            personnages[j].Animations["couplourd"].Frames[1].AddHearthbox(0, 100, 56, 16);
+            personnages[j].Animations["couplourd"].AddFrame(new Frame($"train{j + 1}/attaqueleger2.png", 1, 3, 0));
+            personnages[j].Animations["couplourd"].Frames[2].AddHearthbox(0, 0, 184, 100);
+            personnages[j].Animations["couplourd"].Frames[2].AddHearthbox(0, 100, 56, 16);
+            //personnages[j].Animations["couplourd"].Frames[2].AddHitbox(184, 60, 48, 20);
+            personnages[j].Animations["couplourd"].AddFrame(new Frame($"train{j + 1}/attaqueleger3.png", 2, 5, 0));
+            personnages[j].Animations["couplourd"].Frames[3].AddHearthbox(0, 0, 184, 100);
+            personnages[j].Animations["couplourd"].Frames[3].AddHearthbox(0, 100, 56, 16);
+            //personnages[j].Animations["couplourd"].Frames[3].AddHitbox(184, 65, 48, 16);
+            //personnages[j].Animations["couplourd"].Frames[3].AddHitbox(228, 68, 20, 8);
             // bouclier 3-2+-0 => 5+
             personnages[j].AddAnimation("bouclier", new Animation("bouclier"));
             personnages[j].Animations["bouclier"].AddFrame(new Frame($"train{j + 1}/bouclier0.png", 1));
@@ -349,7 +385,7 @@ namespace TRAINBattle
             personnages[j].Animations["attente"].Frames[1].AddHearthbox(0, 0, 140, 72);
             personnages[j].Animations["attente"].Frames[1].AddHearthbox(140, 4, 76, 48);
             // coup leger 5-3-0 => 8
-            personnages[j].AddAnimation("coupleger", new Animation("marche"));
+            personnages[j].AddAnimation("coupleger", new Animation("coupleger"));
             personnages[j].Animations["coupleger"].AddFrame(new Frame($"train{j + 1}/attaqueleger0.png", 3));
             personnages[j].Animations["coupleger"].Frames[0].AddHearthbox(0, 0, 140, 72);
             personnages[j].Animations["coupleger"].Frames[0].AddHearthbox(140, 4, 76, 48);
@@ -371,6 +407,29 @@ namespace TRAINBattle
             personnages[j].Animations["coupleger"].Frames[4].AddHitbox(184, 60, 28, 16);
             personnages[j].Animations["coupleger"].Frames[4].AddHitbox(216, 44, 20, 16);
             personnages[j].Animations["coupleger"].Frames[4].AddHitbox(232, 40, 20, 8);
+            // coup lourd 5-3-0 => 8
+            personnages[j].AddAnimation("couplourd", new Animation("couplourd"));
+            personnages[j].Animations["couplourd"].AddFrame(new Frame($"train{j + 1}/attaquelourd0.png", 3));
+            personnages[j].Animations["couplourd"].Frames[0].AddHearthbox(0, 0, 140, 72);
+            personnages[j].Animations["couplourd"].Frames[0].AddHearthbox(140, 4, 76, 48);
+            personnages[j].Animations["couplourd"].AddFrame(new Frame($"train{j + 1}/attaquelourd1.png", 2));
+            personnages[j].Animations["couplourd"].Frames[1].AddHearthbox(0, 0, 140, 72);
+            personnages[j].Animations["couplourd"].Frames[1].AddHearthbox(140, 4, 76, 48);
+            personnages[j].Animations["couplourd"].AddFrame(new Frame($"train{j + 1}/attaquelourd2.png", 1, 3, 0));
+            personnages[j].Animations["couplourd"].Frames[2].AddHearthbox(0, 0, 140, 72);
+            personnages[j].Animations["couplourd"].Frames[2].AddHearthbox(140, 4, 76, 48);
+            personnages[j].Animations["couplourd"].AddFrame(new Frame($"train{j + 1}/attaquelourd3.png", 2, 5, 0));
+            personnages[j].Animations["couplourd"].Frames[3].AddHearthbox(0, 0, 140, 72);
+            personnages[j].Animations["couplourd"].Frames[3].AddHearthbox(140, 4, 76, 48);
+            personnages[j].Animations["couplourd"].AddFrame(new Frame($"train{j + 1}/attaquelourd3.png", 2, 10, 0));
+            personnages[j].Animations["couplourd"].Frames[4].AddHearthbox(0, 0, 140, 72);
+            personnages[j].Animations["couplourd"].Frames[4].AddHearthbox(140, 4, 76, 48);
+            //personnages[j].Animations["couplourd"].Frames[4].AddHitbox(108, 92, 44, 20);
+            //personnages[j].Animations["couplourd"].Frames[4].AddHitbox(144, 76, 40, 20);
+            //personnages[j].Animations["couplourd"].Frames[4].AddHitbox(144, 76, 40, 20);
+            //personnages[j].Animations["couplourd"].Frames[4].AddHitbox(184, 60, 28, 16);
+            //personnages[j].Animations["couplourd"].Frames[4].AddHitbox(216, 44, 20, 16);
+            //personnages[j].Animations["couplourd"].Frames[4].AddHitbox(232, 40, 20, 8);
             // bouclier 3-2+-0 => 5+
             personnages[j].AddAnimation("bouclier", new Animation("bouclier"));
             personnages[j].Animations["bouclier"].AddFrame(new Frame($"train{j + 1}/bouclier0.png", 1));
@@ -505,6 +564,21 @@ namespace TRAINBattle
                         vienDeFinir = false;
                     }
                 }
+                if (MainWindow.TouchesActives[i, 7])
+                {
+                    if (vienDeFinir)
+                    {
+                        if (MainWindow.TouchesActives[i, 4] || MainWindow.TouchesActives[i, 2])
+                        {
+                            players[i].SetAnimation("couplourd");
+                        }
+                        else
+                        {
+                            players[i].SetAnimation("coupleger");
+                        }
+                        vienDeFinir = false;
+                    }
+                }
                 if (MainWindow.TouchesActives[i, 2])
                 {
                     if (vienDeFinir) {
@@ -519,20 +593,10 @@ namespace TRAINBattle
                 {
                     if (vienDeFinir)
                     {
-                        players[i].SetAnimation("coupleger");
-                        {
-                            if (!players[i].OrientationDroite)
-                                players[i].Flip();
-                            players[i].SetAnimation("marche");
-                        }
-                        vienDeFinir = false;
-                    }
-                }
-                if (MainWindow.TouchesActives[i, 7])
-                {
-                    if (vienDeFinir)
-                    {
-                        players[i].SetAnimation("coupleger");
+                        if (!players[i].OrientationDroite)
+                            players[i].Flip();
+                        
+                        players[i].SetAnimation("marche");
                         vienDeFinir = false;
                     }
                 }

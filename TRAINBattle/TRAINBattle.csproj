@@ -14,6 +14,11 @@
     <None Remove="img\terrain\terrain2.png" />
     <None Remove="img\terrain\terrain3.png" />
     <None Remove="img\terrain\terrain4.png" />
+    <None Remove="img\train1\attaquelourd0.png" />
+    <None Remove="img\train1\attaquelourd1.png" />
+    <None Remove="img\train1\attaquelourd2.png" />
+    <None Remove="img\train1\attaquelourd3.png" />
+    <None Remove="img\train1\attaquelourd4.png" />
     <None Remove="img\train1\base.png" />
     <None Remove="img\train1\bouclier0.png" />
     <None Remove="img\train1\bouclier1.png" />
@@ -42,6 +47,11 @@
     <None Remove="img\train1\tir - Copie.png" />
     <None Remove="img\train1\tir.png" />
     <None Remove="img\train1\tir0.png" />
+    <None Remove="img\train2\attaquelourd0.png" />
+    <None Remove="img\train2\attaquelourd1.png" />
+    <None Remove="img\train2\attaquelourd2.png" />
+    <None Remove="img\train2\attaquelourd3.png" />
+    <None Remove="img\train2\attaquelourd4.png" />
     <None Remove="img\train2\base.png" />
     <None Remove="img\train2\bouclier0.png" />
     <None Remove="img\train2\bouclier1.png" />
@@ -147,6 +157,11 @@
     <Resource Include="img\terrain\terrain2.png" />
     <Resource Include="img\terrain\terrain3.png" />
     <Resource Include="img\terrain\terrain4.png" />
+    <Resource Include="img\train1\attaquelourd0.png" />
+    <Resource Include="img\train1\attaquelourd1.png" />
+    <Resource Include="img\train1\attaquelourd2.png" />
+    <Resource Include="img\train1\attaquelourd3.png" />
+    <Resource Include="img\train1\attaquelourd4.png" />
     <Resource Include="img\train1\base.png" />
     <Resource Include="img\train1\bouclier0.png" />
     <Resource Include="img\train1\bouclier1.png" />
@@ -175,6 +190,11 @@
     <Resource Include="img\train1\tir - Copie.png" />
     <Resource Include="img\train1\tir.png" />
     <Resource Include="img\train1\tir0.png" />
+    <Resource Include="img\train2\attaquelourd0.png" />
+    <Resource Include="img\train2\attaquelourd1.png" />
+    <Resource Include="img\train2\attaquelourd2.png" />
+    <Resource Include="img\train2\attaquelourd3.png" />
+    <Resource Include="img\train2\attaquelourd4.png" />
     <Resource Include="img\train2\base.png" />
     <Resource Include="img\train2\bouclier0.png" />
     <Resource Include="img\train2\bouclier1.png" />
