@@ -12,8 +12,8 @@
 
         <Label x:Name="labAide" Content="Aide" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,32,0,0" VerticalAlignment="Top" Width="600" Height="46" Background="#FFD8D7D7" FontSize="22"/>
 
-        <StackPanel Margin="100,100,100,0">
-            <TextBlock Margin="0,32,0,0" VerticalAlignment="Top" Background="#FFD8D7D7" FontSize="22">
+        <StackPanel Margin="100,100,100,0" VerticalAlignment="Center">
+            <TextBlock Margin="0,0,0,0" VerticalAlignment="Top" Background="#FFD8D7D7" FontSize="22">
                 Mode de jeux :<LineBreak />
                 Solo : Pour jouer seul face à un bot<LineBreak />
                 Versus : pour s'amuser entre amis

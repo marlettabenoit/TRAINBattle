@@ -20,12 +20,12 @@
         <Slider x:Name="sliderMusique" HorizontalAlignment="Left" Margin="38,175,0,0" VerticalAlignment="Top" Width="345" Minimum="0" Maximum="100"/>
         <Label x:Name="labMusique" Content="Musique" HorizontalAlignment="Left" Margin="38,145,0,0" VerticalAlignment="Top" Height="30" Width="86" FontSize="18"/>
 
-        <Label x:Name="labTouche" Content="Touche" HorizontalAlignment="Left" Margin="38,345,0,0" VerticalAlignment="Top" Height="30" Width="86" FontSize="18"/>
-        <Button x:Name="butPlayer1" Content="Player1" HorizontalAlignment="Left" Margin="41,380,0,0" VerticalAlignment="Top" Height="48" Width="109" FontSize="22"/>
-        <Button x:Name="butPlayer2" Content="Player2" HorizontalAlignment="Left" Margin="194,380,0,0" VerticalAlignment="Top" Height="48" Width="109" FontSize="22"/>
+        <Label x:Name="labTouche" Content="Touche" HorizontalAlignment="Left" Margin="38,249,0,0" VerticalAlignment="Top" Height="30" Width="86" FontSize="18"/>
+        <Button x:Name="butPlayer1" Content="Player1" HorizontalAlignment="Left" Margin="41,290,0,0" VerticalAlignment="Top" Height="48" Width="109" FontSize="22"/>
+        <Button x:Name="butPlayer2" Content="Player2" HorizontalAlignment="Left" Margin="194,290,0,0" VerticalAlignment="Top" Height="48" Width="109" FontSize="22"/>
 
-        <Button x:Name="butSauvegarde" Content="Sauvegarde" HorizontalAlignment="Right" Margin="0,0,50,40" VerticalAlignment="Bottom" Height="100" Width="254" FontSize="45" Click="butSauvegarde_Click"/>
-        <Button x:Name="butReset" Content="Reset" HorizontalAlignment="Right" Margin="0,0,350,40" VerticalAlignment="Bottom" Width="254" Height="100" FontSize="48" Click="butReset_Click"/>
+        <Button x:Name="butSauvegarde" Content="Sauvegarde" HorizontalAlignment="Right" Margin="0,0,50,40" VerticalAlignment="Bottom" FontSize="52" Click="butSauvegarde_Click"/>
+        <Button x:Name="butReset" Content="Reset" HorizontalAlignment="Right" Margin="0,0,350,40" VerticalAlignment="Bottom" FontSize="52" Click="butReset_Click"/>
     </Grid>
 
 </UserControl>

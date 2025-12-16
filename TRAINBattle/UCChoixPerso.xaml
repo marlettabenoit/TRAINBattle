@@ -15,7 +15,7 @@
         <Image Tag="2" MouseLeftButtonDown="Perso_Click" MouseRightButtonDown="Perso_Click" Source="/img/train3/profil.png" Height="100" Width="100" Margin="125,200,0,0" VerticalAlignment="Top" HorizontalAlignment="Center"/>
         <Image Tag="3" MouseLeftButtonDown="Perso_Click" MouseRightButtonDown="Perso_Click" Source="/img/train4/profil.png" Height="100" Width="100" Margin="375,200,0,0" VerticalAlignment="Top" HorizontalAlignment="Center"/>
 
-        <Grid Width="380" Height="250" VerticalAlignment="Bottom">
+        <Grid Height="250" VerticalAlignment="Bottom">
             <Rectangle>
                 <Rectangle.Fill>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
