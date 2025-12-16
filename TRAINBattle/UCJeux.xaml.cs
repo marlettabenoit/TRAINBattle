@@ -274,17 +274,17 @@ namespace TRAINBattle
             personnages[j].Animations["coupleger"].Frames[3].AddHitbox(228, 68, 20, 8);
             // coup leger 5-3-0 => 8
             personnages[j].AddAnimation("couplourd", new Animation("couplourd"));
-            personnages[j].Animations["couplourd"].AddFrame(new Frame($"train{j + 1}/attaqueleger0.png", 3));
+            personnages[j].Animations["couplourd"].AddFrame(new Frame($"train{j + 1}/attaquelourd0.png", 3));
             personnages[j].Animations["couplourd"].Frames[0].AddHearthbox(0, 0, 184, 100);
             personnages[j].Animations["couplourd"].Frames[0].AddHearthbox(0, 100, 56, 16);
-            personnages[j].Animations["couplourd"].AddFrame(new Frame($"train{j + 1}/attaqueleger1.png", 2));
+            personnages[j].Animations["couplourd"].AddFrame(new Frame($"train{j + 1}/attaquelourd1.png", 2));
             personnages[j].Animations["couplourd"].Frames[1].AddHearthbox(0, 0, 184, 100);
             personnages[j].Animations["couplourd"].Frames[1].AddHearthbox(0, 100, 56, 16);
-            personnages[j].Animations["couplourd"].AddFrame(new Frame($"train{j + 1}/attaqueleger2.png", 1, 3, 0));
+            personnages[j].Animations["couplourd"].AddFrame(new Frame($"train{j + 1}/attaquelourd2.png", 1, 3, 0));
             personnages[j].Animations["couplourd"].Frames[2].AddHearthbox(0, 0, 184, 100);
             personnages[j].Animations["couplourd"].Frames[2].AddHearthbox(0, 100, 56, 16);
             //personnages[j].Animations["couplourd"].Frames[2].AddHitbox(184, 60, 48, 20);
-            personnages[j].Animations["couplourd"].AddFrame(new Frame($"train{j + 1}/attaqueleger3.png", 2, 5, 0));
+            personnages[j].Animations["couplourd"].AddFrame(new Frame($"train{j + 1}/attaquelourd3.png", 2, 5, 0));
             personnages[j].Animations["couplourd"].Frames[3].AddHearthbox(0, 0, 184, 100);
             personnages[j].Animations["couplourd"].Frames[3].AddHearthbox(0, 100, 56, 16);
             //personnages[j].Animations["couplourd"].Frames[3].AddHitbox(184, 65, 48, 16);

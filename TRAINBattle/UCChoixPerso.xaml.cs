@@ -43,10 +43,10 @@ namespace TRAINBattle
         {
             persos = new List<PersoChoix>
             {
-                new PersoChoix { Id = 0, Nom = "George", ImageProfil = "/img/train1/profil.png" },
-                new PersoChoix { Id = 1, Nom = "Christof", ImageProfil = "/img/train2/profil.png" },
-                new PersoChoix { Id = 2, Nom = "Jack", ImageProfil = "/img/train3/profil.png" },
-                new PersoChoix { Id = 3, Nom = "Walid", ImageProfil = "/img/train4/profil.png" },
+                new PersoChoix { Id = 0, Nom = "Zach", ImageProfil = "/img/train1/profil.png" },
+                new PersoChoix { Id = 1, Nom = "ミク", ImageProfil = "/img/train2/profil.png" },
+                new PersoChoix { Id = 2, Nom = "Robin", ImageProfil = "/img/train3/profil.png" },
+                new PersoChoix { Id = 3, Nom = "Abdelaziz", ImageProfil = "/img/train4/profil.png" },
             };
             MainWindow.IndexPersoP1 = choixP1;
             MainWindow.IndexPersoP2 = choixP2;

@@ -36,10 +36,6 @@ namespace TRAINBattle
         public void Update()
         {
             ResetInputs();
-
-            //if (!PeutAgir())
-            //    return;
-
             MetAJourEtat();
             Console.WriteLine(etatActuel);
             PrendreDecision();
@@ -105,7 +101,6 @@ namespace TRAINBattle
                 etatActuel = EtatBot.Offense;
                 return;
             }
-
         }
         
         private void PrendreDecision()
@@ -227,6 +222,7 @@ namespace TRAINBattle
             { // On change de direction
                 if (bot.OrientationDroite) Press(2); // gauche
                 else Press(4); // droite
+                return; // on execute pas le reste
             }
             if (JoueurBloque())
             {
@@ -234,7 +230,13 @@ namespace TRAINBattle
                 return;
             }
             if (rng.NextDouble() < 0.7)
+            {
                 Press(7); // coup léger
+                if (rng.NextDouble() < 0.3)
+                {
+                    Avancer(); // car avancer + attaque => attaque lourde
+                }
+            }
             else
                 Press(1); // dash
         }
@@ -248,7 +250,13 @@ namespace TRAINBattle
         private void ComportementPunish()
         {
             if (Distance() < 150)
+            {
                 Press(7); // coup léger
+                if (rng.NextDouble() < 0.3)
+                {
+                    Avancer(); // car avancer + attaque => attaque lourde
+                }
+            }
             else
                 Press(1); // dash pour se rapprocher
         }
