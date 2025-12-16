@@ -214,7 +214,7 @@ namespace TRAINBattle
                 personnages[i].Animations["tirleger"].AddFrame(new Frame($"train{i + 1}/deplacement0.png", 1));
                 personnages[i].Animations["dash"].Frames[4].AddHearthbox(0, 0, 180, 100);
                 personnages[i].Animations["dash"].Frames[4].AddHearthbox(0, 100, 100, 50);
-                personnages[i].Animations["tirleger"].Frames[1].AddProjectile("train1/tir0.png", 0, 60, 1, 0, 300, 3, false);
+                personnages[i].Animations["tirleger"].Frames[1].AddProjectile("train1/tir.png", 0, 60, 1, 0, 300, 3, false);
                 personnages[i].Animations["tirleger"].AddFrame(new Frame($"train{i + 1}/deplacement0.png", 9));
                 personnages[i].Animations["dash"].Frames[4].AddHearthbox(0, 0, 180, 100);
                 personnages[i].Animations["dash"].Frames[4].AddHearthbox(0, 100, 100, 50);
@@ -326,7 +326,7 @@ namespace TRAINBattle
             personnages[j].Animations["tirleger"].AddFrame(new Frame($"train{j + 1}/deplacement0.png", 1));
             personnages[j].Animations["tirleger"].Frames[1].AddHearthbox(0, 0, 180, 100);
             personnages[j].Animations["tirleger"].Frames[1].AddHearthbox(0, 100, 100, 50);
-            personnages[j].Animations["tirleger"].Frames[1].AddProjectile("train1/tir0.png", 0, 60, 1, 0, 300, 3, false);
+            personnages[j].Animations["tirleger"].Frames[1].AddProjectile("train3/tir.png", 0, 60, 1, 0, 300, 3, false);
             personnages[j].Animations["tirleger"].AddFrame(new Frame($"train{j + 1}/deplacement0.png", 7));
             personnages[j].Animations["tirleger"].Frames[2].AddHearthbox(0, 0, 180, 100);
             personnages[j].Animations["tirleger"].Frames[2].AddHearthbox(0, 100, 100, 50);
@@ -442,7 +442,7 @@ namespace TRAINBattle
             personnages[j].Animations["tirleger"].AddFrame(new Frame($"train{j + 1}/deplacement0.png", 1));
             personnages[j].Animations["dash"].Frames[2].AddHearthbox(0, 0, 140, 72);
             personnages[j].Animations["dash"].Frames[2].AddHearthbox(140, 4, 76, 48);
-            personnages[j].Animations["tirleger"].Frames[1].AddProjectile("train1/tir0.png", 0, 60, 1, 0, 300, 3, false);
+            personnages[j].Animations["tirleger"].Frames[1].AddProjectile("train4/tir.png", 0, 60, 1, 0, 300, 3, false);
             personnages[j].Animations["tirleger"].AddFrame(new Frame($"train{j + 1}/deplacement0.png", 7));
             personnages[j].Animations["dash"].Frames[3].AddHearthbox(0, 0, 140, 72);
             personnages[j].Animations["dash"].Frames[3].AddHearthbox(140, 4, 76, 48);
