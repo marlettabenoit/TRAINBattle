@@ -196,7 +196,7 @@ namespace TRAINBattle
             personnages[j].Animations["couplourd"].AddFrame(new Frame($"train{j + 1}/attaquelourd1.png", 2));
             personnages[j].Animations["couplourd"].AddFrame(new Frame($"train{j + 1}/attaquelourd2.png", 2));
             personnages[j].Animations["couplourd"].Frames[2].AddHitbox(176, 28, 56, 96);
-            personnages[j].Animations["couplourd"].AddFrame(new Frame($"train{j + 1}/attaquelourd3.png", 2));
+            personnages[j].Animations["couplourd"].AddFrame(new Frame($"train{j + 1}/attaquelourd3.png", 2, 14, 0));
             personnages[j].Animations["couplourd"].Frames[3].AddHitbox(176, 20, 76, 116);
             // bouclier 3-2+-0 => 5+
             personnages[j].AddAnimation("bouclier", new Animation("bouclier"));
@@ -215,7 +215,7 @@ namespace TRAINBattle
             personnages[j].Animations["saisie"].AddFrame(new Frame($"train{j + 1}/grab2.png", 1));
             personnages[j].Animations["saisie"].Frames[2].AddHitbox(180, 56, 24, 24);
             personnages[j].Animations["saisie"].Frames[2].Type = "grab";
-            personnages[j].Animations["saisie"].AddFrame(new Frame($"train{j + 1}/grab3.png", 1, 100, 0));
+            personnages[j].Animations["saisie"].AddFrame(new Frame($"train{j + 1}/grab3.png", 1, 20, 0));
             personnages[j].Animations["saisie"].Frames[3].AddHitbox(208, 40, 24, 24);
             personnages[j].Animations["saisie"].Frames[3].Type = "grab";
             // dash 10-0-0 => 10
