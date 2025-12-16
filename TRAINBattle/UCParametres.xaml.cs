@@ -21,6 +21,7 @@ namespace TRAINBattle
     
     public partial class UCParametres : UserControl
     {
+        // la partie pour les sonds à été laissé pour de futurs maj et n'est pas encore utilisé
         public UCParametres()
         {
             InitializeComponent();
@@ -32,6 +33,7 @@ namespace TRAINBattle
 
         }
 
+        // Permet de rediriger vers les options de touches du bon joueur
         private void ClickButPlayer(object sender, RoutedEventArgs e)
         {
             Button btn = (Button)sender;
@@ -41,6 +43,7 @@ namespace TRAINBattle
                 MainWindow.PlayerTouchesModifie = 1;
         }
 
+        // Reset les parametres (mais pas les touches)
         private void butReset_Click(object sender, RoutedEventArgs e)
         {
             MainWindow.VolumeMusique = 0.5;
@@ -49,16 +52,12 @@ namespace TRAINBattle
             sliderSond.Value = 50;
         }
 
+        // Sauvegarde les choix faits
         private void butSauvegarde_Click(object sender, RoutedEventArgs e)
         {
             MainWindow.VolumeMusique = sliderMusique.Value;
             MainWindow.VolumeSon = sliderSond.Value;
-            Console.WriteLine(MainWindow.VolumeMusique);
-            Console.WriteLine(sliderMusique.Value);
-
-            //MainWindow.MusicPlayer.Stop();
             MainWindow.MusicPlayer.Volume = MainWindow.VolumeMusique / 100.0;
-            //MainWindow.MusicPlayer.Play();
         }
     }
 }

@@ -6,15 +6,13 @@
              xmlns:local="clr-namespace:TRAINBattle"
              mc:Ignorable="d" 
              d:DesignHeight="720" d:DesignWidth="1280">
-    <Grid>
 
-        <Image x:Name="imgBG" Source="/img/terrain/terrain1.png" Stretch="Fill" />
-
-        <Canvas x:Name="canvasJeux">
-
-        </Canvas>
-
-        <TextBlock x:Name="blockInfo" Text="Info" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="64" FontFamily="Arial Black" TextAlignment="Center"/>
-
-    </Grid>
+    <Viewbox Stretch="Uniform">
+        <Grid Width="1280" Height="720">
+            <Image x:Name="imgBG" Source="/img/terrain/terrain1.png" Stretch="Fill" />
+            <Canvas x:Name="canvasJeux">
+            </Canvas>
+            <TextBlock x:Name="blockInfo" Text="Info" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="64" FontFamily="Arial Black" TextAlignment="Center"/>
+        </Grid>
+    </Viewbox>
 </UserControl>

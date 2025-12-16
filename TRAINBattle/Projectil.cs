@@ -9,7 +9,8 @@ using System.Windows.Media.Imaging;
 
 namespace TRAINBattle
 {
-    public class Projectils
+    // class projectile qui gére les projectiles (bah oui, c'est facile le code finalement)
+    public class Projectil
     {
         // Position actuelle du projectile
         public int X { get; set; }
@@ -19,18 +20,23 @@ namespace TRAINBattle
         public double DirX { get; set; }
         public double DirY { get; set; }
 
-        // Vitesse en unités par seconde
+        // Vitesse
         public double Speed { get; set; }
 
-        // Dégâts infligés lors d’un impact
+        // Puissance
         public int Damage { get; set; }
 
+        // Image
         public Image Image { get; set; }
 
+        // Gravité ou non
         public bool EnCloche { get; set; }
+        
+        // 'id' du tireur
         public int OwnerNumber { get; set; }
 
-        public Projectils(string imagePath, int x, int y, double dirX, double dirY, double speed, int damage, bool enCloche)
+        // constructeur
+        public Projectil(string imagePath, int x, int y, double dirX, double dirY, double speed, int damage, bool enCloche)
         {
             X = x;
             Y = y;
@@ -43,14 +49,15 @@ namespace TRAINBattle
 
             EnCloche = enCloche;
 
+            // On charge l'image
             string imagePathComplet = $"pack://application:,,,/img/{imagePath}";
             Image = new Image();
             Image.Source = new BitmapImage(new Uri(imagePathComplet));
             Image.Width = ((BitmapImage)Image.Source).PixelWidth;
             Image.Height = ((BitmapImage)Image.Source).PixelHeight;
-
         }
 
+        // Renvoi la hitbox du projectil
         public System.Drawing.Rectangle GetHitbox()
         {
             System.Drawing.Rectangle hitbox = new System.Drawing.Rectangle(
@@ -61,12 +68,13 @@ namespace TRAINBattle
             return hitbox;
         }
 
+        // Retourne le projectil
         public void Flip()
         {
             Image.LayoutTransform = new ScaleTransform(-1, 1);
         }
 
-        // 
+        // Met à jours le projectil, renvoi false si le projectil sort de l'écran
         public bool Update()
         {
             // Déplacement
@@ -82,6 +90,7 @@ namespace TRAINBattle
             return true;
         }
 
+        // Affiche le projectil
         public void Affiche(Canvas canvas, int niveauSol)
         {
             canvas.Children.Add(Image);

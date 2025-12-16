@@ -122,7 +122,7 @@ namespace TRAINBattle
         }
 
         // Met à jours le joueur et renvoi false si son animation est fini
-        public bool Update(List<Projectils> ProjectilsEnJeu)
+        public bool Update(List<Projectil> ProjectilsEnJeu)
         {
             // gravité
             Y += (int)AccelerationY;
@@ -153,7 +153,7 @@ namespace TRAINBattle
                 // Cas ou y'à un tir
                 if (AnimationCourante.GetCurrentFrame().Type == "tir")
                 {
-                    Projectils projectil = AnimationCourante.GetCurrentFrame().GetProjectil();
+                    Projectil projectil = AnimationCourante.GetCurrentFrame().GetProjectil();
                     // On ajoute la position du perso
                     projectil.X += X;
                     projectil.Y += Y;

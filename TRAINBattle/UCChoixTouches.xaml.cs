@@ -26,9 +26,10 @@ namespace TRAINBattle
             InitContent();
         }
 
+        // Initialise le contenu de l'uc
         private void InitContent()
         {
-            //Console.WriteLine(MainWindow.PlayerTouchesModifie);
+            // On affiche pour chaque action le nom de l'action et la touche dedie cote à cote
             string[] indications =
             {
         "inutile", "dash", "gauche", "saut", "droite",
@@ -50,6 +51,7 @@ namespace TRAINBattle
                 Button button = new Button();
                 button.Content = MainWindow.Touches[MainWindow.PlayerTouchesModifie, i].ToString();
                 button.Width = 200;
+                // On ajoute au bouton sa fonction qui permet de bind la touche
                 button.Click += ClickButton;
 
                 Grid.SetColumn(button, 0);
@@ -71,6 +73,8 @@ namespace TRAINBattle
             }
         }
 
+        // Fonction appelé quand un des boutons est clique (sauf retour)
+        // Elle se sert de ChangementTouche pour changer la touche
         private void ClickButton(object sender, RoutedEventArgs e)
         {
             var button = (Button)sender;
@@ -78,6 +82,7 @@ namespace TRAINBattle
             bool? reponse = changementToucheWindow.ShowDialog();
             if (reponse == true)
             {
+                // On échange l'ancienne touche avec la nouvelle
                 int indexInverse = -1; // index nouvelle touche
                 int indexOrigine = -1; // index anciene touche
                 for (int i = 0; i < MainWindow.Touches.GetLength(1); i++)
@@ -94,9 +99,8 @@ namespace TRAINBattle
                 Key tempKey = MainWindow.Touches[MainWindow.PlayerTouchesModifie, indexInverse];
                 MainWindow.Touches[MainWindow.PlayerTouchesModifie, indexInverse] = MainWindow.Touches[MainWindow.PlayerTouchesModifie, indexOrigine];
                 MainWindow.Touches[MainWindow.PlayerTouchesModifie, indexOrigine] = tempKey;
-
             }
-            // Recharge les boutons afin de les mettres à jours
+            // On recharge les boutons pour les remetres à jours
             InitContent();
         }
     }

@@ -76,9 +76,9 @@ namespace TRAINBattle
         }
 
         // renvoi un nouveau projectil crée grace au tuple
-        public Projectils GetProjectil()
+        public Projectil GetProjectil()
         {
-            return new Projectils(ProjecInfo.imagePath, ProjecInfo.x, ProjecInfo.y, ProjecInfo.dirX, ProjecInfo.dirY, ProjecInfo.speed, ProjecInfo.damage, ProjecInfo.enCloche);
+            return new Projectil(ProjecInfo.imagePath, ProjecInfo.x, ProjecInfo.y, ProjecInfo.dirX, ProjecInfo.dirY, ProjecInfo.speed, ProjecInfo.damage, ProjecInfo.enCloche);
         }
 
         // Surcharge pour les frames qui n'ont ni puissance ni deplacement

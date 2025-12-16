@@ -13,7 +13,7 @@ namespace TRAINBattle
         // On récupérera le perso du bot et celui du joueur ainsi que la liste des projectiles dans ces variables
         private Personnage bot;
         private Personnage joueur;
-        private List<Projectils> projectils;
+        private List<Projectil> projectils;
 
         // On crée le génerateur une bonne fois pour toute
         private Random rng = new Random();
@@ -31,7 +31,7 @@ namespace TRAINBattle
         private EtatBot etatActuel = EtatBot.Neutral; // par defaut neutral
 
         // constructeur de la classe, nécessite le perso attribué au bot, celui de joueur, et la list des projectils
-        public Bot(Personnage bot, Personnage joueur, List<Projectils> projectils)
+        public Bot(Personnage bot, Personnage joueur, List<Projectil> projectils)
         {
             this.bot = bot;
             this.joueur = joueur;
@@ -43,7 +43,6 @@ namespace TRAINBattle
         {
             ResetInputs();
             MetAJourEtat();
-            Console.WriteLine(etatActuel);
             PrendreDecision();
         }
 
@@ -167,7 +166,7 @@ namespace TRAINBattle
         {
             double distanceMin = double.MaxValue;
 
-            foreach (Projectils p in this.projectils)
+            foreach (Projectil p in this.projectils)
             {
                 // ignorer les projectiles du bot
                 if (p.OwnerNumber == 1)
