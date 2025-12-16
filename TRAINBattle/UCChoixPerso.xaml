@@ -24,8 +24,7 @@
                     </LinearGradientBrush>
                 </Rectangle.Fill>
             </Rectangle>
-            <Label Content="100 s" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,100" FontSize="18"></Label>
-            <Label Content="3 Rounds" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,60" FontSize="18"></Label>
+            <Label Content="3 Rounds" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,100" FontSize="18"></Label>
         </Grid>
 
         <Grid Width="450" Height="350" HorizontalAlignment="Left" VerticalAlignment="Bottom">
