@@ -144,17 +144,16 @@ namespace TRAINBattle
                 personnages[i].Animations["couplourd"].AddFrame(new Frame($"train{i + 1}/attaquelourd1.png", 2));
                 personnages[i].Animations["couplourd"].Frames[1].AddHearthbox(0, 0, 180, 100);
                 personnages[i].Animations["couplourd"].Frames[1].AddHearthbox(0, 100, 100, 50);
-                personnages[i].Animations["couplourd"].AddFrame(new Frame($"train{i + 1}/attaquelourd2.png", 1, 3, 0));
+                personnages[i].Animations["couplourd"].AddFrame(new Frame($"train{i + 1}/attaquelourd2.png", 2));
                 personnages[i].Animations["couplourd"].Frames[2].AddHearthbox(0, 0, 180, 100);
                 personnages[i].Animations["couplourd"].Frames[2].AddHearthbox(0, 100, 100, 50);
-                personnages[i].Animations["couplourd"].AddFrame(new Frame($"train{i + 1}/attaquelourd3.png", 2, 5, 0));
+                personnages[i].Animations["couplourd"].AddFrame(new Frame($"train{i + 1}/attaquelourd3.png", 2));
                 personnages[i].Animations["couplourd"].Frames[3].AddHearthbox(0, 0, 180, 100);
                 personnages[i].Animations["couplourd"].Frames[3].AddHearthbox(0, 100, 100, 50);
-                //personnages[i].Animations["couplourd"].Frames[3].AddHitbox(216, 68, 28, 32);
-                personnages[i].Animations["couplourd"].AddFrame(new Frame($"train{i + 1}/attaquelourd4.png", 2, 5, 0));
+                personnages[i].Animations["couplourd"].AddFrame(new Frame($"train{i + 1}/attaquelourd4.png", 2, 15, 0));
                 personnages[i].Animations["couplourd"].Frames[4].AddHearthbox(0, 0, 180, 100);
                 personnages[i].Animations["couplourd"].Frames[4].AddHearthbox(0, 100, 100, 50);
-                //personnages[i].Animations["couplourd"].Frames[4].AddHitbox(216, 68, 28, 32);
+                personnages[i].Animations["couplourd"].Frames[4].AddHitbox(220, 60, 28, 60);
                 // bouclier 3-2+-0 => 5+
                 personnages[i].AddAnimation("bouclier", new Animation("bouclier"));
                 personnages[i].Animations["bouclier"].AddFrame(new Frame($"train{i + 1}/bouclier0.png", 1));
@@ -280,15 +279,14 @@ namespace TRAINBattle
             personnages[j].Animations["couplourd"].AddFrame(new Frame($"train{j + 1}/attaquelourd1.png", 2));
             personnages[j].Animations["couplourd"].Frames[1].AddHearthbox(0, 0, 184, 100);
             personnages[j].Animations["couplourd"].Frames[1].AddHearthbox(0, 100, 56, 16);
-            personnages[j].Animations["couplourd"].AddFrame(new Frame($"train{j + 1}/attaquelourd2.png", 1, 3, 0));
+            personnages[j].Animations["couplourd"].AddFrame(new Frame($"train{j + 1}/attaquelourd2.png", 1, 7, 0));
             personnages[j].Animations["couplourd"].Frames[2].AddHearthbox(0, 0, 184, 100);
             personnages[j].Animations["couplourd"].Frames[2].AddHearthbox(0, 100, 56, 16);
-            //personnages[j].Animations["couplourd"].Frames[2].AddHitbox(184, 60, 48, 20);
-            personnages[j].Animations["couplourd"].AddFrame(new Frame($"train{j + 1}/attaquelourd3.png", 2, 5, 0));
+            personnages[j].Animations["couplourd"].Frames[2].AddHitbox(220, 0, 36, 144);
+            personnages[j].Animations["couplourd"].AddFrame(new Frame($"train{j + 1}/attaquelourd3.png", 2, 8, 0));
             personnages[j].Animations["couplourd"].Frames[3].AddHearthbox(0, 0, 184, 100);
             personnages[j].Animations["couplourd"].Frames[3].AddHearthbox(0, 100, 56, 16);
-            //personnages[j].Animations["couplourd"].Frames[3].AddHitbox(184, 65, 48, 16);
-            //personnages[j].Animations["couplourd"].Frames[3].AddHitbox(228, 68, 20, 8);
+            personnages[j].Animations["couplourd"].Frames[3].AddHitbox(220, 0, 36, 144);
             // bouclier 3-2+-0 => 5+
             personnages[j].AddAnimation("bouclier", new Animation("bouclier"));
             personnages[j].Animations["bouclier"].AddFrame(new Frame($"train{j + 1}/bouclier0.png", 1));
@@ -421,15 +419,10 @@ namespace TRAINBattle
             personnages[j].Animations["couplourd"].AddFrame(new Frame($"train{j + 1}/attaquelourd3.png", 2, 5, 0));
             personnages[j].Animations["couplourd"].Frames[3].AddHearthbox(0, 0, 140, 72);
             personnages[j].Animations["couplourd"].Frames[3].AddHearthbox(140, 4, 76, 48);
-            personnages[j].Animations["couplourd"].AddFrame(new Frame($"train{j + 1}/attaquelourd3.png", 2, 10, 0));
+            personnages[j].Animations["couplourd"].AddFrame(new Frame($"train{j + 1}/attaquelourd3.png", 2, 20, 0));
             personnages[j].Animations["couplourd"].Frames[4].AddHearthbox(0, 0, 140, 72);
             personnages[j].Animations["couplourd"].Frames[4].AddHearthbox(140, 4, 76, 48);
-            //personnages[j].Animations["couplourd"].Frames[4].AddHitbox(108, 92, 44, 20);
-            //personnages[j].Animations["couplourd"].Frames[4].AddHitbox(144, 76, 40, 20);
-            //personnages[j].Animations["couplourd"].Frames[4].AddHitbox(144, 76, 40, 20);
-            //personnages[j].Animations["couplourd"].Frames[4].AddHitbox(184, 60, 28, 16);
-            //personnages[j].Animations["couplourd"].Frames[4].AddHitbox(216, 44, 20, 16);
-            //personnages[j].Animations["couplourd"].Frames[4].AddHitbox(232, 40, 20, 8);
+            personnages[j].Animations["couplourd"].Frames[4].AddHitbox(216, 0, 36, 143);
             // bouclier 3-2+-0 => 5+
             personnages[j].AddAnimation("bouclier", new Animation("bouclier"));
             personnages[j].Animations["bouclier"].AddFrame(new Frame($"train{j + 1}/bouclier0.png", 1));
