@@ -234,6 +234,19 @@ namespace TRAINBattle
                 canvas.Children.Add(healthBarOverlay);
         }
 
+        public void AddHearthtboxToAllAnimation(System.Drawing.Rectangle[] hearthboxs)
+        {
+            foreach (Animation animation in Animations.Values)
+            {
+                foreach (Frame frame in animation.Frames)
+                {
+                    foreach (System.Drawing.Rectangle hearthbox in hearthboxs)
+                    {
+                        frame.AddHearthbox(hearthbox.X, hearthbox.Y, hearthbox.Width, hearthbox.Height);
+                    }
+                }
+            }
+        }
 
     }
 }
