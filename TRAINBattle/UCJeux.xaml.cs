@@ -113,6 +113,7 @@ namespace TRAINBattle
             personnages[j].Animations["marche"].AddFrame(new Frame($"train{j + 1}/deplacement1.png", 2, 0, 10));
             // coup leger 5-3-0 => 8
             personnages[j].AddAnimation("coupleger", new Animation("coupleger"));
+            personnages[j].Animations["coupleger"].AssignerSon("son\\train1attaqueleger.wav");
             personnages[j].Animations["coupleger"].AddFrame(new Frame($"train{j + 1}/poing0.png", 3));
             personnages[j].Animations["coupleger"].AddFrame(new Frame($"train{j + 1}/poing1.png", 2));
             personnages[j].Animations["coupleger"].AddFrame(new Frame($"train{j + 1}/poing2.png", 1, 3, 0));
@@ -121,6 +122,7 @@ namespace TRAINBattle
             personnages[j].Animations["coupleger"].Frames[3].AddHitbox(216, 68, 28, 32);
             // coup lourd 5-3-0 => 8
             personnages[j].AddAnimation("couplourd", new Animation("couplourd"));
+            personnages[j].Animations["couplourd"].AssignerSon("son\\train1attaquelourd.wav");
             personnages[j].Animations["couplourd"].AddFrame(new Frame($"train{j + 1}/attaquelourd0.png", 3));
             personnages[j].Animations["couplourd"].AddFrame(new Frame($"train{j + 1}/attaquelourd1.png", 2));
             personnages[j].Animations["couplourd"].AddFrame(new Frame($"train{j + 1}/attaquelourd2.png", 2));
@@ -154,6 +156,7 @@ namespace TRAINBattle
             personnages[j].Animations["saisie"].Frames[6].Type = "grab";
             // dash 10-0-0 => 10
             personnages[j].AddAnimation("dash", new Animation("dash"));
+            personnages[j].Animations["dash"].AssignerSon("son\\train1dash.wav");
             personnages[j].Animations["dash"].AddFrame(new Frame($"train{j + 1}/dash0.png", 1, 0, 2));
             personnages[j].Animations["dash"].AddFrame(new Frame($"train{j + 1}/dash1.png", 1, 0, 5));
             personnages[j].Animations["dash"].AddFrame(new Frame($"train{j + 1}/dash2.png", 1, 0, 8));
@@ -165,6 +168,7 @@ namespace TRAINBattle
             personnages[j].Animations["dash"].Frames[4].Type = "protect";
             // tirleger 3-1-7 => 11
             personnages[j].AddAnimation("tirleger", new Animation("tirleger"));
+            personnages[j].Animations["tirleger"].AssignerSon("son\\train1tir.wav");
             personnages[j].Animations["tirleger"].AddFrame(new Frame($"train{j + 1}/deplacement0.png", 3));
             personnages[j].Animations["tirleger"].AddFrame(new Frame($"train{j + 1}/deplacement0.png", 1));
             personnages[j].Animations["tirleger"].Frames[1].AddProjectile("train1/tir.png", 0, 60, 1, 0, 300, 3, false);
@@ -186,6 +190,7 @@ namespace TRAINBattle
             personnages[j].Animations["marche"].AddFrame(new Frame($"train{j + 1}/deplacement1.png", 2, 0, 10));
             // coup leger 5-3-0 => 8
             personnages[j].AddAnimation("coupleger", new Animation("coupleger"));
+            personnages[j].Animations["coupleger"].AssignerSon("son\\train2attaqueleger.wav");
             personnages[j].Animations["coupleger"].AddFrame(new Frame($"train{j + 1}/poing0.png", 3));
             personnages[j].Animations["coupleger"].AddFrame(new Frame($"train{j + 1}/poing1.png", 2));
             personnages[j].Animations["coupleger"].AddFrame(new Frame($"train{j + 1}/poing2.png", 1));
@@ -193,6 +198,7 @@ namespace TRAINBattle
             personnages[j].Animations["coupleger"].Frames[3].AddHitbox(176, 32, 80, 76);
             // coup lourd 5-3-0 => 8
             personnages[j].AddAnimation("couplourd", new Animation("couplourd"));
+            personnages[j].Animations["couplourd"].AssignerSon("son\\train2attaquelourd.wav");
             personnages[j].Animations["couplourd"].AddFrame(new Frame($"train{j + 1}/attaquelourd0.png", 3));
             personnages[j].Animations["couplourd"].AddFrame(new Frame($"train{j + 1}/attaquelourd1.png", 2));
             personnages[j].Animations["couplourd"].AddFrame(new Frame($"train{j + 1}/attaquelourd2.png", 2));
@@ -221,6 +227,7 @@ namespace TRAINBattle
             personnages[j].Animations["saisie"].Frames[3].Type = "grab";
             // dash 10-0-0 => 10
             personnages[j].AddAnimation("dash", new Animation("dash"));
+            personnages[j].Animations["dash"].AssignerSon("son\\train2dash.wav");
             personnages[j].Animations["dash"].AddFrame(new Frame($"train{j + 1}/dash0.png", 1, 0, 2));
             personnages[j].Animations["dash"].AddFrame(new Frame($"train{j + 1}/dash1.png", 1, 0, 5));
             personnages[j].Animations["dash"].AddFrame(new Frame($"train{j + 1}/dash2.png", 1, 0, 8));
@@ -231,6 +238,7 @@ namespace TRAINBattle
             personnages[j].Animations["dash"].Frames[4].Type = "protect";
             // tirleger 3-1-7 => 11
             personnages[j].AddAnimation("tirleger", new Animation("tirleger"));
+            personnages[j].Animations["tirleger"].AssignerSon("son\\train2tir.wav");
             personnages[j].Animations["tirleger"].AddFrame(new Frame($"train{j + 1}/deplacement0.png", 3));
             personnages[j].Animations["tirleger"].AddFrame(new Frame($"train{j + 1}/deplacement0.png", 1));
             personnages[j].Animations["tirleger"].Frames[1].AddProjectile("train2/tir.png", -100, 68, 1, 0, 300, 3, false);
@@ -252,6 +260,7 @@ namespace TRAINBattle
             personnages[j].Animations["marche"].AddFrame(new Frame($"train{j + 1}/deplacement1.png", 2, 0, 10));
             // coup leger 5-3-0 => 8
             personnages[j].AddAnimation("coupleger", new Animation("coupleger"));
+            personnages[j].Animations["coupleger"].AssignerSon("son\\train3attaqueleger.wav");
             personnages[j].Animations["coupleger"].AddFrame(new Frame($"train{j + 1}/attaqueleger0.png", 3));
             personnages[j].Animations["coupleger"].AddFrame(new Frame($"train{j + 1}/attaqueleger1.png", 2));
             personnages[j].Animations["coupleger"].AddFrame(new Frame($"train{j + 1}/attaqueleger2.png", 1, 3, 0));
@@ -261,6 +270,7 @@ namespace TRAINBattle
             personnages[j].Animations["coupleger"].Frames[3].AddHitbox(228, 68, 20, 8);
             // coup leger 5-3-0 => 8
             personnages[j].AddAnimation("couplourd", new Animation("couplourd"));
+            personnages[j].Animations["couplourd"].AssignerSon("son\\train3attaquelourd.wav");
             personnages[j].Animations["couplourd"].AddFrame(new Frame($"train{j + 1}/attaquelourd0.png", 3));
             personnages[j].Animations["couplourd"].AddFrame(new Frame($"train{j + 1}/attaquelourd1.png", 2));
             personnages[j].Animations["couplourd"].AddFrame(new Frame($"train{j + 1}/attaquelourd2.png", 1, 7, 0));
@@ -279,6 +289,7 @@ namespace TRAINBattle
             personnages[j].Animations["bouclier"].Frames[3].Type = "protect";
             // saisie 6-2-0 => 8
             personnages[j].AddAnimation("saisie", new Animation("saisie"));
+            personnages[j].Animations["saisie"].AssignerSon("son\\train3grab.wav");
             personnages[j].Animations["saisie"].AddFrame(new Frame($"train{j + 1}/grab0.png", 1));
             personnages[j].Animations["saisie"].AddFrame(new Frame($"train{j + 1}/grab1.png", 1));
             personnages[j].Animations["saisie"].AddFrame(new Frame($"train{j + 1}/grab2.png", 1));
@@ -292,6 +303,7 @@ namespace TRAINBattle
             personnages[j].Animations["saisie"].Frames[6].Type = "grab";
             // dash 10-0-0 => 10
             personnages[j].AddAnimation("dash", new Animation("dash"));
+            personnages[j].Animations["dash"].AssignerSon("son\\train3dash.wav");
             personnages[j].Animations["dash"].AddFrame(new Frame($"train{j + 1}/dash0.png", 1, 0, 2));
             personnages[j].Animations["dash"].AddFrame(new Frame($"train{j + 1}/dash1.png", 1, 0, 5));
             personnages[j].Animations["dash"].AddFrame(new Frame($"train{j + 1}/dash2.png", 1, 0, 8));
@@ -302,6 +314,7 @@ namespace TRAINBattle
             personnages[j].Animations["dash"].Frames[4].Type = "protect";
             // tirleger 3-1-7 => 11
             personnages[j].AddAnimation("tirleger", new Animation("tirleger"));
+            personnages[j].Animations["tirleger"].AssignerSon("son\\train3tir.wav");
             personnages[j].Animations["tirleger"].AddFrame(new Frame($"train{j + 1}/deplacement0.png", 3));
             personnages[j].Animations["tirleger"].AddFrame(new Frame($"train{j + 1}/deplacement0.png", 1));
             personnages[j].Animations["tirleger"].Frames[1].AddProjectile("train3/tir.png", 0, 60, 1, 0, 300, 3, false);
@@ -322,6 +335,7 @@ namespace TRAINBattle
             personnages[j].Animations["marche"].AddFrame(new Frame($"train{j + 1}/deplacement1.png", 2, 0, 10));
             // coup leger 5-3-0 => 8
             personnages[j].AddAnimation("coupleger", new Animation("coupleger"));
+            personnages[j].Animations["coupleger"].AssignerSon("son\\train4attaqueleger.wav");
             personnages[j].Animations["coupleger"].AddFrame(new Frame($"train{j + 1}/attaqueleger0.png", 3));
             personnages[j].Animations["coupleger"].AddFrame(new Frame($"train{j + 1}/attaqueleger1.png", 2));
             personnages[j].Animations["coupleger"].AddFrame(new Frame($"train{j + 1}/attaqueleger2.png", 1, 3, 0));
@@ -335,6 +349,7 @@ namespace TRAINBattle
             personnages[j].Animations["coupleger"].Frames[4].AddHitbox(232, 40, 20, 8);
             // coup lourd 5-3-0 => 8
             personnages[j].AddAnimation("couplourd", new Animation("couplourd"));
+            //personnages[j].Animations["couplourd"].AssignerSon("son\\train4attaquelourd.wav");
             personnages[j].Animations["couplourd"].AddFrame(new Frame($"train{j + 1}/attaquelourd0.png", 3));
             personnages[j].Animations["couplourd"].AddFrame(new Frame($"train{j + 1}/attaquelourd1.png", 2));
             personnages[j].Animations["couplourd"].AddFrame(new Frame($"train{j + 1}/attaquelourd2.png", 1, 3, 0));
@@ -365,6 +380,7 @@ namespace TRAINBattle
             personnages[j].Animations["saisie"].Frames[4].Type = "grab";
             // dash 10-0-0 => 10
             personnages[j].AddAnimation("dash", new Animation("dash"));
+            personnages[j].Animations["dash"].AssignerSon("son\\train4dash.wav");
             personnages[j].Animations["dash"].AddFrame(new Frame($"train{j + 1}/dash0.png", 1, 0, 2));
             personnages[j].Animations["dash"].AddFrame(new Frame($"train{j + 1}/dash1.png", 1, 0, 6));
             personnages[j].Animations["dash"].AddFrame(new Frame($"train{j + 1}/dash2.png", 1, 0, 10));
@@ -376,6 +392,7 @@ namespace TRAINBattle
             personnages[j].Animations["dash"].Frames[4].Type = "protect";
             // tirleger 3-1-7 => 11
             personnages[j].AddAnimation("tirleger", new Animation("tirleger"));
+            personnages[j].Animations["tirleger"].AssignerSon("son\\train4tir.wav");
             personnages[j].Animations["tirleger"].AddFrame(new Frame($"train{j + 1}/deplacement0.png", 3));
             personnages[j].Animations["tirleger"].AddFrame(new Frame($"train{j + 1}/deplacement0.png", 1));
             personnages[j].Animations["tirleger"].Frames[1].AddProjectile("train4/tir.png", 0, 60, 1, 0, 300, 3, false);

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -23,6 +24,9 @@ namespace TRAINBattle
 
         public bool IsPlaying { get; set; }
         public bool IsFlip {  get; set; } = false;
+
+        private SoundPlayer soundPlayer = null;
+        private bool sonJoue = false;
 
         public Animation(string name)
         {
@@ -52,6 +56,8 @@ namespace TRAINBattle
         // Mise à jour automatique de l'animation renvoi false si anim fini
         public bool Update()
         {
+            JouerSon(); // ne se fera que si sonjoue est false:
+
             if (Frames.Count <= 1)
                 return false;
 
@@ -77,6 +83,7 @@ namespace TRAINBattle
             IndexFrameActuel = 0;
             CurrentFrame = 0;
             IsPlaying = true;
+            sonJoue = false;   // autorise le son à rejouer
         }
 
         // Permet de retourner TOUTE l'animation d’un coup
@@ -86,6 +93,22 @@ namespace TRAINBattle
             foreach (var f in Frames)
                 f.Flip();
         }
+
+        public void AssignerSon(string path)
+        {
+            soundPlayer = new SoundPlayer(path);
+            soundPlayer.LoadAsync(); // préchargement (optionnel mais bien)
+        }
+
+        private void JouerSon()
+        {
+            if (soundPlayer != null && !sonJoue)
+            {
+                soundPlayer.Play();
+                sonJoue = true;
+            }
+        }
+
     }
 
 }

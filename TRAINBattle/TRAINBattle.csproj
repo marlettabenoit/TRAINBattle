@@ -140,6 +140,22 @@
     <None Remove="img\vie\barrevie.png" />
     <None Remove="img\vie\barreviemodifie.png" />
     <None Remove="son\musicPrincipale.mp3" />
+    <None Remove="son\train1attaqueleger.wav" />
+    <None Remove="son\train1attaquelourd.wav" />
+    <None Remove="son\train1dash.wav" />
+    <None Remove="son\train1tir.wav" />
+    <None Remove="son\train2attaqueleger.wav" />
+    <None Remove="son\train2attaquelourd.wav" />
+    <None Remove="son\train2dash.wav" />
+    <None Remove="son\train2tir.wav" />
+    <None Remove="son\train3attaqueleger.wav" />
+    <None Remove="son\train3attaquelourd.wav" />
+    <None Remove="son\train3dash.wav" />
+    <None Remove="son\train3grab.wav" />
+    <None Remove="son\train3tir.wav" />
+    <None Remove="son\train4attaqueleger.wav" />
+    <None Remove="son\train4dash.wav" />
+    <None Remove="son\train4tir.wav" />
     <None Remove="terrain1.png" />
     <None Remove="terrain2.png" />
     <None Remove="terrain3.png" />
@@ -148,6 +164,54 @@
 
   <ItemGroup>
     <Content Include="son\musicPrincipale.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="son\train1attaqueleger.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="son\train1attaquelourd.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="son\train1dash.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="son\train1tir.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="son\train2attaqueleger.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="son\train2attaquelourd.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="son\train2dash.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="son\train2tir.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="son\train3attaqueleger.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="son\train3attaquelourd.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="son\train3dash.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="son\train3grab.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="son\train3tir.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="son\train4attaqueleger.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="son\train4dash.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="son\train4tir.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
