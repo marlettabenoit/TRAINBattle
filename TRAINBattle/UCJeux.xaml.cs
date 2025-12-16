@@ -94,6 +94,7 @@ namespace TRAINBattle
             players[1].SetAnimation("attente");
             players[0].Vie = 100;
             players[1].Vie = 100;
+            ProjectilsEnJeu.Clear();
         }
 
         private void InitialisePersonages()
@@ -232,11 +233,11 @@ namespace TRAINBattle
             personnages[j].AddAnimation("tirleger", new Animation("tirleger"));
             personnages[j].Animations["tirleger"].AddFrame(new Frame($"train{j + 1}/deplacement0.png", 3));
             personnages[j].Animations["tirleger"].AddFrame(new Frame($"train{j + 1}/deplacement0.png", 1));
-            personnages[j].Animations["tirleger"].Frames[1].AddProjectile("train2/tir.png", -100, 90, 1, 0, 300, 3, false);
+            personnages[j].Animations["tirleger"].Frames[1].AddProjectile("train2/tir.png", -100, 68, 1, 0, 300, 3, false);
             personnages[j].Animations["tirleger"].AddFrame(new Frame($"train{j + 1}/deplacement0.png", 9));
 
             personnages[j].AddHearthtboxToAllAnimation(
-                new System.Drawing.Rectangle[] { new System.Drawing.Rectangle(0, 0, 180, 100), new System.Drawing.Rectangle(0, 100, 100, 50) }
+                new System.Drawing.Rectangle[] { new System.Drawing.Rectangle(0, 0, 116, 68), new System.Drawing.Rectangle(116, 0, 72, 40) }
             );
 
 
