@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="TRAINBattle.Animation">
+    <Position X="8.25" Y="6.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AASAAQQACCAABAAAEAAAAAUAAAwAAAgAAABAAABAAAE=</HashCode>
+      <FileName>Animation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TRAINBattle.Bot">
+    <Position X="11.75" Y="11.25" Width="2.75" />
+    <NestedTypes>
+      <Enum Name="TRAINBattle.Bot.EtatBot" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Bot.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AASEjBAAABBAAAQAIAKCAgAAAAAAACBAQAEAACAAAAA=</HashCode>
+      <FileName>Bot.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TRAINBattle.Personnage">
+    <Position X="4.5" Y="8.75" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AgQAAAAAggBEABABAMBAASEYhAAAAAQAgAAIAAAgYAA=</HashCode>
+      <FileName>personnage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TRAINBattle.Projectil">
+    <Position X="8.25" Y="11.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AASAAACAAABAAAAAAAAAAAEBAAAAABAAAAAwAAAAYAU=</HashCode>
+      <FileName>Projectil.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TRAINBattle.UCJeux">
+    <Position X="0.75" Y="8.75" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>hAAAAAAEACAAAAMACBQAApAAIAAAAAAAogAAAHQAAAA=</HashCode>
+      <FileName>UCJeux.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TRAINBattle.ChangementTouche">
+    <Position X="10.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>ChangementTouche.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TRAINBattle.Frame">
+    <Position X="11.25" Y="4.75" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AIAIAABEiAAsACAAAAAAAQUBAAAAARAAAQgACAAAAAA=</HashCode>
+      <FileName>Frame.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TRAINBattle.MainWindow">
+    <Position X="0.5" Y="2" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAEiQAEAQAAAABQBIUAAIAAAAAIAIAAABAAgQAA=</HashCode>
+      <FileName>MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TRAINBattle.UCAide">
+    <Position X="6.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>UCAide.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TRAINBattle.UCChoixPerso">
+    <Position X="4.25" Y="4.75" Width="2" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="TRAINBattle.UCChoixPerso.PersoChoix" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>UCChoixPerso.xaml.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAQAQAAAAAAAAAAAAAAAAGAAAAAACAAAA=</HashCode>
+      <FileName>UCChoixPerso.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TRAINBattle.UCChoixTerrain">
+    <Position X="6.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>UCChoixTerrain.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TRAINBattle.UCChoixTouches">
+    <Position X="7.25" Y="2.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>UCChoixTouches.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TRAINBattle.UCDemarage">
+    <Position X="4.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>UCDemarage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TRAINBattle.UCParametres">
+    <Position X="4.5" Y="2.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAABAAAA=</HashCode>
+      <FileName>UCParametres.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
